@@ -5,14 +5,19 @@ import re
 TEAMS = ['ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
          'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS']
 
-SEASONS = ['2015', '2016', '2017', '2018', '2019', '2020', '2021']
+SEASONS = ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+
+OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
+             'NOP': {'old_name': 'NOH', 'until_season': '2013'}}
 
 
 def get_team_summary(soup, team, season):
     """
-
-    :param soup:
-    :return:
+    This function scrapes from the basketball reference page a summary of a season's team.
+    :param soup: the beautiful soup object
+    :param team: the team from whom the data is collected
+    :param season: the season for which the data are collected
+    :return: a list of lists with all the data collected, separated by attributes
     """
 
     text_paragraphs = soup.find_all("p")
@@ -255,8 +260,10 @@ def main():
 
     team_opponent_stats = []
     team_opponent_rank = []
-    for team in TEAMS:
-        for season in SEASONS:
+    for season in SEASONS:
+        for team in TEAMS:
+            if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
+                team = OLD_TEAMS[team]['old_name']
             print(team)
             print(season)
             url = "https://www.basketball-reference.com/teams/" + team + "/" + season + ".html"
