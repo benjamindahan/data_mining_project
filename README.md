@@ -25,6 +25,8 @@ In this project, for each one of the 30 teams and for each season between (2008-
 ### Tools
 - [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
 - [Requests](https://docs.python-requests.org/en/latest/)
+- [GRequests](https://pypi.org/project/requests/)
 - [json](https://docs.python.org/3/library/json.html)
 - [csv](https://docs.python.org/3/library/csv.html)
+
 > Authors: Benjamin Dahan and Julieta Staryfurman 
