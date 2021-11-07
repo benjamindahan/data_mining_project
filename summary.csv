@@ -1,0 +1,20 @@
+team,season,n_win,n_loss,conf_ranking,coach,ppg,opponent_ppg,pace,off_rtg,def_rtg,expected_win,expected_loss,expected_overall_ranking,preseason_odds,attendance,playoffs
+LAL,2016,17,65,15,Byron Scott ,97.3,106.9,6,101.6,111.6,17,65,29,+20000,778,Not in playoffs
+CLE,2016,57,25,1,David Blatt ,104.3,98.3,3,110.9,104.5,57,25,4,+280,843,"Won NBA Finals (4-3) versus Golden State Warriors
+ "
+LAC,2016,53,29,4,Doc Rivers ,104.5,100.2,8,108.3,103.8,53,29,6,+1200,786,"NBA 2016 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Portland Trail Blazers
+ "
+SAC,2016,33,49,10,George Karl ,106.6,109.1,0,106.0,108.4,34,48,21,+30000,707,Not in playoffs
+LAL,2020,52,19,1,Frank Vogel ,113.4,107.6,9,112.0,106.3,48,23,5,+450,588,"Won NBA Finals (4-2) versus Miami Heat
+ "
+CLE,2020,19,46,15,John Beilein ,106.9,114.8,7,107.5,115.4,18,47,29,+150000,643,Not in playoffs
+LAC,2020,49,23,2,Doc Rivers ,116.3,109.9,5,113.9,107.6,50,22,3,+425,610,"Lost NBA Western Conference Semifinals (3-4) versus Denver Nuggets
+ "
+SAC,2020,31,41,12,Luke Walton ,110.1,112.1,9,110.2,112.2,31,41,21,+15000,1,Not in playoffs
+LAL,2010,57,25,1,Phil Jackson ,101.7,97.0,8,108.8,103.7,54,28,5,+225,778,"Won NBA Finals (4-3) versus Boston Celtics
+ "
+CLE,2010,61,21,1,Mike Brown ,102.1,95.6,4,111.2,104.1,59,23,2,+300,843,"Lost NBA Eastern Conference Semifinals (2-4) versus Boston Celtics
+ "
+LAC,2010,29,53,3,Mike Dunleavy ,95.7,102.1,6,103.3,110.1,24,58,28,+15000,670,Not in playoffs
+SAC,2010,25,57,5,Paul Westphal ,100.0,104.4,0,105.3,109.9,29,53,25,+25000,543,Not in playoffs
