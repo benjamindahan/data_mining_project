@@ -1,3 +1,4 @@
+import grequests
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -8,8 +9,7 @@ import conf as c
 TEAMS = ['ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
          'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS']
 
-SEASONS = ['2008', '2009', '2010', '2011', '2012', '2013', '2014',
-           '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+SEASONS = ['2008', '2009','2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020', '2021']
 
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
              'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
@@ -149,14 +149,21 @@ def get_salaries(page_html, team, season, team_salary, season_salary, salaries, 
     pattern_salaries_table = "<caption>Salaries Table<\/caption>[\S\s]+<\/table>"
     salaries_table = re.findall(pattern_salaries_table, page_html)[0]
 
-    players_pattern = "([A-Za-zÀ-ȕ\.'\s]+)<\/a>"
+    players_pattern = "([A-Za-zÀ-ȕ\.'\s]+)(?:<\/a>|<\/td>)"
     players_aux = re.findall(players_pattern, salaries_table)
-    players += players_aux
 
     salaries_pattern = "\$[\d,]+"
     salaries_aux = re.findall(salaries_pattern, salaries_table)
+
+    diff_players_salaries = len(players_aux) - len(salaries_aux)
+    if diff_players_salaries > 0:
+        salaries_aux += [None] * diff_players_salaries
+    else:
+        players_aux += [None] * diff_players_salaries
+
+    players += players_aux
     salaries += salaries_aux
-    print(players_aux, len(players_aux), salaries_aux, len(salaries_aux))
+
     assert len(players_aux) == len(salaries_aux)
 
     team_salary += [team for i in range(len(players_aux))]
@@ -269,21 +276,24 @@ def main():
         for team in TEAMS:
             if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
                 team = OLD_TEAMS[team]['old_name']
-            print(team)
-            print(season)
+            #print(team)
+            #print(season)
             list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)
             #url = "https://www.basketball-reference.com/teams/" + team + "/" + season + ".html"
             #page = requests.get(url)
             #soup = BeautifulSoup(page.content, "html.parser")
-            rs = (grequests.get(url) for url in list_of_urls)
-            responses = grequests.map(rs, size=c.BATCHES)
-            number_of_movie = 1
-            for response in responses:
-                if response is not None:
-                    soup = BeautifulSoup(response.text, "html.parser")
+    rs = (grequests.get(url) for url in list_of_urls)
+    responses = grequests.map(rs, size=c.BATCHES)
+    for url,response in zip(list_of_urls,responses):
+        if response is not None:
+            team = re.findall(f"{c.URL_1}(.*){c.URL_2}",url)[0]
+            pattern_for_season = team + "\/"
+            season = re.findall(f"{pattern_for_season}(.*){c.URL_3}",url)[0]
+            print("TEAM: ",team)
+            print("SEASON: ",season)
+            soup = BeautifulSoup(response.text, "html.parser")
             summary_year_team.append(get_team_summary(soup, team, season))
             assert len(summary_year_team[-1]) == len(summary_year_team[0])
-
             roster = get_roster(soup, team, season)
             rosters += roster
 
@@ -314,6 +324,9 @@ def main():
     assert all([len(value) == len(statistics['team']) for key, value in statistics.items()])
 
     salaries_dict = {'season': season_salary, 'team': team_salary, 'player': players, 'salary': salaries}
+
+    for key, value in salaries_dict.items():
+        print(key, len(value))
 
     assert all([len(value) == len(salaries_dict['team']) for key, value in salaries_dict.items()])
 
