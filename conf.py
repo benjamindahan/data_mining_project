@@ -10,3 +10,5 @@ OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_na
 URL_1 = "https://www.basketball-reference.com/teams/"
 URL_2 = "/"
 URL_3 = ".html"
+
+BATCHES = 10

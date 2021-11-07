@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import json
 import csv
+import conf as c
 
 TEAMS = ['ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
          'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS']
@@ -263,16 +264,23 @@ def main():
          "FG_per_opp", "3P_opp", "3PA_opp", "3P_per_opp", "2P_opp", "2PA_opp", "2P_per_opp", "FT_opp", "FTA_opp",
          "FT_per_opp", "ORB_opp", "DRB_opp", "TRB_opp", "AST_opp", "STL_opp", "BLK_opp", "TOV_opp", "PF_opp",
          "PTS_opp"]]
-
+    list_of_urls = []
     for season in SEASONS:
         for team in TEAMS:
             if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
                 team = OLD_TEAMS[team]['old_name']
             print(team)
             print(season)
-            url = "https://www.basketball-reference.com/teams/" + team + "/" + season + ".html"
-            page = requests.get(url)
-            soup = BeautifulSoup(page.content, "html.parser")
+            list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)
+            #url = "https://www.basketball-reference.com/teams/" + team + "/" + season + ".html"
+            #page = requests.get(url)
+            #soup = BeautifulSoup(page.content, "html.parser")
+            rs = (grequests.get(url) for url in list_of_urls)
+            responses = grequests.map(rs, size=c.BATCHES)
+            number_of_movie = 1
+            for response in responses:
+                if response is not None:
+                    soup = BeautifulSoup(response.text, "html.parser")
             summary_year_team.append(get_team_summary(soup, team, season))
             assert len(summary_year_team[-1]) == len(summary_year_team[0])
 
