@@ -1,5 +1,4 @@
 import grequests
-import requests
 from bs4 import BeautifulSoup
 import re
 import json
@@ -28,34 +27,34 @@ def get_team_summary(soup, team, season):
     text_paragraphs = soup.find_all("p")
     attributes = [attribute.getText().strip() for attribute in text_paragraphs]
 
-    records = re.findall(r"(\d+)", attributes[2])
+    records = re.findall(c.regex_numbers, attributes[2])
     n_win = records[0]
     n_loss = records[1]
     conf_ranking = records[2]
 
-    coach_regex = re.findall(r"([A-Za-zÀ-ȕ'\s\.]+)", attributes[3][7:])
+    coach_regex = re.findall(c.regex_coach, attributes[3][7:])
     coach = coach_regex[0]
 
-    points = re.findall(r"(\d+\.\d+)", attributes[5])
+    points = re.findall(c.regex_points, attributes[5])
     ppg = points[0]
     opponent_ppg = points[-1]
 
-    paces = re.findall(r"(\d+\.\d+)", attributes[6])[-1]
+    paces = re.findall(c.regex_paces, attributes[6])[-1]
     pace = paces[-1]
 
-    rtgs = re.findall(r"(\d+\.\d+)", attributes[7])
+    rtgs = re.findall(c.regex_rtgs, attributes[7])
     off_rtg = rtgs[0]
     def_rtg = rtgs[1]
 
-    expected = re.findall(r"(\d+)", attributes[8])
+    expected = re.findall(c.regex_numbers, attributes[8])
     expected_win = expected[0]
     expected_loss = expected[1]
     expected_overall_ranking = expected[2]
 
-    odds = re.findall(r"([\+|\-]\d+)", attributes[9])
+    odds = re.findall(c.regex_odds, attributes[9])
     preseason_odds = odds[0]
 
-    attendances = re.findall(r"(\d+)", attributes[10])
+    attendances = re.findall(c.regex_numbers, attributes[10])
     attendance = attendances[0]
 
     try:
@@ -77,8 +76,7 @@ def get_roster(soup, team, season):
     """
 
     text_table = soup.find_all("table")[0].get_text()
-    roster_pattern = r"(\d+)(\D+)(PF|C|PG|SF|SG)(\d+\-\d+)([A-Za-z]+) (\d+), (\d+)([a-z]+)(\d+|R)"
-    roster_matches = re.findall(roster_pattern, text_table)
+    roster_matches = re.findall(c.regex_rosters, text_table)
     roster = []
     for player in roster_matches:
         player = list(player)
@@ -146,14 +144,11 @@ def get_salaries(page_html, team, season, team_salary, season_salary, salaries, 
     :return: a list with the team and its opponents statistics
     """
 
-    pattern_salaries_table = "<caption>Salaries Table<\/caption>[\S\s]+<\/table>"
-    salaries_table = re.findall(pattern_salaries_table, page_html)[0]
+    salaries_table = re.findall(c.regex_salaries_table, page_html)[0]
 
-    players_pattern = "([A-Za-zÀ-ȕ\.'\s]+)(?:<\/a>|<\/td>)"
-    players_aux = re.findall(players_pattern, salaries_table)
+    players_aux = re.findall(c.regex_players_salaries, salaries_table)
 
-    salaries_pattern = "\$[\d,]+"
-    salaries_aux = re.findall(salaries_pattern, salaries_table)
+    salaries_aux = re.findall(c.regex_salary_salaries, salaries_table)
 
     diff_players_salaries = len(players_aux) - len(salaries_aux)
     if diff_players_salaries > 0:
@@ -180,12 +175,10 @@ def get_team_opponent_stats(page_html, team, season):
     :return: a list with the team and its opponents statistics
     """
 
-    pattern_team_opponent = "<caption>Team and Opponent Stats Table<\/caption>[\S\s]+<\/table>"
-    team_opponent_table = re.findall(pattern_team_opponent, page_html)[0]
+    team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
 
-    team_opponent_stats_pattern = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\.\d+)[\D]+fg3\" >(\d+)[\D]+fg3a\" >(\d+)[\D]+fg3_pct\" >(\.\d+)[\D]+fg2\" >(\d+)[\D]+fg2a\" >(\d+)[\D]+fg2_pct\" >(\.\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\.\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    team_stats = [team] + [season] + list(re.findall(team_opponent_stats_pattern, team_opponent_table)[0])
-    opponent_stats = list(re.findall(team_opponent_stats_pattern, team_opponent_table)[1])
+    team_stats = [team] + [season] + list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[0])
+    opponent_stats = list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[1])
 
     assert len(team_stats) - 2 == len(opponent_stats)
 
@@ -201,12 +194,9 @@ def get_team_opponent_rank(page_html, team, season):
     :param season: the season for which the data are collected
     :return: a list with the team and its opponents ranks
     """
-    pattern_team_opponent = "<caption>Team and Opponent Stats Table<\/caption>[\S\s]+<\/table>"
-    team_opponent_table = re.findall(pattern_team_opponent, page_html)[0]
-    team_rank_pattern = """mp_per_g\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3_per_g\" >(\d+)[\D]+fg3a_per_g\" >(\d+)[\D]+fg3_pct\" >(\d+)[\D]+fg2_per_g\" >(\d+)[\D]+fg2a_per_g\" >(\d+)[\D]+fg2_pct\" >(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    team_rank = [team] + [season] + list(re.findall(team_rank_pattern, team_opponent_table)[0])
-    opponent_rank_pattern = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3\" >(\d+)[\D]+fg3a\" >(\d+)[\D]+fg3_pct\" >(\d+)[\D]+fg2\" >(\d+)[\D]+fg2a\" >(\d+)[\D]+fg2_pct\" >(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    opponent_rank = list(re.findall(opponent_rank_pattern, team_opponent_table)[0])
+    team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
+    team_rank = [team] + [season] + list(re.findall(c.regex_team_rank, team_opponent_table)[0])
+    opponent_rank = list(re.findall(c.regex_opponent_rank, team_opponent_table)[0])
 
     assert len(team_rank) - 2 == len(opponent_rank)
 
@@ -276,12 +266,7 @@ def main():
         for team in TEAMS:
             if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
                 team = OLD_TEAMS[team]['old_name']
-            #print(team)
-            #print(season)
             list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)
-            #url = "https://www.basketball-reference.com/teams/" + team + "/" + season + ".html"
-            #page = requests.get(url)
-            #soup = BeautifulSoup(page.content, "html.parser")
     rs = (grequests.get(url) for url in list_of_urls)
     responses = grequests.map(rs, size=c.BATCHES)
     for url,response in zip(list_of_urls,responses):
