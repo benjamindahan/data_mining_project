@@ -3,7 +3,13 @@ URL_2 = "/"
 URL_3 = ".html"
 URL_TEAMS = "https://www.basketball-reference.com/leagues/NBA_2021_games.html"
 
-BATCHES = 10
+URL_1_SCORE = "https://www.basketball-reference.com/leagues/NBA_"
+URL_2_SCORE = "_games-"
+URL_3_SCORE = ".html"
+
+BATCHES = 20
+
+
 
 regex_numbers = r"(\d+)"
 regex_coach = r"([A-Za-zÀ-ȕ'\s\.]+)"
