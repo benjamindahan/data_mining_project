@@ -1,18 +1,27 @@
 import grequests
+import requests
 from bs4 import BeautifulSoup
 import re
 import json
 import csv
 import conf as c
 
-TEAMS = ['ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
-         'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS']
-
-SEASONS = [str(year) for year in range(2008,2022)]
 
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
              'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
 
+def get_teams():
+    page = requests.get(c.URL_TEAMS)
+    soup = BeautifulSoup(page.content, "html.parser")
+    url_page = soup.find_all("a")
+    url_teams = [url.get("href").strip() for url in url_page]
+    teams = []
+    for url in url_teams:
+        if "teams" in url and len(url) > 17:
+            url = url[7:-10]
+            if len(url) == 3:
+                teams.append(url)
+    return list(set(teams))
 
 def get_team_summary(soup, team, season):
     """
@@ -204,6 +213,12 @@ def get_team_opponent_rank(page_html, team, season):
 
 
 def main():
+    # We get all the team names
+    teams = get_teams()
+
+    # We get all the seasons from 2008 to 2021
+    seasons = [str(year) for year in range(2008, 2022)]
+
     summary_year_team = [
         ["team", "season", "n_win", "n_loss", "conf_ranking", "coach", "ppg", "opponent_ppg", "pace", "off_rtg",
          "def_rtg", "expected_win",
@@ -262,8 +277,8 @@ def main():
          "FT_per_opp", "ORB_opp", "DRB_opp", "TRB_opp", "AST_opp", "STL_opp", "BLK_opp", "TOV_opp", "PF_opp",
          "PTS_opp"]]
     list_of_urls = []
-    for season in SEASONS:
-        for team in TEAMS:
+    for season in seasons:
+        for team in teams:
             if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
                 team = OLD_TEAMS[team]['old_name']
             list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)

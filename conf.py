@@ -1,6 +1,7 @@
 URL_1 = "https://www.basketball-reference.com/teams/"
 URL_2 = "/"
 URL_3 = ".html"
+URL_TEAMS = "https://www.basketball-reference.com/leagues/NBA_2021_games.html"
 
 BATCHES = 10
 
