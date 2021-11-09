@@ -6,13 +6,30 @@ import json
 import csv
 import conf as c
 
-TEAMS = ['ATL', 'BOS', 'BRK', 'CHO', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
-         'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHO', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS']
-
-SEASONS = ['2008', '2009','2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020', '2021']
-
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
              'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
+
+
+def get_teams():
+    """
+    This function scrapes the name of all the teams that played in the last season of the NBA
+    :return: a list of all the teams
+    """
+
+    # Making the request with Requests
+    page = requests.get(c.URL_TEAMS)
+    soup = BeautifulSoup(page.content, "html.parser")
+    url_page = soup.find_all("a")
+    url_teams = [url.get("href").strip() for url in url_page]
+
+    # We have a list with URLs that contains the name of all the teams, we have to clean it:
+    teams = []
+    for url in url_teams:
+        if "teams" in url and len(url) > 17:
+            url = url[7:-10]
+            if len(url) == 3:
+                teams.append(url)
+    return list(set(teams))
 
 
 def get_team_summary(soup, team, season):
@@ -30,41 +47,43 @@ def get_team_summary(soup, team, season):
     attributes = [attribute.getText().strip() for attribute in text_paragraphs]
 
     # Getting the records and ranking from the summary
-    records = re.findall(r"(\d+)", attributes[2])
+
+    records = re.findall(c.regex_numbers, attributes[2])
+
     n_win = records[0]
     n_loss = records[1]
     conf_ranking = records[2]
 
     # Getting the coach from the summary
-    coach_regex = re.findall(r"([A-Za-zÀ-ȕ'\s\.]+)", attributes[3][7:])
+    coach_regex = re.findall(c.regex_coach, attributes[3][7:])
     coach = coach_regex[0]
 
     # Getting the points per game
-    points = re.findall(r"(\d+\.\d+)", attributes[5])
+    points = re.findall(c.regex_points, attributes[5])
     ppg = points[0]
     opponent_ppg = points[-1]
 
     # Getting the pace
-    paces = re.findall(r"(\d+\.\d+)", attributes[6])[-1]
+    paces = re.findall(c.regex_paces, attributes[6])[-1]
     pace = paces[-1]
 
     # Getting the rating
-    rtgs = re.findall(r"(\d+\.\d+)", attributes[7])
+    rtgs = re.findall(c.regex_rtgs, attributes[7])
     off_rtg = rtgs[0]
     def_rtg = rtgs[1]
 
     # Getting the expected results
-    expected = re.findall(r"(\d+)", attributes[8])
+    expected = re.findall(c.regex_numbers, attributes[8])
     expected_win = expected[0]
     expected_loss = expected[1]
     expected_overall_ranking = expected[2]
 
     # Getting the preseason odds
-    odds = re.findall(r"([\+|\-]\d+)", attributes[9])
+    odds = re.findall(c.regex_odds, attributes[9])
     preseason_odds = odds[0]
 
     # Getting the attendances
-    attendances = re.findall(r"(\d+)", attributes[10])
+    attendances = re.findall(c.regex_numbers, attributes[10])
     attendance = attendances[0]
 
     # Getting the playoffs information
@@ -91,8 +110,7 @@ def get_roster(soup, team, season):
     text_table = soup.find_all("table")[0].get_text()
 
     # Getting all the attributes from the table
-    roster_pattern = r"(\d+)(\D+)(PF|C|PG|SF|SG)(\d+\-\d+)([A-Za-z]+) (\d+), (\d+)([a-z]+)(\d+|R)"
-    roster_matches = re.findall(roster_pattern, text_table)
+    roster_matches = re.findall(c.regex_rosters, text_table)
     roster = []
 
     # Cleaning the attributes
@@ -169,16 +187,13 @@ def get_salaries(page_html, team, season, team_salary, season_salary, salaries, 
 
     # This table is a commented table, in order to extract the information we search with regex
     # the html text corresponding to the table.
-    pattern_salaries_table = "<caption>Salaries Table<\/caption>[\S\s]+<\/table>"
-    salaries_table = re.findall(pattern_salaries_table, page_html)[0]
+    salaries_table = re.findall(c.regex_salaries_table, page_html)[0]
 
     # From the html text we look for the players' names
-    players_pattern = "([A-Za-zÀ-ȕ\.'\s]+)(?:<\/a>|<\/td>)"
-    players_aux = re.findall(players_pattern, salaries_table)
+    players_aux = re.findall(c.regex_players_salaries, salaries_table)
 
     # Now we are looking for the respective salaries
-    salaries_pattern = "\$[\d,]+"
-    salaries_aux = re.findall(salaries_pattern, salaries_table)
+    salaries_aux = re.findall(c.regex_salary_salaries, salaries_table)
 
     # Corrections for some specific cases in which there is no salary information
     diff_players_salaries = len(players_aux) - len(salaries_aux)
@@ -211,13 +226,12 @@ def get_team_opponent_stats(page_html, team, season):
 
     # This table is a commented table, in order to extract the information we search with regex
     # the html text corresponding to the table.
-    pattern_team_opponent = "<caption>Team and Opponent Stats Table<\/caption>[\S\s]+<\/table>"
-    team_opponent_table = re.findall(pattern_team_opponent, page_html)[0]
+    team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
 
     # From the html text we look for the statistics needed
     team_opponent_stats_pattern = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\.\d+)[\D]+fg3\" >(\d+)[\D]+fg3a\" >(\d+)[\D]+fg3_pct\" >(\.\d+)[\D]+fg2\" >(\d+)[\D]+fg2a\" >(\d+)[\D]+fg2_pct\" >(\.\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\.\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    team_stats = [team] + [season] + list(re.findall(team_opponent_stats_pattern, team_opponent_table)[0])
-    opponent_stats = list(re.findall(team_opponent_stats_pattern, team_opponent_table)[1])
+    team_stats = [team] + [season] + list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[0])
+    opponent_stats = list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[1])
 
     # Checking that everything works as expected
     assert len(team_stats) - 2 == len(opponent_stats)
@@ -237,14 +251,11 @@ def get_team_opponent_rank(page_html, team, season):
 
     # This table is a commented table, in order to extract the information we search with regex
     # the html text corresponding to the table.
-    pattern_team_opponent = "<caption>Team and Opponent Stats Table<\/caption>[\S\s]+<\/table>"
-    team_opponent_table = re.findall(pattern_team_opponent, page_html)[0]
+    team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
 
     # From the html text we look for the statistics needed
-    team_rank_pattern = """mp_per_g\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3_per_g\" >(\d+)[\D]+fg3a_per_g\" >(\d+)[\D]+fg3_pct\" >(\d+)[\D]+fg2_per_g\" >(\d+)[\D]+fg2a_per_g\" >(\d+)[\D]+fg2_pct\" >(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    team_rank = [team] + [season] + list(re.findall(team_rank_pattern, team_opponent_table)[0])
-    opponent_rank_pattern = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3\" >(\d+)[\D]+fg3a\" >(\d+)[\D]+fg3_pct\" >(\d+)[\D]+fg2\" >(\d+)[\D]+fg2a\" >(\d+)[\D]+fg2_pct\" >(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
-    opponent_rank = list(re.findall(opponent_rank_pattern, team_opponent_table)[0])
+    team_rank = [team] + [season] + list(re.findall(c.regex_team_rank, team_opponent_table)[0])
+    opponent_rank = list(re.findall(c.regex_opponent_rank, team_opponent_table)[0])
 
     # Checking that everything works as expected
     assert len(team_rank) - 2 == len(opponent_rank)
@@ -253,7 +264,13 @@ def get_team_opponent_rank(page_html, team, season):
 
 
 def main():
-    # First we define all the lists that will be updated with the different funcrions
+    # We get all the team names
+    teams = get_teams()
+
+    # We get all the seasons from 2008 to 2021
+    seasons = [str(year) for year in range(2008, 2022)]
+
+    # First we define all the lists that will be updated with the different functions
 
     # For the get_team_summary function
     summary_year_team = [
@@ -321,8 +338,8 @@ def main():
 
     # We create a list with all the URLS we need to scrape (TEAM and SEASON are changing)
     list_of_urls = []
-    for season in SEASONS:
-        for team in TEAMS:
+    for season in seasons:
+        for team in teams:
             if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
                 team = OLD_TEAMS[team]['old_name']
             list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)
@@ -332,17 +349,16 @@ def main():
     responses = grequests.map(rs, size=c.BATCHES)
 
     # For each url we call the functions in order to get the information desired.
-    for url,response in zip(list_of_urls,responses):
+    for url, response in zip(list_of_urls, responses):
         if response is not None:
-
             # Extracting the team and the season from the urls to be able to pass it as a parameter to the functions.
-            team = re.findall(f"{c.URL_1}(.*){c.URL_2}",url)[0]
+            team = re.findall(f"{c.URL_1}(.*){c.URL_2}", url)[0]
             pattern_for_season = team + "\/"
-            season = re.findall(f"{pattern_for_season}(.*){c.URL_3}",url)[0]
+            season = re.findall(f"{pattern_for_season}(.*){c.URL_3}", url)[0]
 
             # Prints that help us debug
-            print("TEAM: ",team)
-            print("SEASON: ",season)
+            print("TEAM: ", team)
+            print("SEASON: ", season)
 
             # Creating the soup object
             soup = BeautifulSoup(response.text, "html.parser")
