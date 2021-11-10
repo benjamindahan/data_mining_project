@@ -7,6 +7,8 @@ URL_1_SCORE = "https://www.basketball-reference.com/leagues/NBA_"
 URL_2_SCORE = "_games-"
 URL_3_SCORE = ".html"
 
+URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
+
 BATCHES = 20
 
 
