@@ -21,8 +21,8 @@ Then, for each game played between 2008-2021, we scraped the `basic` and `advanc
 First we created a table with all the games played throughout those years (teams involved, date, link to the boxscore) and then we created a json file with the boxscores related to each game. Those two outputs have a common `id` key.
 
 ### Contents of the repository
-- `web_scraping.py` where all the data scraping of the teams and seasons takes place.
-- `scores.py`  where all the data scraping of the games boxscores takes place.
+- `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
+- `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
 - `rosters.csv` , `salaries.json`, `statistics.json`, `summary.csv`, `team_opponent_rank.csv`, `team_opponent_stats.csv` with all the data collected from the web scraping
 - `games.csv` and `boxscore.json` 
 
