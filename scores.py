@@ -1,8 +1,11 @@
 import grequests
+import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import conf as c
+import json
+
 
 # Due to COVID, the last two seasons have been different
 MONTHS = ["october", "november", "december", "january", "february", "march", "may", "june"]
@@ -145,3 +148,140 @@ dictionary_scores = {"day": day_doubles, "month": month_doubles, "year": year_do
 # We save it as a csv file
 df = pd.DataFrame(dictionary_scores)
 df.to_csv("df.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def get_data_grequest(urls, teams):
+    """
+    This function takes a list of urls and returns a list of all the request responses
+    :param urls: a list of urls
+    :return: a list of all the url request responses
+    """
+    requests = (grequests.get(u) for u in urls)
+    responses = grequests.map(requests, size=10)
+    return list(zip(responses, teams))
+
+
+
+
+def get_basic_fields(url):
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    team = url[-8:-5]
+
+    team_id_basic = f"box-{team}-game-basic"
+
+    table = soup.find_all('table', id=team_id_basic)[0]
+
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:23]]
+
+    return fields
+
+
+def get_advanced_fields(url):
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    team = url[-8:-5]
+
+    team_id_advanced = f"box-{team}-game-advanced"
+
+    table = soup.find_all('table', id=team_id_advanced)[0]
+
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:19]]
+
+    return fields
+
+
+def get_table_basic_boxscore(response, team):
+    soup = BeautifulSoup(response.content, 'html.parser')
+    team_id_basic = f"box-{team}-game-basic"
+    table = soup.find_all('table', id=team_id_basic)[0]
+    return table
+
+def get_table_advanced_boxscore(response, team):
+    soup = BeautifulSoup(response.content, 'html.parser')
+    team_id_advanced = f"box-{team}-game-advanced"
+    table = soup.find_all('table', id=team_id_advanced)[0]
+    return table
+
+
+
+def get_players(table):
+    players = table.find_all('a')
+    return [player.get_text() for player in players]
+
+
+def get_boxscore(table, fields, players):
+    boxscore = dict()
+
+    for field in fields:
+        boxscore[field] = [value.get_text() for value in table.find_all("td", attrs={"data-stat": field})[:-1]]
+
+    boxscore['player'] = players
+
+    return boxscore
+
+
+def fill_dnp(boxscore):
+    num_players = len(boxscore['player'])
+    num_dnp_players = num_players - len(boxscore['mp'])
+    for key in boxscore:
+        if key != 'player':
+            boxscore[key] += ['0'] * num_dnp_players
+    return boxscore
+
+
+URL_RANDOM_FIELDS = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
+
+URLS = dict_boxscores['url'][:300]
+TEAMS = dict_boxscores['team'][:300]
+
+def main():
+    print('initialize')
+    responses_teams = get_data_grequest(URLS, TEAMS)
+
+    print('finish grequest')
+
+    basic_fields = get_basic_fields(URL_RANDOM_FIELDS)
+    advanced_fields = get_advanced_fields(URL_RANDOM_FIELDS)
+
+    final_boxscores = dict()
+
+    for response, team in responses_teams:
+        print(team)
+        basic_table = get_table_basic_boxscore(response, team)
+        advanced_table = get_table_advanced_boxscore(response, team)
+
+        players = get_players(basic_table)
+
+        basic_boxscore = get_boxscore(basic_table, basic_fields, players)
+        basic_boxscore = fill_dnp(basic_boxscore)
+
+        advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
+        advanced_boxscore = fill_dnp(advanced_boxscore)
+
+        advanced_boxscore.update(basic_boxscore)
+
+        for key, value in advanced_boxscore.items():
+            if key not in final_boxscores:
+                final_boxscores[key] = value
+            else:
+                final_boxscores[key] += value
+
+    with open('boxscores.json', 'w', encoding='utf8') as boxscore_file:
+        json.dump(final_boxscores, boxscore_file, ensure_ascii=False)
+
+main()
