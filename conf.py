@@ -10,6 +10,7 @@ URL_3_SCORE = ".html"
 URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
 
 BATCHES = 20
+BATCHES_SCORES = 1500
 
 
 

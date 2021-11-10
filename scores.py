@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 import conf as c
 import json
+import pandas as pd
 
 # Due to COVID, the last two seasons have been different
 MONTHS = ["october", "november", "december", "january", "february", "march", "may", "june"]
@@ -189,7 +190,7 @@ def get_data_grequest(urls, teams, ids):
     :return: a list of all the url request responses
     """
     requests = (grequests.get(u) for u in urls)
-    responses = grequests.map(requests, size=10)
+    responses = grequests.map(requests, size=c.BATCHES_SCORES)
 
     # It is necessary to get a list of tuples with the url, the corresponding team and the joining id
     # because following functions will need these 3 informations
@@ -396,6 +397,9 @@ def main():
     dictionary_scores = {"id": id, "day": day_doubles, "month": month_doubles, "year": year_doubles,
                          "home_team": home_team_boolean,
                          "team": home_team_doubles, "opponent": visitor_team_doubles, "url": box_score_doubles}
+
+    # Saving data into a csv file
+    pd.DataFrame(dictionary_scores).to_csv("games.csv")
 
     final_ids = dictionary_scores["id"]
     final_urls = dictionary_scores["url"]
