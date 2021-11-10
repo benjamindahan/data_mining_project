@@ -9,6 +9,7 @@ MONTHS = ["october", "november", "december", "january", "february", "march", "ma
 MONTHS_2020 = ["october", "november", "december", "january", "february", "march", "july", "august", "september"]
 MONTHS_2021 = ["december", "january", "february", "march", "april", "may", "june", "july"]
 
+
 def double_list(list_1, list_2):
     """
     This function joins two lists by alternating values
@@ -145,3 +146,5 @@ dictionary_scores = {"day": day_doubles, "month": month_doubles, "year": year_do
 # We save it as a csv file
 df = pd.DataFrame(dictionary_scores)
 df.to_csv("df.csv")
+
+
