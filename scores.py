@@ -2,7 +2,6 @@ import grequests
 import requests
 from bs4 import BeautifulSoup
 import re
-import pandas as pd
 import conf as c
 import json
 
@@ -174,13 +173,145 @@ def create_day_month_year(date, day, month, year):
     """
     for url in date:
         try:
-            matches = re.findall(r'(month=)(\d+)(&)(day=)(\d+)(&)(year=)(\d+)', url)[0]
+            matches = re.findall(c.regex_date, url)[0]
             if len(matches) == 8:
                 month.append(matches[1])
                 day.append(matches[4])
                 year.append(matches[-1])
         except:
             pass
+
+
+def get_data_grequest(urls, teams, ids):
+    """
+    This function takes a list of urls and returns a list of all the request responses
+    :param urls: a list of urls
+    :return: a list of all the url request responses
+    """
+    requests = (grequests.get(u) for u in urls)
+    responses = grequests.map(requests, size=10)
+
+    # It is necessary to get a list of tuples with the url, the corresponding team and the joining id
+    # because following functions will need these 3 informations
+    # (cf. parameters of functions get_table_basic_boxscore and get_table_advanced_boxscore)
+    return zip(responses, teams, ids)
+
+
+def get_basic_fields(url):
+    """
+    This function takes the url of any game on basketball-ref and returns a list of the fields in a basic boxscore
+    :param url: the url of any game on basketball-reference (string)
+    :return: a list of the fields in a basic boxscore
+    """
+    # Just need to run this function once, to get the name of the basic boxscore fields
+    # So the url we need can be any basketball-reference url of a nba game
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    team = url[-8:-5]  # This corresponds to the name of the team in the url: necessary to access the right table
+
+    team_id_basic = f"box-{team}-game-basic"  # The id of the table element
+
+    table = soup.find_all('table', id=team_id_basic)[0]  # The soup object of the basic boxscore table
+
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:23]]
+    # Not all the fields are relevant, hence the slicing
+
+    return fields
+
+
+def get_advanced_fields(url):
+    """
+    This function takes the url of any game on basketball-ref and returns a list of the fields in an advanced boxscore
+    :param url: the url of any game on basketball-reference (string)
+    :return: a list of the fields in an advanced boxscore
+    """
+    # Just need to run this function once, to get the name of the advanced boxscore fields
+    # So the url we need can be any basketball-reference url of a nba game
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    team = url[-8:-5]  # This corresponds to the name of the team in the url: necessary to access the right table
+
+    team_id_advanced = f"box-{team}-game-advanced"  # The id of the table element
+
+    table = soup.find_all('table', id=team_id_advanced)[0]  # The soup object of the advanced boxscore table
+
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:19]]
+    # Not all the fields are relevant, hence the slicing
+
+    return fields
+
+
+def get_table_basic_boxscore(response, team):
+    """
+    This function takes a request response of a basketball-ref game url and one of the teams involved in the game
+    (ex: 'MIA', 'LAL'...) and returns a soup object made of the html table of the team's basic boxscore for this game
+    :param response: Response of a basketball-ref game url
+    :param team: One of the teams involved in the game (ex: 'MIA', 'LAL'...)
+    :return: A soup object made of the html table of the team's basic boxscore for this game
+    """
+    soup = BeautifulSoup(response.content, 'html.parser')
+    team_id_basic = f"box-{team}-game-basic"
+    table = soup.find_all('table', id=team_id_basic)[0]
+    return table
+
+
+def get_table_advanced_boxscore(response, team):
+    """
+    This function takes a request response of a basketball-ref game url and one of the teams involved in the game
+    (ex: 'MIA', 'LAL'...) and returns a soup object made of the html table of the team's advanced boxscore for this game
+    :param response: Response of a basketball-ref game url
+    :param team: One of the teams involved in the game (ex: 'MIA', 'LAL'...)
+    :return: A soup object made of the html table of the team's advanced boxscore for this game
+    """
+    soup = BeautifulSoup(response.content, 'html.parser')
+    team_id_advanced = f"box-{team}-game-advanced"
+    table = soup.find_all('table', id=team_id_advanced)[0]
+    return table
+
+
+def get_players(table):
+    """
+    This function takes a soup object made of an html boxscore table and returns the players listed in the boxscore
+    :param table: A soup object made of an html boxscore table
+    :return: A list of the players listed in the boxscore
+    """
+    players = table.find_all('a')
+    return [player.get_text() for player in players]
+
+
+def get_boxscore(table, fields, players):
+    """
+    This function returns a dict representing a boxscore for a specific game, for a specific team
+    :param table: A soup object made of an html boxscore table (either basic or advanced)
+    :param fields: A list of the fields present in the boxscore (either basic or advanced, matching the table)
+    :param players: A list of the players listed in the boxscore
+    :return: A dict representing a boxscore for a specific game, for a specific team
+    """
+    boxscore = dict()
+
+    for field in fields:
+        boxscore[field] = [value.get_text() for value in table.find_all("td", attrs={"data-stat": field})[:-1]]
+
+    boxscore['player'] = players
+
+    return boxscore
+
+
+def fill_dnp(boxscore):
+    """
+    This function takes a dict representing a boxscore for a specific game, for a specific team
+    and returns the same dict after filling the stats of the players who did not play (dnp) with the string '0'
+    :param boxscore: A dict representing a boxscore for a specific game, for a specific team
+    :return: The same dict with players who did not play (dnp) having the string '0' for each field
+    """
+    num_players = len(boxscore['player'])
+    num_dnp_players = num_players - len(boxscore['mp'])
+    for key in boxscore:
+        if key != 'player':
+            boxscore[key] += ['0'] * num_dnp_players
+    return boxscore
 
 
 def main():
@@ -258,178 +389,29 @@ def main():
     box_score_doubles = double_list(box_score, box_score)
     home_team_boolean = [1, 0] * len(day)
 
+    # We create an ID that helps us join all the data
+    id = [i for i in range(len(box_score_doubles))]
+
     # We store the data extracted in a dictionary
-    dictionary_scores = {"day": day_doubles, "month": month_doubles, "year": year_doubles,
+    dictionary_scores = {"id": id, "day": day_doubles, "month": month_doubles, "year": year_doubles,
                          "home_team": home_team_boolean,
                          "team": home_team_doubles, "opponent": visitor_team_doubles, "url": box_score_doubles}
 
-    # We save it as a csv file
-    df = pd.DataFrame(dictionary_scores)
-    df.to_csv("df.csv")
+    final_ids = dictionary_scores["id"]
+    final_urls = dictionary_scores["url"]
+    final_teams = dictionary_scores["team"]
 
-
-main()
-
-
-
-
-
-
-
-
-
-
-
-def get_data_grequest(urls, teams):
-    """
-    This function takes a list of urls and returns a list of all the request responses
-    :param urls: a list of urls
-    :return: a list of all the url request responses
-    """
-    requests = (grequests.get(u) for u in urls)
-    responses = grequests.map(requests, size=10)
-
-    # It is necessary to get a list of tuples with the url and the corresponding team because following functions
-    # will need both (cf. parameters of functions get_table_basic_boxscore and get_table_advanced_boxscore)
-    return list(zip(responses, teams))
-
-
-
-
-def get_basic_fields(url):
-    """
-    This function takes the url of any game on basketball-ref and returns a list of the fields in a basic boxscore
-    :param url: the url of any game on basketball-reference (string)
-    :return: a list of the fields in a basic boxscore
-    """
-    # Just need to run this function once, to get the name of the basic boxscore fields
-    # So the url we need can be any basketball-reference url of a nba game
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-
-    team = url[-8:-5]  # This corresponds to the name of the team in the url: necessary to access the right table
-
-    team_id_basic = f"box-{team}-game-basic"  # The id of the table element
-
-    table = soup.find_all('table', id=team_id_basic)[0]  # The soup object of the basic boxscore table
-
-    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:23]]
-    # Not all the fields are relevant, hence the slicing
-
-    return fields
-
-
-def get_advanced_fields(url):
-    """
-    This function takes the url of any game on basketball-ref and returns a list of the fields in an advanced boxscore
-    :param url: the url of any game on basketball-reference (string)
-    :return: a list of the fields in an advanced boxscore
-    """
-    # Just need to run this function once, to get the name of the advanced boxscore fields
-    # So the url we need can be any basketball-reference url of a nba game
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-
-    team = url[-8:-5]  # This corresponds to the name of the team in the url: necessary to access the right table
-
-    team_id_advanced = f"box-{team}-game-advanced"  # The id of the table element
-
-    table = soup.find_all('table', id=team_id_advanced)[0]  # The soup object of the advanced boxscore table
-
-    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:19]]
-    # Not all the fields are relevant, hence the slicing
-
-    return fields
-
-
-def get_table_basic_boxscore(response, team):
-    """
-    This function takes a request response of a basketball-ref game url and one of the teams involved in the game
-    (ex: 'MIA', 'LAL'...) and returns a soup object made of the html table of the team's basic boxscore for this game
-    :param response: Response of a basketball-ref game url
-    :param team: One of the teams involved in the game (ex: 'MIA', 'LAL'...)
-    :return: A soup object made of the html table of the team's basic boxscore for this game
-    """
-    soup = BeautifulSoup(response.content, 'html.parser')
-    team_id_basic = f"box-{team}-game-basic"
-    table = soup.find_all('table', id=team_id_basic)[0]
-    return table
-
-def get_table_advanced_boxscore(response, team):
-    """
-    This function takes a request response of a basketball-ref game url and one of the teams involved in the game
-    (ex: 'MIA', 'LAL'...) and returns a soup object made of the html table of the team's advanced boxscore for this game
-    :param response: Response of a basketball-ref game url
-    :param team: One of the teams involved in the game (ex: 'MIA', 'LAL'...)
-    :return: A soup object made of the html table of the team's advanced boxscore for this game
-    """
-    soup = BeautifulSoup(response.content, 'html.parser')
-    team_id_advanced = f"box-{team}-game-advanced"
-    table = soup.find_all('table', id=team_id_advanced)[0]
-    return table
-
-
-
-def get_players(table):
-    """
-    This function takes a soup object made of an html boxscore table and returns the players listed in the boxscore
-    :param table: A soup object made of an html boxscore table
-    :return: A list of the players listed in the boxscore
-    """
-    players = table.find_all('a')
-    return [player.get_text() for player in players]
-
-
-def get_boxscore(table, fields, players):
-    """
-    This function returns a dict representing a boxscore for a specific game, for a specific team
-    :param table: A soup object made of an html boxscore table (either basic or advanced)
-    :param fields: A list of the fields present in the boxscore (either basic or advanced, matching the table)
-    :param players: A list of the players listed in the boxscore
-    :return: A dict representing a boxscore for a specific game, for a specific team
-    """
-    boxscore = dict()
-
-    for field in fields:
-        boxscore[field] = [value.get_text() for value in table.find_all("td", attrs={"data-stat": field})[:-1]]
-
-    boxscore['player'] = players
-
-    return boxscore
-
-
-def fill_dnp(boxscore):
-    """
-    This function takes a dict representing a boxscore for a specific game, for a specific team
-    and returns the same dict after filling the stats of the players who did not play (dnp) with the string '0'
-    :param boxscore: A dict representing a boxscore for a specific game, for a specific team
-    :return: The same dict with players who did not play (dnp) having the string '0' for each field
-    """
-    num_players = len(boxscore['player'])
-    num_dnp_players = num_players - len(boxscore['mp'])
-    for key in boxscore:
-        if key != 'player':
-            boxscore[key] += ['0'] * num_dnp_players
-    return boxscore
-
-
-URL_RANDOM_FIELDS = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
-
-URLS = dict_boxscores['url'][:300]
-TEAMS = dict_boxscores['team'][:300]
-
-def main():
     print('initialize')
-    responses_teams = get_data_grequest(URLS, TEAMS)
+    responses_teams_ids = get_data_grequest(final_urls, final_teams, final_ids)
 
     print('finish grequest')
 
-    basic_fields = get_basic_fields(conf.URL_FIELDS_BOXSCORE)
-    advanced_fields = get_advanced_fields(conf.URL_FIELDS_BOXSCORE)
+    basic_fields = get_basic_fields(c.URL_FIELDS_BOXSCORE)
+    advanced_fields = get_advanced_fields(c.URL_FIELDS_BOXSCORE)
 
     final_boxscores = dict()
 
-    for response, team in responses_teams:
+    for response, team, id in responses_teams_ids:
         print(team)
         basic_table = get_table_basic_boxscore(response, team)
         advanced_table = get_table_advanced_boxscore(response, team)
@@ -439,12 +421,14 @@ def main():
         basic_boxscore = get_boxscore(basic_table, basic_fields, players)
         basic_boxscore = fill_dnp(basic_boxscore)
 
+        basic_boxscore['game_team_id'] = [id for i in range(len(players))]
+
         advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
         advanced_boxscore = fill_dnp(advanced_boxscore)
 
-        advanced_boxscore.update(basic_boxscore)
+        basic_boxscore.update(advanced_boxscore)
 
-        for key, value in advanced_boxscore.items():
+        for key, value in basic_boxscore.items():
             if key not in final_boxscores:
                 final_boxscores[key] = value
             else:
@@ -453,5 +437,6 @@ def main():
     with open('boxscores.json', 'w', encoding='utf8') as boxscore_file:
         json.dump(final_boxscores, boxscore_file, ensure_ascii=False)
 
-main()
 
+if __name__ == "__main__":
+    main()
