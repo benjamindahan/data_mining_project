@@ -1,757 +1,757 @@
 team,season,n_win,n_loss,conf_ranking,coach,ppg,opponent_ppg,pace,off_rtg,def_rtg,expected_win,expected_loss,expected_overall_ranking,preseason_odds,attendance,playoffs
-ATL,2008,37,45,3,Mike Woodson ,98.2,100.0,1,106.9,108.9,36,46,19,+12500,667,"NBA 2008 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Boston Celtics
- "
-BOS,2008,66,16,1,Doc Rivers ,100.5,90.3,9,110.2,98.9,67,15,1,+1000,763,"Won NBA Finals (4-2) versus Los Angeles Lakers
- "
-NJN,2008,34,48,4,Lawrence Frank ,95.8,100.9,5,104.0,109.4,27,55,23,+2500,641,Not in playoffs
-CHA,2008,32,50,4,Sam Vincent ,97.1,101.4,8,104.6,109.4,29,53,22,+12500,603,Not in playoffs
-CHI,2008,33,49,4,Scott Skiles ,97.3,100.4,0,103.9,107.2,32,50,21,+1000,901,Not in playoffs
-CLE,2008,45,37,2,Mike Brown ,96.4,96.7,2,106.0,106.4,40,42,16,+600,839,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
- "
+SAC,2008,38,44,4,Reggie Theus ,102.5,104.8,7,107.5,109.9,35,47,20,+5000,580,Not in playoffs
 DAL,2008,51,31,4,Avery Johnson ,100.4,95.9,2,111.1,106.1,54,28,10,+450,831,"NBA 2008 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus New Orleans Hornets
  "
-DEN,2008,50,32,2,George Karl ,110.7,107.0,7,110.0,106.3,51,31,11,+1500,711,"NBA 2008 Playoffs:
-Lost NBA Western Conference First Round (0-4) versus Los Angeles Lakers
- "
-DET,2008,59,23,1,Flip Saunders ,97.5,90.1,3,111.4,102.9,62,20,2,+1200,905,"Lost NBA Eastern Conference Finals (2-4) versus Boston Celtics
- "
-GSW,2008,48,34,3,Don Nelson ,111.0,108.8,8,111.8,109.5,47,35,13,+2000,804,Not in playoffs
 HOU,2008,55,27,3,Rick Adelman ,96.7,92.0,4,106.8,101.6,55,27,8,+1000,718,"NBA 2008 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Utah Jazz
- "
-IND,2008,36,46,3,Jim O'Brien ,104.0,105.4,7,106.0,107.5,37,45,18,+4000,501,Not in playoffs
-LAC,2008,23,59,5,Mike Dunleavy ,93.8,101.1,1,101.2,109.1,21,61,28,+5000,692,Not in playoffs
-LAL,2008,57,25,1,Phil Jackson ,108.6,101.3,6,113.0,105.5,59,23,3,+3000,778,"Lost NBA Finals (2-4) versus Boston Celtics
- "
-MEM,2008,22,60,5,Marc Iavaroni ,100.7,106.9,3,105.0,111.4,25,57,24,+20000,523,Not in playoffs
-MIA,2008,15,67,5,Pat Riley ,91.4,100.0,2,100.5,110.0,18,64,30,+1200,798,Not in playoffs
-MIL,2008,26,56,5,Larry Krystkowiak ,97.0,103.9,3,105.3,112.8,23,59,27,+7500,639,Not in playoffs
-MIN,2008,22,60,4,Randy Wittman ,95.6,102.4,9,103.8,111.2,23,59,26,+15000,593,Not in playoffs
-NOH,2008,56,26,1,Byron Scott ,100.9,95.6,9,111.5,105.7,56,26,5,+5000,581,"Lost NBA Western Conference Semifinals (3-4) versus San Antonio Spurs
- "
-NYK,2008,23,59,5,Isiah Thomas ,96.9,103.5,6,104.7,111.9,23,59,25,+6000,783,Not in playoffs
-SEA,2008,20,62,5,P.J. Carlesimo ,97.5,106.3,3,100.5,109.5,19,63,29,+7500,547,Not in playoffs
-ORL,2008,52,30,1,Stan Van Gundy ,104.5,99.0,4,111.3,105.5,56,26,6,+4000,709,"Lost NBA Eastern Conference Semifinals (1-4) versus Detroit Pistons
- "
-PHI,2008,40,42,3,Maurice Cheeks ,96.6,96.2,4,106.4,106.0,42,40,14,+15000,609,"NBA 2008 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Detroit Pistons
  "
 PHO,2008,55,27,2,Mike D'Antoni ,110.1,105.0,7,113.3,108.1,54,28,9,+500,755,"NBA 2008 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus San Antonio Spurs
  "
-POR,2008,41,41,3,Nate McMillan ,95.4,96.3,9,107.3,108.4,38,44,17,+8000,801,Not in playoffs
-SAC,2008,38,44,4,Reggie Theus ,102.5,104.8,7,107.5,109.9,35,47,20,+5000,580,Not in playoffs
+PHI,2008,40,42,3,Maurice Cheeks ,96.6,96.2,4,106.4,106.0,42,40,14,+15000,609,"NBA 2008 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Detroit Pistons
+ "
+BOS,2008,66,16,1,Doc Rivers ,100.5,90.3,9,110.2,98.9,67,15,1,+1000,763,"Won NBA Finals (4-2) versus Los Angeles Lakers
+ "
+MIL,2008,26,56,5,Larry Krystkowiak ,97.0,103.9,3,105.3,112.8,23,59,27,+7500,639,Not in playoffs
+UTA,2008,54,28,1,Jerry Sloan ,106.2,99.3,2,113.8,106.5,59,23,4,+1500,816,"Lost NBA Western Conference Semifinals (2-4) versus Los Angeles Lakers
+ "
 SAS,2008,56,26,2,Gregg Popovich ,95.4,90.6,8,107.2,101.8,55,27,7,+450,761,"Lost NBA Western Conference Finals (1-4) versus Los Angeles Lakers
  "
-TOR,2008,41,41,2,Sam Mitchell ,100.2,97.3,2,110.2,107.0,49,33,12,+2000,796,"NBA 2008 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Orlando Magic
+LAC,2008,23,59,5,Mike Dunleavy ,93.8,101.1,1,101.2,109.1,21,61,28,+5000,692,Not in playoffs
+ORL,2008,52,30,1,Stan Van Gundy ,104.5,99.0,4,111.3,105.5,56,26,6,+4000,709,"Lost NBA Eastern Conference Semifinals (1-4) versus Detroit Pistons
  "
-UTA,2008,54,28,1,Jerry Sloan ,106.2,99.3,2,113.8,106.5,59,23,4,+1500,816,"Lost NBA Western Conference Semifinals (2-4) versus Los Angeles Lakers
+NYK,2008,23,59,5,Isiah Thomas ,96.9,103.5,6,104.7,111.9,23,59,25,+6000,783,Not in playoffs
+POR,2008,41,41,3,Nate McMillan ,95.4,96.3,9,107.3,108.4,38,44,17,+8000,801,Not in playoffs
+MEM,2008,22,60,5,Marc Iavaroni ,100.7,106.9,3,105.0,111.4,25,57,24,+20000,523,Not in playoffs
+DEN,2008,50,32,2,George Karl ,110.7,107.0,7,110.0,106.3,51,31,11,+1500,711,"NBA 2008 Playoffs:
+Lost NBA Western Conference First Round (0-4) versus Los Angeles Lakers
  "
 WAS,2008,43,39,2,Eddie Jordan ,98.8,99.2,5,109.2,109.6,40,42,15,+2500,736,"NBA 2008 Playoffs:
 Lost NBA Eastern Conference First Round (2-4) versus Cleveland Cavaliers
  "
-ATL,2009,47,35,2,Mike Woodson ,98.1,96.5,6,109.3,107.6,46,36,13,+10000,686,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
+DET,2008,59,23,1,Flip Saunders ,97.5,90.1,3,111.4,102.9,62,20,2,+1200,905,"Lost NBA Eastern Conference Finals (2-4) versus Boston Celtics
  "
-BOS,2009,62,20,1,Doc Rivers ,100.9,93.4,4,110.5,102.3,61,21,2,+350,763,"Lost NBA Eastern Conference Semifinals (3-4) versus Orlando Magic
+LAL,2008,57,25,1,Phil Jackson ,108.6,101.3,6,113.0,105.5,59,23,3,+3000,778,"Lost NBA Finals (2-4) versus Boston Celtics
  "
-NJN,2009,34,48,3,Lawrence Frank ,98.1,100.5,9,108.3,111.0,34,48,22,+10000,621,Not in playoffs
-CHA,2009,35,47,4,Larry Brown ,93.6,94.9,3,104.7,106.1,37,45,20,+12500,597,Not in playoffs
-CHI,2009,41,41,2,Vinny Del Negro ,102.2,102.5,1,108.4,108.7,40,42,16,+3000,868,"NBA 2009 Playoffs:
+NJN,2008,34,48,4,Lawrence Frank ,95.8,100.9,5,104.0,109.4,27,55,23,+2500,641,Not in playoffs
+IND,2008,36,46,3,Jim O'Brien ,104.0,105.4,7,106.0,107.5,37,45,18,+4000,501,Not in playoffs
+ATL,2008,37,45,3,Mike Woodson ,98.2,100.0,1,106.9,108.9,36,46,19,+12500,667,"NBA 2008 Playoffs:
 Lost NBA Eastern Conference First Round (3-4) versus Boston Celtics
  "
-CLE,2009,66,16,1,Mike Brown ,100.3,91.4,7,112.4,102.4,65,17,1,+1000,841,"Lost NBA Eastern Conference Finals (2-4) versus Orlando Magic
+MIN,2008,22,60,4,Randy Wittman ,95.6,102.4,9,103.8,111.2,23,59,26,+15000,593,Not in playoffs
+CLE,2008,45,37,2,Mike Brown ,96.4,96.7,2,106.0,106.4,40,42,16,+600,839,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
  "
+TOR,2008,41,41,2,Sam Mitchell ,100.2,97.3,2,110.2,107.0,49,33,12,+2000,796,"NBA 2008 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Orlando Magic
+ "
+CHI,2008,33,49,4,Scott Skiles ,97.3,100.4,0,103.9,107.2,32,50,21,+1000,901,Not in playoffs
+NOH,2008,56,26,1,Byron Scott ,100.9,95.6,9,111.5,105.7,56,26,5,+5000,581,"Lost NBA Western Conference Semifinals (3-4) versus San Antonio Spurs
+ "
+MIA,2008,15,67,5,Pat Riley ,91.4,100.0,2,100.5,110.0,18,64,30,+1200,798,Not in playoffs
+SEA,2008,20,62,5,P.J. Carlesimo ,97.5,106.3,3,100.5,109.5,19,63,29,+7500,547,Not in playoffs
+GSW,2008,48,34,3,Don Nelson ,111.0,108.8,8,111.8,109.5,47,35,13,+2000,804,Not in playoffs
+CHA,2008,32,50,4,Sam Vincent ,97.1,101.4,8,104.6,109.4,29,53,22,+12500,603,Not in playoffs
+SAC,2009,17,65,5,Reggie Theus ,100.6,109.3,2,105.5,114.7,19,63,29,+20000,520,Not in playoffs
 DAL,2009,50,32,3,Rick Carlisle ,101.7,99.8,5,110.5,108.4,47,35,10,+2000,821,"Lost NBA Western Conference Semifinals (1-4) versus Denver Nuggets
  "
-DEN,2009,54,28,1,George Karl ,104.3,100.9,3,110.4,106.8,50,32,8,+5000,706,"Lost NBA Western Conference Finals (2-4) versus Los Angeles Lakers
- "
-DET,2009,39,43,3,Michael Curry ,94.2,94.7,7,107.4,108.0,40,42,17,+1000,896,"NBA 2009 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
- "
-GSW,2009,29,53,3,Don Nelson ,108.6,112.3,2,109.5,113.3,31,51,24,+10000,776,Not in playoffs
 HOU,2009,53,29,2,Rick Adelman ,98.4,94.4,2,108.4,104.0,53,29,6,+1200,717,"Lost NBA Western Conference Semifinals (3-4) versus Los Angeles Lakers
  "
-IND,2009,36,46,4,Jim O'Brien ,105.1,106.2,5,108.1,109.2,38,44,18,+10000,581,Not in playoffs
-LAC,2009,19,63,4,Mike Dunleavy ,95.1,103.9,1,102.3,111.7,18,64,30,+8000,663,Not in playoffs
-LAL,2009,65,17,1,Phil Jackson ,106.9,99.3,3,112.8,104.7,61,21,3,+350,778,"Won NBA Finals (4-1) versus Orlando Magic
- "
-MEM,2009,24,58,5,Marc Iavaroni ,93.9,99.3,1,103.5,109.5,26,56,26,+25000,519,Not in playoffs
-MIA,2009,43,39,3,Erik Spoelstra ,98.3,98.0,9,107.8,107.6,42,40,14,+3500,748,"NBA 2009 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Atlanta Hawks
- "
-MIL,2009,34,48,5,Scott Skiles ,99.3,100.4,6,106.7,107.9,38,44,19,+15000,630,Not in playoffs
-MIN,2009,24,58,4,Randy Wittman ,97.8,102.7,6,106.1,111.4,27,55,25,+15000,595,Not in playoffs
-NOH,2009,49,33,4,Byron Scott ,95.8,94.3,8,108.7,107.0,46,36,12,+1000,695,"NBA 2009 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Denver Nuggets
- "
-NYK,2009,32,50,5,Mike D'Antoni ,105.2,107.8,7,108.1,110.8,34,48,21,+10000,790,Not in playoffs
-OKC,2009,23,59,5,P.J. Carlesimo ,97.0,103.1,6,102.9,109.4,24,58,27,+20000,766,Not in playoffs
-ORL,2009,59,23,1,Stan Van Gundy ,101.0,94.4,3,109.2,101.9,59,23,4,+2000,698,"Lost NBA Finals (1-4) versus Los Angeles Lakers
- "
+PHO,2009,46,36,2,Terry Porter ,109.4,107.5,0,113.6,111.6,46,36,11,+1500,755,Not in playoffs
 PHI,2009,41,41,2,Maurice Cheeks ,97.4,97.3,0,107.9,107.8,41,41,15,+2500,647,"NBA 2009 Playoffs:
 Lost NBA Eastern Conference First Round (2-4) versus Orlando Magic
  "
-PHO,2009,46,36,2,Terry Porter ,109.4,107.5,0,113.6,111.6,46,36,11,+1500,755,Not in playoffs
-POR,2009,54,28,2,Nate McMillan ,99.4,94.1,6,113.9,107.8,56,26,5,+3000,841,"NBA 2009 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Houston Rockets
+BOS,2009,62,20,1,Doc Rivers ,100.9,93.4,4,110.5,102.3,61,21,2,+350,763,"Lost NBA Eastern Conference Semifinals (3-4) versus Orlando Magic
  "
-SAC,2009,17,65,5,Reggie Theus ,100.6,109.3,2,105.5,114.7,19,63,29,+20000,520,Not in playoffs
-SAS,2009,54,28,1,Gregg Popovich ,97.0,93.3,4,108.5,104.3,52,30,7,+800,749,"NBA 2009 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Dallas Mavericks
- "
-TOR,2009,33,49,4,Sam Mitchell ,99.0,101.9,0,107.0,110.0,33,49,23,+3500,769,Not in playoffs
+MIL,2009,34,48,5,Scott Skiles ,99.3,100.4,6,106.7,107.9,38,44,19,+15000,630,Not in playoffs
 UTA,2009,48,34,3,Jerry Sloan ,103.6,100.9,1,110.1,107.3,48,34,9,+1200,816,"NBA 2009 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Los Angeles Lakers
  "
+SAS,2009,54,28,1,Gregg Popovich ,97.0,93.3,4,108.5,104.3,52,30,7,+800,749,"NBA 2009 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Dallas Mavericks
+ "
+LAC,2009,19,63,4,Mike Dunleavy ,95.1,103.9,1,102.3,111.7,18,64,30,+8000,663,Not in playoffs
+ORL,2009,59,23,1,Stan Van Gundy ,101.0,94.4,3,109.2,101.9,59,23,4,+2000,698,"Lost NBA Finals (1-4) versus Los Angeles Lakers
+ "
+NYK,2009,32,50,5,Mike D'Antoni ,105.2,107.8,7,108.1,110.8,34,48,21,+10000,790,Not in playoffs
+POR,2009,54,28,2,Nate McMillan ,99.4,94.1,6,113.9,107.8,56,26,5,+3000,841,"NBA 2009 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Houston Rockets
+ "
+MEM,2009,24,58,5,Marc Iavaroni ,93.9,99.3,1,103.5,109.5,26,56,26,+25000,519,Not in playoffs
+DEN,2009,54,28,1,George Karl ,104.3,100.9,3,110.4,106.8,50,32,8,+5000,706,"Lost NBA Western Conference Finals (2-4) versus Los Angeles Lakers
+ "
 WAS,2009,19,63,5,Eddie Jordan ,96.1,103.5,0,105.4,113.6,21,61,28,+6000,681,Not in playoffs
-ATL,2010,53,29,2,Mike Woodson ,101.7,97.0,1,111.9,106.7,54,28,6,+5000,678,"Lost NBA Eastern Conference Semifinals (0-4) versus Orlando Magic
+DET,2009,39,43,3,Michael Curry ,94.2,94.7,7,107.4,108.0,40,42,17,+1000,896,"NBA 2009 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
  "
-BOS,2010,50,32,1,Doc Rivers ,99.2,95.6,6,107.7,103.8,52,30,9,+450,763,"Lost NBA Finals (3-4) versus Los Angeles Lakers
+LAL,2009,65,17,1,Phil Jackson ,106.9,99.3,3,112.8,104.7,61,21,3,+350,778,"Won NBA Finals (4-1) versus Orlando Magic
  "
-NJN,2010,12,70,5,Lawrence Frank ,92.4,101.5,4,100.6,110.5,17,65,30,+12500,537,Not in playoffs
-CHA,2010,44,38,4,Larry Brown ,95.3,93.8,4,104.4,102.8,45,37,15,+12500,648,"NBA 2010 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Orlando Magic
+NJN,2009,34,48,3,Lawrence Frank ,98.1,100.5,9,108.3,111.0,34,48,22,+10000,621,Not in playoffs
+IND,2009,36,46,4,Jim O'Brien ,105.1,106.2,5,108.1,109.2,38,44,18,+10000,581,Not in playoffs
+ATL,2009,47,35,2,Mike Woodson ,98.1,96.5,6,109.3,107.6,46,36,13,+10000,686,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
  "
-CHI,2010,41,41,3,Vinny Del Negro ,97.5,99.1,1,103.5,105.3,36,46,18,+5000,849,"NBA 2010 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Cleveland Cavaliers
+MIN,2009,24,58,4,Randy Wittman ,97.8,102.7,6,106.1,111.4,27,55,25,+15000,595,Not in playoffs
+CLE,2009,66,16,1,Mike Brown ,100.3,91.4,7,112.4,102.4,65,17,1,+1000,841,"Lost NBA Eastern Conference Finals (2-4) versus Orlando Magic
  "
-CLE,2010,61,21,1,Mike Brown ,102.1,95.6,4,111.2,104.1,59,23,2,+300,843,"Lost NBA Eastern Conference Semifinals (2-4) versus Boston Celtics
+TOR,2009,33,49,4,Sam Mitchell ,99.0,101.9,0,107.0,110.0,33,49,23,+3500,769,Not in playoffs
+CHI,2009,41,41,2,Vinny Del Negro ,102.2,102.5,1,108.4,108.7,40,42,16,+3000,868,"NBA 2009 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Boston Celtics
  "
+NOH,2009,49,33,4,Byron Scott ,95.8,94.3,8,108.7,107.0,46,36,12,+1000,695,"NBA 2009 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Denver Nuggets
+ "
+MIA,2009,43,39,3,Erik Spoelstra ,98.3,98.0,9,107.8,107.6,42,40,14,+3500,748,"NBA 2009 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Atlanta Hawks
+ "
+OKC,2009,23,59,5,P.J. Carlesimo ,97.0,103.1,6,102.9,109.4,24,58,27,+20000,766,Not in playoffs
+GSW,2009,29,53,3,Don Nelson ,108.6,112.3,2,109.5,113.3,31,51,24,+10000,776,Not in playoffs
+CHA,2009,35,47,4,Larry Brown ,93.6,94.9,3,104.7,106.1,37,45,20,+12500,597,Not in playoffs
+SAC,2010,25,57,5,Paul Westphal ,100.0,104.4,0,105.3,109.9,29,53,25,+25000,543,Not in playoffs
 DAL,2010,55,27,1,Rick Carlisle ,102.0,99.3,5,109.2,106.3,49,33,12,+2500,819,"NBA 2010 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus San Antonio Spurs
  "
-DEN,2010,53,29,1,George Karl ,106.5,102.4,8,111.8,107.5,52,30,8,+1500,737,"NBA 2010 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Utah Jazz
- "
-DET,2010,27,55,5,John Kuester ,94.0,99.1,5,105.6,111.4,26,56,27,+3300,768,Not in playoffs
-GSW,2010,26,56,4,Don Nelson ,108.8,112.4,4,108.1,111.7,32,50,22,+12500,739,Not in playoffs
 HOU,2010,42,40,3,Rick Adelman ,102.4,102.7,0,107.6,108.0,40,42,16,+4000,677,Not in playoffs
-IND,2010,32,50,4,Jim O'Brien ,100.8,103.8,1,103.7,106.8,33,49,21,+10000,582,Not in playoffs
-LAC,2010,29,53,3,Mike Dunleavy ,95.7,102.1,6,103.3,110.1,24,58,28,+15000,670,Not in playoffs
-LAL,2010,57,25,1,Phil Jackson ,101.7,97.0,8,108.8,103.7,54,28,5,+225,778,"Won NBA Finals (4-3) versus Boston Celtics
+PHO,2010,54,28,2,Alvin Gentry ,110.2,105.3,3,115.3,110.2,54,28,7,+6600,723,"Lost NBA Western Conference Finals (2-4) versus Los Angeles Lakers
  "
-MEM,2010,40,42,4,Lionel Hollins ,102.5,104.0,6,108.3,109.9,37,45,17,+15000,552,Not in playoffs
-MIA,2010,47,35,3,Erik Spoelstra ,96.5,94.2,6,106.6,104.1,48,34,13,+4000,726,"NBA 2010 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Boston Celtics
+PHI,2010,27,55,4,Eddie Jordan ,97.7,101.6,6,106.1,110.3,30,52,24,+6600,583,Not in playoffs
+BOS,2010,50,32,1,Doc Rivers ,99.2,95.6,6,107.7,103.8,52,30,9,+450,763,"Lost NBA Finals (3-4) versus Los Angeles Lakers
  "
 MIL,2010,46,36,2,Scott Skiles ,97.7,96.0,7,104.9,103.1,46,36,14,+20000,619,"NBA 2010 Playoffs:
 Lost NBA Eastern Conference First Round (3-4) versus Atlanta Hawks
  "
-MIN,2010,15,67,5,Kurt Rambis ,98.2,107.8,1,101.7,111.6,17,65,29,+20000,619,Not in playoffs
-NOH,2010,37,45,5,Byron Scott ,100.2,102.7,6,107.4,110.1,34,48,20,+5000,617,Not in playoffs
-NYK,2010,29,53,3,Mike D'Antoni ,102.1,105.9,0,107.6,111.6,31,51,23,+6600,799,Not in playoffs
-OKC,2010,50,32,4,Scott Brooks ,101.5,98.0,1,108.3,104.6,51,31,10,+12500,738,"NBA 2010 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Los Angeles Lakers
+UTA,2010,53,29,2,Jerry Sloan ,104.2,98.9,8,110.7,105.0,55,27,3,+2500,794,"Lost NBA Western Conference Semifinals (0-4) versus Los Angeles Lakers
  "
+SAS,2010,50,32,2,Gregg Popovich ,101.4,96.3,7,110.0,104.5,55,27,4,+1000,741,"Lost NBA Western Conference Semifinals (0-4) versus Phoenix Suns
+ "
+LAC,2010,29,53,3,Mike Dunleavy ,95.7,102.1,6,103.3,110.1,24,58,28,+15000,670,Not in playoffs
 ORL,2010,59,23,1,Stan Van Gundy ,102.8,95.3,0,111.4,103.3,61,21,1,+1000,715,"Lost NBA Eastern Conference Finals (2-4) versus Boston Celtics
  "
-PHI,2010,27,55,4,Eddie Jordan ,97.7,101.6,6,106.1,110.3,30,52,24,+6600,583,Not in playoffs
-PHO,2010,54,28,2,Alvin Gentry ,110.2,105.3,3,115.3,110.2,54,28,7,+6600,723,"Lost NBA Western Conference Finals (2-4) versus Los Angeles Lakers
- "
+NYK,2010,29,53,3,Mike D'Antoni ,102.1,105.9,0,107.6,111.6,31,51,23,+6600,799,Not in playoffs
 POR,2010,50,32,3,Nate McMillan ,98.1,94.8,7,110.8,107.1,51,31,11,+2000,840,"NBA 2010 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Phoenix Suns
  "
-SAC,2010,25,57,5,Paul Westphal ,100.0,104.4,0,105.3,109.9,29,53,25,+25000,543,Not in playoffs
-SAS,2010,50,32,2,Gregg Popovich ,101.4,96.3,7,110.0,104.5,55,27,4,+1000,741,"Lost NBA Western Conference Semifinals (0-4) versus Phoenix Suns
- "
-TOR,2010,40,42,2,Jay Triano ,104.1,105.9,1,111.3,113.2,36,46,19,+6600,733,Not in playoffs
-UTA,2010,53,29,2,Jerry Sloan ,104.2,98.9,8,110.7,105.0,55,27,3,+2500,794,"Lost NBA Western Conference Semifinals (0-4) versus Los Angeles Lakers
+MEM,2010,40,42,4,Lionel Hollins ,102.5,104.0,6,108.3,109.9,37,45,17,+15000,552,Not in playoffs
+DEN,2010,53,29,1,George Karl ,106.5,102.4,8,111.8,107.5,52,30,8,+1500,737,"NBA 2010 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Utah Jazz
  "
 WAS,2010,26,56,5,Flip Saunders ,96.2,101.0,6,104.2,109.4,28,54,26,+8000,664,Not in playoffs
-ATL,2011,44,38,3,Larry Drew ,95.0,95.8,3,106.1,107.0,39,43,17,+4000,641,"Lost NBA Eastern Conference Semifinals (2-4) versus Chicago Bulls
+DET,2010,27,55,5,John Kuester ,94.0,99.1,5,105.6,111.4,26,56,27,+3300,768,Not in playoffs
+LAL,2010,57,25,1,Phil Jackson ,101.7,97.0,8,108.8,103.7,54,28,5,+225,778,"Won NBA Finals (4-3) versus Boston Celtics
+ "
+NJN,2010,12,70,5,Lawrence Frank ,92.4,101.5,4,100.6,110.5,17,65,30,+12500,537,Not in playoffs
+IND,2010,32,50,4,Jim O'Brien ,100.8,103.8,1,103.7,106.8,33,49,21,+10000,582,Not in playoffs
+ATL,2010,53,29,2,Mike Woodson ,101.7,97.0,1,111.9,106.7,54,28,6,+5000,678,"Lost NBA Eastern Conference Semifinals (0-4) versus Orlando Magic
+ "
+MIN,2010,15,67,5,Kurt Rambis ,98.2,107.8,1,101.7,111.6,17,65,29,+20000,619,Not in playoffs
+CLE,2010,61,21,1,Mike Brown ,102.1,95.6,4,111.2,104.1,59,23,2,+300,843,"Lost NBA Eastern Conference Semifinals (2-4) versus Boston Celtics
+ "
+TOR,2010,40,42,2,Jay Triano ,104.1,105.9,1,111.3,113.2,36,46,19,+6600,733,Not in playoffs
+CHI,2010,41,41,3,Vinny Del Negro ,97.5,99.1,1,103.5,105.3,36,46,18,+5000,849,"NBA 2010 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Cleveland Cavaliers
+ "
+NOH,2010,37,45,5,Byron Scott ,100.2,102.7,6,107.4,110.1,34,48,20,+5000,617,Not in playoffs
+MIA,2010,47,35,3,Erik Spoelstra ,96.5,94.2,6,106.6,104.1,48,34,13,+4000,726,"NBA 2010 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Boston Celtics
+ "
+OKC,2010,50,32,4,Scott Brooks ,101.5,98.0,1,108.3,104.6,51,31,10,+12500,738,"NBA 2010 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Los Angeles Lakers
+ "
+GSW,2010,26,56,4,Don Nelson ,108.8,112.4,4,108.1,111.7,32,50,22,+12500,739,Not in playoffs
+CHA,2010,44,38,4,Larry Brown ,95.3,93.8,4,104.4,102.8,45,37,15,+12500,648,"NBA 2010 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Orlando Magic
+ "
+SAC,2011,24,58,5,Paul Westphal ,99.4,104.7,2,103.5,109.0,27,55,25,+15000,569,Not in playoffs
+DAL,2011,57,25,2,Rick Carlisle ,100.2,96.0,3,109.7,105.0,53,29,8,+2000,824,"Won NBA Finals (4-2) versus Miami Heat
+ "
+HOU,2011,43,39,5,Rick Adelman ,105.9,103.7,2,111.3,109.0,47,35,11,+4000,663,Not in playoffs
+PHO,2011,40,42,2,Alvin Gentry ,105.0,105.9,4,109.5,110.4,39,43,16,+5000,720,Not in playoffs
+PHI,2011,41,41,3,Doug Collins ,99.0,97.5,7,106.6,105.0,45,37,13,+10000,604,"NBA 2011 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Miami Heat
  "
 BOS,2011,56,26,1,Doc Rivers ,96.5,91.1,4,106.2,100.3,57,25,4,+1000,763,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
  "
-NJN,2011,24,58,4,Avery Johnson ,94.2,100.4,9,103.1,109.9,24,58,28,+10000,581,Not in playoffs
-CHA,2011,34,48,4,Larry Brown ,93.3,97.3,6,103.4,107.8,29,53,24,+6600,649,Not in playoffs
-CHI,2011,62,20,1,Tom Thibodeau ,98.6,91.3,4,108.3,100.3,61,21,1,+1400,893,"Lost NBA Eastern Conference Finals (1-4) versus Miami Heat
- "
-CLE,2011,19,63,5,Byron Scott ,95.5,104.5,0,102.2,111.8,18,64,30,+10000,824,Not in playoffs
-DAL,2011,57,25,2,Rick Carlisle ,100.2,96.0,3,109.7,105.0,53,29,8,+2000,824,"Won NBA Finals (4-2) versus Miami Heat
- "
-DEN,2011,50,32,2,George Karl ,107.5,102.7,6,112.3,107.3,54,28,7,+2500,696,"NBA 2011 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Oklahoma City Thunder
- "
-DET,2011,30,52,4,John Kuester ,97.0,100.6,2,107.7,111.7,31,51,23,+10000,683,Not in playoffs
-GSW,2011,36,46,3,Keith Smart ,103.4,105.7,8,108.2,110.7,35,47,21,+15000,766,Not in playoffs
-HOU,2011,43,39,5,Rick Adelman ,105.9,103.7,2,111.3,109.0,47,35,11,+4000,663,Not in playoffs
-IND,2011,37,45,2,Jim O'Brien ,99.8,100.9,7,104.8,106.0,38,44,19,+15000,555,"NBA 2011 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Chicago Bulls
+MIL,2011,35,47,3,Scott Skiles ,91.9,92.7,8,101.6,102.5,38,44,18,+4000,631,Not in playoffs
+UTA,2011,39,43,4,Jerry Sloan ,99.4,101.3,0,108.1,110.1,36,46,20,+4000,799,Not in playoffs
+SAS,2011,61,21,1,Gregg Popovich ,103.7,98.0,3,111.8,105.6,56,26,6,+2500,750,"NBA 2011 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Memphis Grizzlies
  "
 LAC,2011,32,50,4,Vinny Del Negro ,98.6,101.8,8,105.3,108.7,32,50,22,+10000,727,Not in playoffs
-LAL,2011,57,25,1,Phil Jackson ,101.5,95.4,7,111.0,104.3,58,24,3,+250,778,"Lost NBA Western Conference Semifinals (0-4) versus Dallas Mavericks
- "
-MEM,2011,46,36,4,Lionel Hollins ,99.9,97.6,9,107.6,105.1,48,34,10,+10000,600,"Lost NBA Western Conference Semifinals (3-4) versus Oklahoma City Thunder
- "
-MIA,2011,58,24,1,Erik Spoelstra ,102.1,94.6,9,111.7,103.5,61,21,2,+175,810,"Lost NBA Finals (2-4) versus Dallas Mavericks
- "
-MIL,2011,35,47,3,Scott Skiles ,91.9,92.7,8,101.6,102.5,38,44,18,+4000,631,Not in playoffs
-MIN,2011,17,65,5,Kurt Rambis ,101.1,107.7,5,104.2,111.1,24,58,27,+20000,624,Not in playoffs
-NOH,2011,46,36,3,Monty Williams ,94.9,94.0,7,106.2,105.2,44,38,14,+6600,603,"NBA 2011 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Los Angeles Lakers
+ORL,2011,52,30,2,Stan Van Gundy ,99.2,93.7,2,107.9,102.0,56,26,5,+1000,777,"NBA 2011 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
  "
 NYK,2011,42,40,2,Mike D'Antoni ,106.5,105.7,6,110.9,110.1,43,39,15,+4000,808,"NBA 2011 Playoffs:
 Lost NBA Eastern Conference First Round (0-4) versus Boston Celtics
  "
-OKC,2011,55,27,1,Scott Brooks ,104.8,101.0,7,111.2,107.2,51,31,9,+1600,744,"Lost NBA Western Conference Finals (1-4) versus Dallas Mavericks
- "
-ORL,2011,52,30,2,Stan Van Gundy ,99.2,93.7,2,107.9,102.0,56,26,5,+1000,777,"NBA 2011 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
- "
-PHI,2011,41,41,3,Doug Collins ,99.0,97.5,7,106.6,105.0,45,37,13,+10000,604,"NBA 2011 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Miami Heat
- "
-PHO,2011,40,42,2,Alvin Gentry ,105.0,105.9,4,109.5,110.4,39,43,16,+5000,720,Not in playoffs
 POR,2011,48,34,3,Nate McMillan ,96.3,94.8,9,108.8,107.1,46,36,12,+2800,840,"NBA 2011 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Dallas Mavericks
  "
-SAC,2011,24,58,5,Paul Westphal ,99.4,104.7,2,103.5,109.0,27,55,25,+15000,569,Not in playoffs
-SAS,2011,61,21,1,Gregg Popovich ,103.7,98.0,3,111.8,105.6,56,26,6,+2500,750,"NBA 2011 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Memphis Grizzlies
+MEM,2011,46,36,4,Lionel Hollins ,99.9,97.6,9,107.6,105.1,48,34,10,+10000,600,"Lost NBA Western Conference Semifinals (3-4) versus Oklahoma City Thunder
  "
-TOR,2011,22,60,5,Jay Triano ,99.1,105.4,9,106.2,112.9,24,58,26,+20000,680,Not in playoffs
-UTA,2011,39,43,4,Jerry Sloan ,99.4,101.3,0,108.1,110.1,36,46,20,+4000,799,Not in playoffs
+DEN,2011,50,32,2,George Karl ,107.5,102.7,6,112.3,107.3,54,28,7,+2500,696,"NBA 2011 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Oklahoma City Thunder
+ "
 WAS,2011,23,59,5,Flip Saunders ,97.3,104.7,8,102.4,110.2,22,60,29,+5000,688,Not in playoffs
-ATL,2012,40,26,2,Larry Drew ,96.6,93.2,2,104.9,101.2,41,25,6,+5000,501,"NBA 2012 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Boston Celtics
+DET,2011,30,52,4,John Kuester ,97.0,100.6,2,107.7,111.7,31,51,23,+10000,683,Not in playoffs
+LAL,2011,57,25,1,Phil Jackson ,101.5,95.4,7,111.0,104.3,58,24,3,+250,778,"Lost NBA Western Conference Semifinals (0-4) versus Dallas Mavericks
  "
-BOS,2012,39,27,1,Doc Rivers ,91.8,89.3,4,101.0,98.2,39,27,10,+1600,614,"Lost NBA Eastern Conference Finals (3-4) versus Miami Heat
+NJN,2011,24,58,4,Avery Johnson ,94.2,100.4,9,103.1,109.9,24,58,28,+10000,581,Not in playoffs
+IND,2011,37,45,2,Jim O'Brien ,99.8,100.9,7,104.8,106.0,38,44,19,+15000,555,"NBA 2011 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Chicago Bulls
  "
-NJN,2012,22,44,5,Avery Johnson ,93.1,99.1,1,102.9,109.6,19,47,28,+4000,460,Not in playoffs
-CHA,2012,7,59,5,Paul Silas ,87.0,100.9,1,95.2,110.4,7,59,30,+20000,486,Not in playoffs
-CHI,2012,50,16,1,Tom Thibodeau ,96.3,88.2,1,107.4,98.3,51,15,1,+550,731,"NBA 2012 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Philadelphia 76ers
+ATL,2011,44,38,3,Larry Drew ,95.0,95.8,3,106.1,107.0,39,43,17,+4000,641,"Lost NBA Eastern Conference Semifinals (2-4) versus Chicago Bulls
  "
-CLE,2012,21,45,5,Byron Scott ,93.0,100.2,3,101.1,108.9,17,49,29,+20000,525,Not in playoffs
+MIN,2011,17,65,5,Kurt Rambis ,101.1,107.7,5,104.2,111.1,24,58,27,+20000,624,Not in playoffs
+CLE,2011,19,63,5,Byron Scott ,95.5,104.5,0,102.2,111.8,18,64,30,+10000,824,Not in playoffs
+TOR,2011,22,60,5,Jay Triano ,99.1,105.4,9,106.2,112.9,24,58,26,+20000,680,Not in playoffs
+CHI,2011,62,20,1,Tom Thibodeau ,98.6,91.3,4,108.3,100.3,61,21,1,+1400,893,"Lost NBA Eastern Conference Finals (1-4) versus Miami Heat
+ "
+NOH,2011,46,36,3,Monty Williams ,94.9,94.0,7,106.2,105.2,44,38,14,+6600,603,"NBA 2011 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Los Angeles Lakers
+ "
+MIA,2011,58,24,1,Erik Spoelstra ,102.1,94.6,9,111.7,103.5,61,21,2,+175,810,"Lost NBA Finals (2-4) versus Dallas Mavericks
+ "
+OKC,2011,55,27,1,Scott Brooks ,104.8,101.0,7,111.2,107.2,51,31,9,+1600,744,"Lost NBA Western Conference Finals (1-4) versus Dallas Mavericks
+ "
+GSW,2011,36,46,3,Keith Smart ,103.4,105.7,8,108.2,110.7,35,47,21,+15000,766,Not in playoffs
+CHA,2011,34,48,4,Larry Brown ,93.3,97.3,6,103.4,107.8,29,53,24,+6600,649,Not in playoffs
+SAC,2012,22,44,5,Paul Westphal ,98.8,104.4,7,103.8,109.8,21,45,27,+20000,478,Not in playoffs
 DAL,2012,36,30,3,Rick Carlisle ,95.8,94.8,4,103.3,102.3,35,31,14,+850,671,"NBA 2012 Playoffs:
 Lost NBA Western Conference First Round (0-4) versus Oklahoma City Thunder
  "
-DEN,2012,38,28,2,George Karl ,104.1,101.2,2,109.2,106.2,39,27,9,+6600,561,"NBA 2012 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Los Angeles Lakers
- "
-DET,2012,25,41,4,Lawrence Frank ,90.9,95.7,2,101.0,106.3,22,44,26,+20000,475,Not in playoffs
-GSW,2012,23,43,4,Mark Jackson ,97.8,101.2,3,105.4,109.1,25,41,22,+12500,622,Not in playoffs
 HOU,2012,34,32,4,Kevin McHale ,98.1,97.9,7,105.5,105.2,34,32,18,+6600,506,Not in playoffs
-IND,2012,42,24,2,Frank Vogel ,97.7,94.4,7,106.7,103.1,41,25,7,+6600,467,"Lost NBA Eastern Conference Semifinals (2-4) versus Miami Heat
+PHO,2012,33,33,3,Alvin Gentry ,98.4,98.6,6,106.2,106.5,32,34,19,+10000,514,Not in playoffs
+PHI,2012,35,31,3,Doug Collins ,93.6,89.4,7,103.9,99.2,43,23,5,+12500,577,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
  "
-LAC,2012,40,26,2,Vinny Del Negro ,97.5,95.0,2,108.5,105.7,39,27,11,+2000,634,"Lost NBA Western Conference Semifinals (0-4) versus San Antonio Spurs
- "
-LAL,2012,41,25,1,Mike Brown ,97.3,95.9,5,106.0,104.4,36,30,13,+450,626,"Lost NBA Western Conference Semifinals (1-4) versus Oklahoma City Thunder
- "
-MEM,2012,41,25,2,Lionel Hollins ,95.0,93.0,8,104.0,101.8,38,28,12,+2500,518,"NBA 2012 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
- "
-MIA,2012,46,20,1,Erik Spoelstra ,98.5,92.5,2,106.6,100.2,47,19,3,+225,657,"Won NBA Finals (4-1) versus Oklahoma City Thunder
+BOS,2012,39,27,1,Doc Rivers ,91.8,89.3,4,101.0,98.2,39,27,10,+1600,614,"Lost NBA Eastern Conference Finals (3-4) versus Miami Heat
  "
 MIL,2012,31,35,3,Scott Skiles ,99.0,98.7,7,105.5,105.2,34,32,17,+12500,485,Not in playoffs
-MIN,2012,26,40,5,Rick Adelman ,97.9,100.1,3,104.3,106.6,28,38,21,+20000,577,Not in playoffs
-NOH,2012,21,45,5,Monty Williams ,89.6,93.4,3,100.9,105.1,24,42,24,+15000,498,Not in playoffs
-NYK,2012,36,30,2,Mike D'Antoni ,97.8,94.7,2,104.4,101.0,41,25,8,+1600,652,"NBA 2012 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Miami Heat
+UTA,2012,36,30,3,Tyrone Corbin ,99.7,99.0,4,106.8,106.1,34,32,16,+10000,637,"NBA 2012 Playoffs:
+Lost NBA Western Conference First Round (0-4) versus San Antonio Spurs
  "
-OKC,2012,47,19,1,Scott Brooks ,103.1,96.9,0,109.8,103.2,46,20,4,+700,600,"Lost NBA Finals (1-4) versus Miami Heat
+SAS,2012,50,16,1,Gregg Popovich ,103.7,96.5,9,110.9,103.2,48,18,2,+3300,607,"Lost NBA Western Conference Finals (2-4) versus Oklahoma City Thunder
+ "
+LAC,2012,40,26,2,Vinny Del Negro ,97.5,95.0,2,108.5,105.7,39,27,11,+2000,634,"Lost NBA Western Conference Semifinals (0-4) versus San Antonio Spurs
  "
 ORL,2012,37,29,3,Stan Van Gundy ,94.2,93.4,0,105.0,104.1,35,31,15,+2500,623,"NBA 2012 Playoffs:
 Lost NBA Eastern Conference First Round (1-4) versus Indiana Pacers
  "
-PHI,2012,35,31,3,Doug Collins ,93.6,89.4,7,103.9,99.2,43,23,5,+12500,577,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
+NYK,2012,36,30,2,Mike D'Antoni ,97.8,94.7,2,104.4,101.0,41,25,8,+1600,652,"NBA 2012 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Miami Heat
  "
-PHO,2012,33,33,3,Alvin Gentry ,98.4,98.6,6,106.2,106.5,32,34,19,+10000,514,Not in playoffs
 POR,2012,28,38,4,Nate McMillan ,97.2,97.8,2,105.7,106.4,32,34,20,+3300,676,Not in playoffs
-SAC,2012,22,44,5,Paul Westphal ,98.8,104.4,7,103.8,109.8,21,45,27,+20000,478,Not in playoffs
-SAS,2012,50,16,1,Gregg Popovich ,103.7,96.5,9,110.9,103.2,48,18,2,+3300,607,"Lost NBA Western Conference Finals (2-4) versus Oklahoma City Thunder
+MEM,2012,41,25,2,Lionel Hollins ,95.0,93.0,8,104.0,101.8,38,28,12,+2500,518,"NBA 2012 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
  "
-TOR,2012,23,43,4,Dwane Casey ,90.7,94.0,3,100.8,104.5,25,41,23,+25000,555,Not in playoffs
-UTA,2012,36,30,3,Tyrone Corbin ,99.7,99.0,4,106.8,106.1,34,32,16,+10000,637,"NBA 2012 Playoffs:
-Lost NBA Western Conference First Round (0-4) versus San Antonio Spurs
+DEN,2012,38,28,2,George Karl ,104.1,101.2,2,109.2,106.2,39,27,9,+6600,561,"NBA 2012 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Los Angeles Lakers
  "
 WAS,2012,20,46,4,Flip Saunders ,93.6,98.4,5,101.0,106.2,22,44,25,+15000,552,Not in playoffs
-ATL,2013,44,38,2,Larry Drew ,98.0,97.5,6,104.8,104.4,42,40,13,+8000,620,"NBA 2013 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Indiana Pacers
+DET,2012,25,41,4,Lawrence Frank ,90.9,95.7,2,101.0,106.3,22,44,26,+20000,475,Not in playoffs
+LAL,2012,41,25,1,Mike Brown ,97.3,95.9,5,106.0,104.4,36,30,13,+450,626,"Lost NBA Western Conference Semifinals (1-4) versus Oklahoma City Thunder
  "
-BOS,2013,41,40,3,Doc Rivers ,96.5,96.7,7,103.1,103.3,40,41,16,+2000,744,"NBA 2013 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus New York Knicks
+NJN,2012,22,44,5,Avery Johnson ,93.1,99.1,1,102.9,109.6,19,47,28,+4000,460,Not in playoffs
+IND,2012,42,24,2,Frank Vogel ,97.7,94.4,7,106.7,103.1,41,25,7,+6600,467,"Lost NBA Eastern Conference Semifinals (2-4) versus Miami Heat
  "
-BRK,2013,49,33,2,Avery Johnson ,96.9,95.1,8,108.2,106.2,46,36,10,+2800,704,"NBA 2013 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Chicago Bulls
+ATL,2012,40,26,2,Larry Drew ,96.6,93.2,2,104.9,101.2,41,25,6,+5000,501,"NBA 2012 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Boston Celtics
  "
-CHA,2013,21,61,4,Mike Dunlap ,93.4,102.7,5,101.5,111.5,17,65,30,+50000,628,Not in playoffs
-CHI,2013,45,37,2,Tom Thibodeau ,93.2,92.9,3,103.5,103.2,42,40,14,+1200,896,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
+MIN,2012,26,40,5,Rick Adelman ,97.9,100.1,3,104.3,106.6,28,38,21,+20000,577,Not in playoffs
+CLE,2012,21,45,5,Byron Scott ,93.0,100.2,3,101.1,108.9,17,49,29,+20000,525,Not in playoffs
+TOR,2012,23,43,4,Dwane Casey ,90.7,94.0,3,100.8,104.5,25,41,23,+25000,555,Not in playoffs
+CHI,2012,50,16,1,Tom Thibodeau ,96.3,88.2,1,107.4,98.3,51,15,1,+550,731,"NBA 2012 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Philadelphia 76ers
  "
-CLE,2013,24,58,5,Byron Scott ,96.5,101.2,3,104.3,109.4,28,54,26,+20000,663,Not in playoffs
+NOH,2012,21,45,5,Monty Williams ,89.6,93.4,3,100.9,105.1,24,42,24,+15000,498,Not in playoffs
+MIA,2012,46,20,1,Erik Spoelstra ,98.5,92.5,2,106.6,100.2,47,19,3,+225,657,"Won NBA Finals (4-1) versus Oklahoma City Thunder
+ "
+OKC,2012,47,19,1,Scott Brooks ,103.1,96.9,0,109.8,103.2,46,20,4,+700,600,"Lost NBA Finals (1-4) versus Miami Heat
+ "
+GSW,2012,23,43,4,Mark Jackson ,97.8,101.2,3,105.4,109.1,25,41,22,+12500,622,Not in playoffs
+CHA,2012,7,59,5,Paul Silas ,87.0,100.9,1,95.2,110.4,7,59,30,+20000,486,Not in playoffs
+SAC,2013,28,54,4,Keith Smart ,100.2,105.1,6,106.2,111.4,28,54,27,+25000,563,Not in playoffs
 DAL,2013,41,41,4,Rick Carlisle ,101.1,101.7,1,105.9,106.5,39,43,17,+3300,821,Not in playoffs
-DEN,2013,57,25,2,George Karl ,106.1,101.1,1,110.4,105.1,55,27,5,+5000,730,"NBA 2013 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Golden State Warriors
- "
-DET,2013,29,53,4,Lawrence Frank ,94.9,98.8,8,103.8,108.1,29,53,25,+20000,606,Not in playoffs
-GSW,2013,47,35,2,Mark Jackson ,101.2,100.3,5,106.4,105.5,44,38,12,+15000,794,"Lost NBA Western Conference Semifinals (2-4) versus San Antonio Spurs
- "
 HOU,2013,45,37,3,Kevin McHale ,106.0,102.5,1,109.7,106.1,50,32,9,+6600,683,"NBA 2013 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Oklahoma City Thunder
  "
-IND,2013,49,32,1,Frank Vogel ,94.7,90.7,2,104.3,99.8,52,29,7,+3300,626,"Lost NBA Eastern Conference Finals (3-4) versus Miami Heat
- "
-LAC,2013,56,26,1,Vinny Del Negro ,101.1,94.6,1,110.6,103.6,59,23,3,+2200,788,"NBA 2013 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Memphis Grizzlies
- "
-LAL,2013,45,37,3,Mike Brown ,102.2,101.0,4,107.8,106.6,44,38,11,+275,778,"NBA 2013 Playoffs:
-Lost NBA Western Conference First Round (0-4) versus San Antonio Spurs
- "
-MEM,2013,56,26,2,Lionel Hollins ,93.4,89.3,4,104.9,100.3,54,28,6,+3300,681,"Lost NBA Western Conference Finals (0-4) versus San Antonio Spurs
- "
-MIA,2013,66,16,1,Erik Spoelstra ,102.9,95.0,7,112.3,103.7,62,20,2,+225,819,"Won NBA Finals (4-3) versus San Antonio Spurs
+PHO,2013,25,57,5,Alvin Gentry ,95.2,101.6,4,101.2,108.1,23,59,28,+15000,632,Not in playoffs
+PHI,2013,34,48,4,Doug Collins ,93.2,96.5,0,102.0,105.7,31,51,23,+5000,685,Not in playoffs
+BOS,2013,41,40,3,Doc Rivers ,96.5,96.7,7,103.1,103.3,40,41,16,+2000,744,"NBA 2013 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus New York Knicks
  "
 MIL,2013,38,44,3,Scott Skiles ,98.9,100.4,7,103.6,105.2,37,45,18,+10000,616,"NBA 2013 Playoffs:
 Lost NBA Eastern Conference First Round (0-4) versus Miami Heat
  "
-MIN,2013,31,51,5,Rick Adelman ,95.7,98.1,8,102.9,105.4,34,48,20,+8000,669,Not in playoffs
-NOH,2013,27,55,5,Monty Williams ,94.1,97.9,5,105.7,110.1,30,52,24,+15000,565,Not in playoffs
+UTA,2013,43,39,3,Tyrone Corbin ,98.0,98.1,9,106.7,106.8,41,41,15,+10000,763,Not in playoffs
+SAS,2013,58,24,1,Gregg Popovich ,103.0,96.6,2,108.3,101.6,58,24,4,+1600,755,"Lost NBA Finals (3-4) versus Miami Heat
+ "
+LAC,2013,56,26,1,Vinny Del Negro ,101.1,94.6,1,110.6,103.6,59,23,3,+2200,788,"NBA 2013 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Memphis Grizzlies
+ "
+ORL,2013,20,62,5,Jacque Vaughn ,94.1,101.1,2,101.6,109.1,22,60,29,+15000,722,Not in playoffs
 NYK,2013,54,28,1,Mike Woodson ,100.0,95.7,8,111.1,106.3,53,29,8,+3300,780,"Lost NBA Eastern Conference Semifinals (2-4) versus Indiana Pacers
+ "
+POR,2013,33,49,4,Terry Stotts ,97.5,100.7,4,105.8,109.2,32,50,22,+10000,813,Not in playoffs
+MEM,2013,56,26,2,Lionel Hollins ,93.4,89.3,4,104.9,100.3,54,28,6,+3300,681,"Lost NBA Western Conference Finals (0-4) versus San Antonio Spurs
+ "
+DEN,2013,57,25,2,George Karl ,106.1,101.1,1,110.4,105.1,55,27,5,+5000,730,"NBA 2013 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Golden State Warriors
+ "
+WAS,2013,29,53,3,Randy Wittman ,93.2,95.8,2,100.2,103.0,33,49,21,+20000,670,Not in playoffs
+DET,2013,29,53,4,Lawrence Frank ,94.9,98.8,8,103.8,108.1,29,53,25,+20000,606,Not in playoffs
+LAL,2013,45,37,3,Mike Brown ,102.2,101.0,4,107.8,106.6,44,38,11,+275,778,"NBA 2013 Playoffs:
+Lost NBA Western Conference First Round (0-4) versus San Antonio Spurs
+ "
+BRK,2013,49,33,2,Avery Johnson ,96.9,95.1,8,108.2,106.2,46,36,10,+2800,704,"NBA 2013 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Chicago Bulls
+ "
+IND,2013,49,32,1,Frank Vogel ,94.7,90.7,2,104.3,99.8,52,29,7,+3300,626,"Lost NBA Eastern Conference Finals (3-4) versus Miami Heat
+ "
+ATL,2013,44,38,2,Larry Drew ,98.0,97.5,6,104.8,104.4,42,40,13,+8000,620,"NBA 2013 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Indiana Pacers
+ "
+MIN,2013,31,51,5,Rick Adelman ,95.7,98.1,8,102.9,105.4,34,48,20,+8000,669,Not in playoffs
+CLE,2013,24,58,5,Byron Scott ,96.5,101.2,3,104.3,109.4,28,54,26,+20000,663,Not in playoffs
+TOR,2013,34,48,5,Dwane Casey ,97.2,98.7,4,105.9,107.5,37,45,19,+25000,743,Not in playoffs
+CHI,2013,45,37,2,Tom Thibodeau ,93.2,92.9,3,103.5,103.2,42,40,14,+1200,896,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
+ "
+NOH,2013,27,55,5,Monty Williams ,94.1,97.9,5,105.7,110.1,30,52,24,+15000,565,Not in playoffs
+MIA,2013,66,16,1,Erik Spoelstra ,102.9,95.0,7,112.3,103.7,62,20,2,+225,819,"Won NBA Finals (4-3) versus San Antonio Spurs
  "
 OKC,2013,60,22,1,Scott Brooks ,105.7,96.5,3,112.4,102.6,64,18,1,+450,746,"Lost NBA Western Conference Semifinals (1-4) versus Memphis Grizzlies
  "
-ORL,2013,20,62,5,Jacque Vaughn ,94.1,101.1,2,101.6,109.1,22,60,29,+15000,722,Not in playoffs
-PHI,2013,34,48,4,Doug Collins ,93.2,96.5,0,102.0,105.7,31,51,23,+5000,685,Not in playoffs
-PHO,2013,25,57,5,Alvin Gentry ,95.2,101.6,4,101.2,108.1,23,59,28,+15000,632,Not in playoffs
-POR,2013,33,49,4,Terry Stotts ,97.5,100.7,4,105.8,109.2,32,50,22,+10000,813,Not in playoffs
-SAC,2013,28,54,4,Keith Smart ,100.2,105.1,6,106.2,111.4,28,54,27,+25000,563,Not in playoffs
-SAS,2013,58,24,1,Gregg Popovich ,103.0,96.6,2,108.3,101.6,58,24,4,+1600,755,"Lost NBA Finals (3-4) versus Miami Heat
+GSW,2013,47,35,2,Mark Jackson ,101.2,100.3,5,106.4,105.5,44,38,12,+15000,794,"Lost NBA Western Conference Semifinals (2-4) versus San Antonio Spurs
  "
-TOR,2013,34,48,5,Dwane Casey ,97.2,98.7,4,105.9,107.5,37,45,19,+25000,743,Not in playoffs
-UTA,2013,43,39,3,Tyrone Corbin ,98.0,98.1,9,106.7,106.8,41,41,15,+10000,763,Not in playoffs
-WAS,2013,29,53,3,Randy Wittman ,93.2,95.8,2,100.2,103.0,33,49,21,+20000,670,Not in playoffs
-ATL,2014,38,44,4,Mike Budenholzer ,101.0,101.5,6,105.9,106.4,40,42,17,+6600,587,"NBA 2014 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Indiana Pacers
- "
-BOS,2014,25,57,4,Brad Stevens ,96.2,100.7,3,102.9,107.7,28,54,25,+10000,742,Not in playoffs
-BRK,2014,44,38,2,Jason Kidd ,98.5,99.5,4,106.7,107.7,38,44,19,+1200,707,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
- "
-CHA,2014,43,39,3,Steve Clifford ,96.9,97.1,4,103.6,103.8,40,42,16,+30000,636,"NBA 2014 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Miami Heat
- "
-CHI,2014,48,34,2,Tom Thibodeau ,93.7,91.8,2,102.5,100.5,47,35,13,+1000,890,"NBA 2014 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Washington Wizards
- "
-CLE,2014,33,49,3,Mike Brown ,98.2,101.5,1,104.2,107.7,32,50,23,+6600,710,Not in playoffs
+CHA,2013,21,61,4,Mike Dunlap ,93.4,102.7,5,101.5,111.5,17,65,30,+50000,628,Not in playoffs
+SAC,2014,28,54,4,Michael Malone ,100.5,103.4,4,105.7,108.8,33,49,22,+15000,667,Not in playoffs
 DAL,2014,49,33,4,Rick Carlisle ,104.8,102.4,5,111.2,108.7,48,34,12,+4000,817,"NBA 2014 Playoffs:
 Lost NBA Western Conference First Round (3-4) versus San Antonio Spurs
- "
-DEN,2014,36,46,4,Brian Shaw ,104.4,106.5,1,106.0,108.2,35,47,20,+3300,692,Not in playoffs
-DET,2014,29,53,4,Maurice Cheeks ,101.0,104.7,9,105.9,109.7,31,51,24,+12500,616,Not in playoffs
-GSW,2014,51,31,2,Mark Jackson ,104.3,99.5,2,107.5,102.6,54,28,5,+2500,803,"NBA 2014 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
  "
 HOU,2014,54,28,2,Kevin McHale ,107.7,103.1,3,111.0,106.3,53,29,7,+1200,743,"NBA 2014 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Portland Trail Blazers
  "
-IND,2014,56,26,1,Frank Vogel ,96.7,92.3,5,104.1,99.3,54,28,6,+1400,717,"Lost NBA Eastern Conference Finals (2-4) versus Miami Heat
+PHO,2014,48,34,3,Jeff Hornacek ,105.2,102.6,8,109.5,106.7,48,34,10,+20000,650,Not in playoffs
+PHI,2014,19,63,5,Brett Brown ,99.5,109.9,2,99.4,109.9,16,66,30,+10000,568,Not in playoffs
+BOS,2014,25,57,4,Brad Stevens ,96.2,100.7,3,102.9,107.7,28,54,25,+10000,742,Not in playoffs
+MIL,2014,15,67,5,Larry Drew ,95.5,103.7,8,103.0,111.8,20,62,29,+15000,552,Not in playoffs
+UTA,2014,25,57,5,Tyrone Corbin ,95.0,102.2,4,103.5,111.3,22,60,28,+8000,745,Not in playoffs
+SAS,2014,62,20,1,Gregg Popovich ,105.4,97.6,0,110.5,102.4,61,21,1,+1200,755,"Won NBA Finals (4-1) versus Miami Heat
  "
 LAC,2014,57,25,1,Doc Rivers ,107.9,101.0,9,112.1,104.8,59,23,2,+1400,787,"Lost NBA Western Conference Semifinals (2-4) versus Oklahoma City Thunder
  "
-LAL,2014,27,55,5,Mike D'Antoni ,103.0,109.2,7,104.2,110.6,25,57,27,+2500,771,Not in playoffs
+ORL,2014,23,59,5,Jacque Vaughn ,96.5,102.0,6,101.7,107.4,26,56,26,+30000,666,Not in playoffs
+NYK,2014,37,45,3,Mike Woodson ,98.6,99.4,3,108.3,109.1,39,43,18,+2200,812,Not in playoffs
+POR,2014,54,28,2,Terry Stotts ,106.7,102.8,9,111.5,107.4,52,30,8,+8000,809,"Lost NBA Western Conference Semifinals (1-4) versus San Antonio Spurs
+ "
 MEM,2014,50,32,3,Dave Joerger ,96.1,94.6,9,106.3,104.6,46,36,14,+2800,685,"NBA 2014 Playoffs:
 Lost NBA Western Conference First Round (3-4) versus Oklahoma City Thunder
  "
-MIA,2014,54,28,1,Erik Spoelstra ,102.2,97.4,2,110.9,105.8,54,28,4,+200,811,"Lost NBA Finals (1-4) versus San Antonio Spurs
+DEN,2014,36,46,4,Brian Shaw ,104.4,106.5,1,106.0,108.2,35,47,20,+3300,692,Not in playoffs
+WAS,2014,44,38,2,Randy Wittman ,100.7,99.4,2,106.0,104.6,45,37,15,+10000,698,"Lost NBA Eastern Conference Semifinals (2-4) versus Indiana Pacers
  "
-MIL,2014,15,67,5,Larry Drew ,95.5,103.7,8,103.0,111.8,20,62,29,+15000,552,Not in playoffs
+DET,2014,29,53,4,Maurice Cheeks ,101.0,104.7,9,105.9,109.7,31,51,24,+12500,616,Not in playoffs
+LAL,2014,27,55,5,Mike D'Antoni ,103.0,109.2,7,104.2,110.6,25,57,27,+2500,771,Not in playoffs
+BRK,2014,44,38,2,Jason Kidd ,98.5,99.5,4,106.7,107.7,38,44,19,+1200,707,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
+ "
+IND,2014,56,26,1,Frank Vogel ,96.7,92.3,5,104.1,99.3,54,28,6,+1400,717,"Lost NBA Eastern Conference Finals (2-4) versus Miami Heat
+ "
+ATL,2014,38,44,4,Mike Budenholzer ,101.0,101.5,6,105.9,106.4,40,42,17,+6600,587,"NBA 2014 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Indiana Pacers
+ "
 MIN,2014,40,42,3,Rick Adelman ,106.9,104.3,3,108.9,106.2,48,34,11,+10000,597,Not in playoffs
-NOP,2014,34,48,5,Monty Williams ,99.7,102.4,2,107.2,110.1,33,49,21,+10000,672,Not in playoffs
-NYK,2014,37,45,3,Mike Woodson ,98.6,99.4,3,108.3,109.1,39,43,18,+2200,812,Not in playoffs
-OKC,2014,59,23,1,Scott Brooks ,106.2,99.8,4,110.5,103.9,58,24,3,+550,746,"Lost NBA Western Conference Finals (2-4) versus San Antonio Spurs
- "
-ORL,2014,23,59,5,Jacque Vaughn ,96.5,102.0,6,101.7,107.4,26,56,26,+30000,666,Not in playoffs
-PHI,2014,19,63,5,Brett Brown ,99.5,109.9,2,99.4,109.9,16,66,30,+10000,568,Not in playoffs
-PHO,2014,48,34,3,Jeff Hornacek ,105.2,102.6,8,109.5,106.7,48,34,10,+20000,650,Not in playoffs
-POR,2014,54,28,2,Terry Stotts ,106.7,102.8,9,111.5,107.4,52,30,8,+8000,809,"Lost NBA Western Conference Semifinals (1-4) versus San Antonio Spurs
- "
-SAC,2014,28,54,4,Michael Malone ,100.5,103.4,4,105.7,108.8,33,49,22,+15000,667,Not in playoffs
-SAS,2014,62,20,1,Gregg Popovich ,105.4,97.6,0,110.5,102.4,61,21,1,+1200,755,"Won NBA Finals (4-1) versus Miami Heat
- "
+CLE,2014,33,49,3,Mike Brown ,98.2,101.5,1,104.2,107.7,32,50,23,+6600,710,Not in playoffs
 TOR,2014,48,34,1,Dwane Casey ,101.3,98.0,8,108.8,105.3,50,32,9,+15000,748,"NBA 2014 Playoffs:
 Lost NBA Eastern Conference First Round (3-4) versus Brooklyn Nets
  "
-UTA,2014,25,57,5,Tyrone Corbin ,95.0,102.2,4,103.5,111.3,22,60,28,+8000,745,Not in playoffs
-WAS,2014,44,38,2,Randy Wittman ,100.7,99.4,2,106.0,104.6,45,37,15,+10000,698,"Lost NBA Eastern Conference Semifinals (2-4) versus Indiana Pacers
+CHI,2014,48,34,2,Tom Thibodeau ,93.7,91.8,2,102.5,100.5,47,35,13,+1000,890,"NBA 2014 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Washington Wizards
  "
-ATL,2015,60,22,1,Mike Budenholzer ,102.5,97.1,9,108.9,103.1,56,26,4,+12500,713,"Lost NBA Eastern Conference Finals (0-4) versus Cleveland Cavaliers
+NOP,2014,34,48,5,Monty Williams ,99.7,102.4,2,107.2,110.1,33,49,21,+10000,672,Not in playoffs
+MIA,2014,54,28,1,Erik Spoelstra ,102.2,97.4,2,110.9,105.8,54,28,4,+200,811,"Lost NBA Finals (1-4) versus San Antonio Spurs
  "
-BOS,2015,40,42,2,Brad Stevens ,101.4,101.2,8,104.7,104.5,41,41,18,+15000,721,"NBA 2015 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
+OKC,2014,59,23,1,Scott Brooks ,106.2,99.8,4,110.5,103.9,58,24,3,+550,746,"Lost NBA Western Conference Finals (2-4) versus San Antonio Spurs
  "
-BRK,2015,38,44,3,Lionel Hollins ,98.0,100.9,7,104.4,107.4,33,49,22,+6000,698,"NBA 2015 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
+GSW,2014,51,31,2,Mark Jackson ,104.3,99.5,2,107.5,102.6,54,28,5,+2500,803,"NBA 2014 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
  "
-CHO,2015,33,49,4,Steve Clifford ,94.2,97.3,0,100.1,103.5,32,50,23,+8500,704,Not in playoffs
-CHI,2015,50,32,2,Tom Thibodeau ,100.8,97.8,8,107.5,104.3,50,32,9,+700,886,"Lost NBA Eastern Conference Semifinals (2-4) versus Cleveland Cavaliers
+CHA,2014,43,39,3,Steve Clifford ,96.9,97.1,4,103.6,103.8,40,42,16,+30000,636,"NBA 2014 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Miami Heat
  "
-CLE,2015,53,29,1,David Blatt ,103.1,98.7,3,111.1,106.3,53,29,5,+275,843,"Lost NBA Finals (2-4) versus Golden State Warriors
- "
+SAC,2015,29,53,4,Michael Malone ,101.3,105.0,4,105.3,109.2,31,51,25,+25000,680,Not in playoffs
 DAL,2015,50,32,4,Rick Carlisle ,105.2,102.3,2,109.5,106.4,49,33,11,+2500,827,"NBA 2015 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Houston Rockets
  "
-DEN,2015,30,52,4,Brian Shaw ,101.5,105.0,1,104.5,108.2,31,51,24,+12500,602,Not in playoffs
-DET,2015,32,50,5,Stan Van Gundy ,98.5,99.5,8,105.3,106.4,38,44,20,+25000,625,Not in playoffs
-GSW,2015,67,15,1,Steve Kerr ,110.0,99.9,3,111.6,101.4,65,17,1,+2800,803,"Won NBA Finals (4-2) versus Cleveland Cavaliers
- "
 HOU,2015,56,26,1,Kevin McHale ,103.9,100.5,5,107.0,103.4,50,32,7,+2200,747,"Lost NBA Western Conference Finals (1-4) versus Golden State Warriors
  "
-IND,2015,38,44,4,Frank Vogel ,97.3,97.0,2,103.5,103.2,42,40,16,+8000,691,Not in playoffs
-LAC,2015,56,26,2,Doc Rivers ,106.7,100.1,7,112.4,105.5,58,24,2,+900,785,"Lost NBA Western Conference Semifinals (3-4) versus Houston Rockets
+PHO,2015,39,43,3,Jeff Hornacek ,102.4,103.3,3,105.3,106.2,38,44,19,+8500,693,Not in playoffs
+PHI,2015,18,64,4,Brett Brown ,92.0,101.0,7,95.5,104.8,18,64,29,+50000,571,Not in playoffs
+BOS,2015,40,42,2,Brad Stevens ,101.4,101.2,8,104.7,104.5,41,41,18,+15000,721,"NBA 2015 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
  "
-LAL,2015,21,61,5,Byron Scott ,98.5,105.3,0,103.4,110.6,23,59,27,+10000,768,Not in playoffs
-MEM,2015,55,27,2,Dave Joerger ,98.3,95.1,0,105.7,102.2,50,32,8,+5500,710,"Lost NBA Western Conference Semifinals (2-4) versus Golden State Warriors
- "
-MIA,2015,37,45,3,Erik Spoelstra ,94.7,97.3,9,103.9,106.7,33,49,21,+4500,808,Not in playoffs
 MIL,2015,41,41,3,Jason Kidd ,97.8,97.4,1,102.7,102.2,42,40,15,+25000,593,"NBA 2015 Playoffs:
 Lost NBA Eastern Conference First Round (2-4) versus Chicago Bulls
  "
-MIN,2015,16,66,5,Flip Saunders ,97.8,106.5,4,102.9,112.2,19,63,28,+25000,595,Not in playoffs
-NOP,2015,45,37,5,Monty Williams ,99.4,98.6,4,108.2,107.3,43,39,13,+7500,683,"NBA 2015 Playoffs:
-Lost NBA Western Conference First Round (0-4) versus Golden State Warriors
+UTA,2015,38,44,3,Quin Snyder ,95.1,94.9,4,105.1,104.9,42,40,17,+25000,772,Not in playoffs
+SAS,2015,55,27,3,Gregg Popovich ,103.2,97.0,8,108.5,102.0,58,24,3,+350,762,"NBA 2015 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
  "
-NYK,2015,17,65,5,Derek Fisher ,91.9,101.2,2,99.9,110.0,17,65,30,+5500,812,Not in playoffs
-OKC,2015,45,37,2,Scott Brooks ,104.0,101.8,7,107.8,105.5,47,35,12,+600,746,Not in playoffs
+LAC,2015,56,26,2,Doc Rivers ,106.7,100.1,7,112.4,105.5,58,24,2,+900,785,"Lost NBA Western Conference Semifinals (3-4) versus Houston Rockets
+ "
 ORL,2015,25,57,5,Jacque Vaughn ,95.7,101.4,8,101.6,107.7,25,57,26,+25000,688,Not in playoffs
-PHI,2015,18,64,4,Brett Brown ,92.0,101.0,7,95.5,104.8,18,64,29,+50000,571,Not in playoffs
-PHO,2015,39,43,3,Jeff Hornacek ,102.4,103.3,3,105.3,106.2,38,44,19,+8500,693,Not in playoffs
+NYK,2015,17,65,5,Derek Fisher ,91.9,101.2,2,99.9,110.0,17,65,30,+5500,812,Not in playoffs
 POR,2015,51,31,1,Terry Stotts ,102.8,98.6,2,108.2,103.7,53,29,6,+5000,798,"NBA 2015 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Memphis Grizzlies
  "
-SAC,2015,29,53,4,Michael Malone ,101.3,105.0,4,105.3,109.2,31,51,25,+25000,680,Not in playoffs
-SAS,2015,55,27,3,Gregg Popovich ,103.2,97.0,8,108.5,102.0,58,24,3,+350,762,"NBA 2015 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
+MEM,2015,55,27,2,Dave Joerger ,98.3,95.1,0,105.7,102.2,50,32,8,+5500,710,"Lost NBA Western Conference Semifinals (2-4) versus Golden State Warriors
+ "
+DEN,2015,30,52,4,Brian Shaw ,101.5,105.0,1,104.5,108.2,31,51,24,+12500,602,Not in playoffs
+WAS,2015,46,36,2,Randy Wittman ,98.5,97.8,7,103.7,103.0,43,39,14,+3000,747,"Lost NBA Eastern Conference Semifinals (2-4) versus Atlanta Hawks
+ "
+DET,2015,32,50,5,Stan Van Gundy ,98.5,99.5,8,105.3,106.4,38,44,20,+25000,625,Not in playoffs
+LAL,2015,21,61,5,Byron Scott ,98.5,105.3,0,103.4,110.6,23,59,27,+10000,768,Not in playoffs
+BRK,2015,38,44,3,Lionel Hollins ,98.0,100.9,7,104.4,107.4,33,49,22,+6000,698,"NBA 2015 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
+ "
+IND,2015,38,44,4,Frank Vogel ,97.3,97.0,2,103.5,103.2,42,40,16,+8000,691,Not in playoffs
+ATL,2015,60,22,1,Mike Budenholzer ,102.5,97.1,9,108.9,103.1,56,26,4,+12500,713,"Lost NBA Eastern Conference Finals (0-4) versus Cleveland Cavaliers
+ "
+MIN,2015,16,66,5,Flip Saunders ,97.8,106.5,4,102.9,112.2,19,63,28,+25000,595,Not in playoffs
+CLE,2015,53,29,1,David Blatt ,103.1,98.7,3,111.1,106.3,53,29,5,+275,843,"Lost NBA Finals (2-4) versus Golden State Warriors
  "
 TOR,2015,49,33,1,Dwane Casey ,104.0,100.9,8,111.0,107.7,49,33,10,+5000,809,"NBA 2015 Playoffs:
 Lost NBA Eastern Conference First Round (0-4) versus Washington Wizards
  "
-UTA,2015,38,44,3,Quin Snyder ,95.1,94.9,4,105.1,104.9,42,40,17,+25000,772,Not in playoffs
-WAS,2015,46,36,2,Randy Wittman ,98.5,97.8,7,103.7,103.0,43,39,14,+3000,747,"Lost NBA Eastern Conference Semifinals (2-4) versus Atlanta Hawks
+CHI,2015,50,32,2,Tom Thibodeau ,100.8,97.8,8,107.5,104.3,50,32,9,+700,886,"Lost NBA Eastern Conference Semifinals (2-4) versus Cleveland Cavaliers
  "
-ATL,2016,48,34,4,Mike Budenholzer ,102.8,99.2,1,105.1,101.4,51,31,7,+3600,690,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
+NOP,2015,45,37,5,Monty Williams ,99.4,98.6,4,108.2,107.3,43,39,13,+7500,683,"NBA 2015 Playoffs:
+Lost NBA Western Conference First Round (0-4) versus Golden State Warriors
  "
-BOS,2016,48,34,5,Brad Stevens ,105.7,102.5,5,106.8,103.6,50,32,8,+15500,749,"NBA 2016 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
+MIA,2015,37,45,3,Erik Spoelstra ,94.7,97.3,9,103.9,106.7,33,49,21,+4500,808,Not in playoffs
+OKC,2015,45,37,2,Scott Brooks ,104.0,101.8,7,107.8,105.5,47,35,12,+600,746,Not in playoffs
+GSW,2015,67,15,1,Steve Kerr ,110.0,99.9,3,111.6,101.4,65,17,1,+2800,803,"Won NBA Finals (4-2) versus Cleveland Cavaliers
  "
-BRK,2016,21,61,14,Lionel Hollins ,98.6,106.0,2,103.2,110.9,22,60,28,+30000,620,Not in playoffs
-CHO,2016,48,34,6,Steve Clifford ,103.4,100.7,7,107.1,104.3,49,33,9,+35000,716,"NBA 2016 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Miami Heat
- "
-CHI,2016,42,40,9,Fred Hoiberg ,101.6,103.1,7,105.0,106.5,37,45,18,+1600,894,Not in playoffs
-CLE,2016,57,25,1,David Blatt ,104.3,98.3,3,110.9,104.5,57,25,4,+280,843,"Won NBA Finals (4-3) versus Golden State Warriors
- "
+CHO,2015,33,49,4,Steve Clifford ,94.2,97.3,0,100.1,103.5,32,50,23,+8500,704,Not in playoffs
+SAC,2016,33,49,10,George Karl ,106.6,109.1,0,106.0,108.4,34,48,21,+30000,707,Not in playoffs
 DAL,2016,42,40,6,Rick Carlisle ,102.3,102.6,3,106.7,107.0,40,42,16,+12000,825,"NBA 2016 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Oklahoma City Thunder
- "
-DEN,2016,33,49,10,Michael Malone ,101.9,105.0,7,105.6,108.9,33,49,23,+30000,577,Not in playoffs
-DET,2016,44,38,8,Stan Van Gundy ,102.0,101.4,1,106.1,105.5,43,39,14,+25000,677,"NBA 2016 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
- "
-GSW,2016,73,9,1,Steve Kerr ,114.9,104.1,3,114.5,103.8,65,17,2,+480,803,"Lost NBA Finals (3-4) versus Cleveland Cavaliers
  "
 HOU,2016,41,41,8,Kevin McHale ,106.5,106.4,6,108.3,108.1,42,40,15,+1500,737,"NBA 2016 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Golden State Warriors
  "
-IND,2016,45,37,7,Frank Vogel ,102.2,100.5,6,104.6,102.9,46,36,11,+9000,690,"NBA 2016 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Toronto Raptors
+PHO,2016,23,59,14,Jeff Hornacek ,100.9,107.5,5,102.2,109.0,24,58,27,+30000,701,Not in playoffs
+PHI,2016,10,72,15,Brett Brown ,97.4,107.6,9,98.8,109.2,16,66,30,+100000,614,Not in playoffs
+BOS,2016,48,34,5,Brad Stevens ,105.7,102.5,5,106.8,103.6,50,32,8,+15500,749,"NBA 2016 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Atlanta Hawks
+ "
+MIL,2016,33,49,12,Jason Kidd ,99.0,103.2,2,104.3,108.7,29,53,26,+6800,621,Not in playoffs
+UTA,2016,40,42,9,Quin Snyder ,97.7,95.9,0,105.9,103.9,46,36,10,+15000,791,Not in playoffs
+SAS,2016,67,15,2,Gregg Popovich ,103.5,92.9,8,110.3,99.0,67,15,1,+500,756,"Lost NBA Western Conference Semifinals (2-4) versus Oklahoma City Thunder
  "
 LAC,2016,53,29,4,Doc Rivers ,104.5,100.2,8,108.3,103.8,53,29,6,+1200,786,"NBA 2016 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Portland Trail Blazers
  "
-LAL,2016,17,65,15,Byron Scott ,97.3,106.9,6,101.6,111.6,17,65,29,+20000,778,Not in playoffs
+ORL,2016,35,47,11,Scott Skiles ,102.1,103.7,0,105.1,106.8,36,46,19,+50000,719,Not in playoffs
+NYK,2016,32,50,13,Derek Fisher ,98.4,101.1,4,104.6,107.6,33,49,22,+24000,812,Not in playoffs
+POR,2016,44,38,5,Terry Stotts ,105.1,104.3,0,108.8,108.0,43,39,13,+30000,794,"Lost NBA Western Conference Semifinals (1-4) versus Golden State Warriors
+ "
 MEM,2016,42,40,7,Dave Joerger ,99.1,101.3,3,105.4,107.8,35,47,20,+3300,701,"NBA 2016 Playoffs:
 Lost NBA Western Conference First Round (0-4) versus San Antonio Spurs
  "
-MIA,2016,48,34,3,Erik Spoelstra ,100.0,98.4,6,106.1,104.4,46,36,12,+4000,809,"Lost NBA Eastern Conference Semifinals (3-4) versus Toronto Raptors
+DEN,2016,33,49,10,Michael Malone ,101.9,105.0,7,105.6,108.9,33,49,23,+30000,577,Not in playoffs
+WAS,2016,41,41,10,Randy Wittman ,104.1,104.6,5,105.3,105.8,40,42,17,+5500,725,Not in playoffs
+DET,2016,44,38,8,Stan Van Gundy ,102.0,101.4,1,106.1,105.5,43,39,14,+25000,677,"NBA 2016 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
  "
-MIL,2016,33,49,12,Jason Kidd ,99.0,103.2,2,104.3,108.7,29,53,26,+6800,621,Not in playoffs
+LAL,2016,17,65,15,Byron Scott ,97.3,106.9,6,101.6,111.6,17,65,29,+20000,778,Not in playoffs
+BRK,2016,21,61,14,Lionel Hollins ,98.6,106.0,2,103.2,110.9,22,60,28,+30000,620,Not in playoffs
+IND,2016,45,37,7,Frank Vogel ,102.2,100.5,6,104.6,102.9,46,36,11,+9000,690,"NBA 2016 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Toronto Raptors
+ "
+ATL,2016,48,34,4,Mike Budenholzer ,102.8,99.2,1,105.1,101.4,51,31,7,+3600,690,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
+ "
 MIN,2016,29,53,13,Sam Mitchell ,102.4,106.0,2,106.5,110.1,31,51,24,+30000,581,Not in playoffs
-NOP,2016,30,52,12,Alvin Gentry ,102.7,106.5,8,105.6,109.5,31,51,25,+3300,688,Not in playoffs
-NYK,2016,32,50,13,Derek Fisher ,98.4,101.1,4,104.6,107.6,33,49,22,+24000,812,Not in playoffs
-OKC,2016,55,27,3,Billy Donovan ,110.2,102.9,7,113.1,105.6,59,23,3,+750,746,"Lost NBA Western Conference Finals (3-4) versus Golden State Warriors
- "
-ORL,2016,35,47,11,Scott Skiles ,102.1,103.7,0,105.1,106.8,36,46,19,+50000,719,Not in playoffs
-PHI,2016,10,72,15,Brett Brown ,97.4,107.6,9,98.8,109.2,16,66,30,+100000,614,Not in playoffs
-PHO,2016,23,59,14,Jeff Hornacek ,100.9,107.5,5,102.2,109.0,24,58,27,+30000,701,Not in playoffs
-POR,2016,44,38,5,Terry Stotts ,105.1,104.3,0,108.8,108.0,43,39,13,+30000,794,"Lost NBA Western Conference Semifinals (1-4) versus Golden State Warriors
- "
-SAC,2016,33,49,10,George Karl ,106.6,109.1,0,106.0,108.4,34,48,21,+30000,707,Not in playoffs
-SAS,2016,67,15,2,Gregg Popovich ,103.5,92.9,8,110.3,99.0,67,15,1,+500,756,"Lost NBA Western Conference Semifinals (2-4) versus Oklahoma City Thunder
+CLE,2016,57,25,1,David Blatt ,104.3,98.3,3,110.9,104.5,57,25,4,+280,843,"Won NBA Finals (4-3) versus Golden State Warriors
  "
 TOR,2016,56,26,2,Dwane Casey ,102.7,98.2,9,110.0,105.2,53,29,5,+6600,812,"Lost NBA Eastern Conference Finals (2-4) versus Cleveland Cavaliers
  "
-UTA,2016,40,42,9,Quin Snyder ,97.7,95.9,0,105.9,103.9,46,36,10,+15000,791,Not in playoffs
-WAS,2016,41,41,10,Randy Wittman ,104.1,104.6,5,105.3,105.8,40,42,17,+5500,725,Not in playoffs
-ATL,2017,43,39,5,Mike Budenholzer ,103.2,104.0,4,104.9,105.7,39,43,19,+10000,654,"NBA 2017 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Washington Wizards
+CHI,2016,42,40,9,Fred Hoiberg ,101.6,103.1,7,105.0,106.5,37,45,18,+1600,894,Not in playoffs
+NOP,2016,30,52,12,Alvin Gentry ,102.7,106.5,8,105.6,109.5,31,51,25,+3300,688,Not in playoffs
+MIA,2016,48,34,3,Erik Spoelstra ,100.0,98.4,6,106.1,104.4,46,36,12,+4000,809,"Lost NBA Eastern Conference Semifinals (3-4) versus Toronto Raptors
  "
-BOS,2017,53,29,1,Brad Stevens ,108.0,105.4,8,111.2,108.4,48,34,8,+2900,760,"Lost NBA Eastern Conference Finals (1-4) versus Cleveland Cavaliers
+OKC,2016,55,27,3,Billy Donovan ,110.2,102.9,7,113.1,105.6,59,23,3,+750,746,"Lost NBA Western Conference Finals (3-4) versus Golden State Warriors
  "
-BRK,2017,20,62,15,Kenny Atkinson ,105.8,112.5,3,104.1,110.7,24,58,28,+135000,632,Not in playoffs
-CHO,2017,36,46,11,Steve Clifford ,104.9,104.7,7,108.8,108.6,42,40,15,+55000,710,Not in playoffs
-CHI,2017,41,41,8,Fred Hoiberg ,102.9,102.4,3,107.4,107.0,42,40,14,+9000,888,"NBA 2017 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Boston Celtics
+GSW,2016,73,9,1,Steve Kerr ,114.9,104.1,3,114.5,103.8,65,17,2,+480,803,"Lost NBA Finals (3-4) versus Cleveland Cavaliers
  "
-CLE,2017,51,31,2,Tyronn Lue ,110.3,107.2,2,113.6,110.3,49,33,7,+385,843,"Lost NBA Finals (1-4) versus Golden State Warriors
+CHO,2016,48,34,6,Steve Clifford ,103.4,100.7,7,107.1,104.3,49,33,9,+35000,716,"NBA 2016 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Miami Heat
  "
+SAC,2017,32,50,12,Dave Joerger ,102.8,106.7,9,107.3,111.3,31,51,25,+50000,1,Not in playoffs
 DAL,2017,33,49,11,Rick Carlisle ,97.9,100.8,2,105.6,108.8,33,49,23,+39000,811,Not in playoffs
-DEN,2017,40,42,9,Michael Malone ,111.7,111.2,3,113.2,112.7,42,40,13,+50000,605,Not in playoffs
-DET,2017,37,45,10,Stan Van Gundy ,101.3,102.5,0,106.0,107.1,38,44,21,+14000,655,Not in playoffs
-GSW,2017,67,15,1,Steve Kerr ,115.9,104.3,8,115.6,104.0,67,15,1,-128,803,"Won NBA Finals (4-1) versus Cleveland Cavaliers
- "
 HOU,2017,55,27,3,Mike D'Antoni ,115.3,109.6,0,114.7,109.0,55,27,3,+16000,695,"Lost NBA Western Conference Semifinals (2-4) versus San Antonio Spurs
  "
-IND,2017,42,40,7,Nate McMillan ,105.1,105.3,9,108.6,108.8,40,42,17,+8000,684,"NBA 2017 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
+PHO,2017,24,58,15,Earl Watson ,107.7,113.3,3,106.6,112.2,27,55,26,+85000,708,Not in playoffs
+PHI,2017,28,54,14,Brett Brown ,102.4,108.1,5,103.2,108.9,26,56,27,+50000,710,Not in playoffs
+BOS,2017,53,29,1,Brad Stevens ,108.0,105.4,8,111.2,108.4,48,34,8,+2900,760,"Lost NBA Eastern Conference Finals (1-4) versus Cleveland Cavaliers
+ "
+MIL,2017,42,40,6,Jason Kidd ,103.6,103.8,5,109.1,109.3,40,42,16,+18000,648,"NBA 2017 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Toronto Raptors
+ "
+UTA,2017,51,31,5,Quin Snyder ,100.7,96.8,6,109.6,105.3,52,30,6,+10000,806,"Lost NBA Western Conference Semifinals (0-4) versus Golden State Warriors
+ "
+SAS,2017,61,21,2,Gregg Popovich ,105.3,98.1,2,111.1,103.5,60,22,2,+925,755,"Lost NBA Western Conference Finals (0-4) versus Golden State Warriors
  "
 LAC,2017,51,31,4,Doc Rivers ,108.7,104.4,1,112.7,108.2,52,30,4,+3500,782,"NBA 2017 Playoffs:
 Lost NBA Western Conference First Round (3-4) versus Utah Jazz
  "
-LAL,2017,26,56,14,Luke Walton ,104.6,111.5,5,106.0,113.0,24,58,30,+39000,776,Not in playoffs
-MEM,2017,43,39,7,David Fizdale ,100.5,100.0,3,107.7,107.1,42,40,12,+8800,677,"NBA 2017 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus San Antonio Spurs
- "
-MIA,2017,41,41,9,Erik Spoelstra ,103.2,102.1,2,107.8,106.7,44,38,10,+17500,805,Not in playoffs
-MIL,2017,42,40,6,Jason Kidd ,103.6,103.8,5,109.1,109.3,40,42,16,+18000,648,"NBA 2017 Playoffs:
-Lost NBA Eastern Conference First Round (2-4) versus Toronto Raptors
- "
-MIN,2017,31,51,13,Tom Thibodeau ,105.6,106.7,6,110.8,112.0,38,44,20,+10000,607,Not in playoffs
-NOP,2017,34,48,10,Alvin Gentry ,104.3,106.4,0,105.2,107.4,35,47,22,+14500,663,Not in playoffs
-NYK,2017,31,51,12,Jeff Hornacek ,104.3,108.0,0,107.7,111.5,31,51,24,+7500,810,Not in playoffs
-OKC,2017,47,35,6,Billy Donovan ,106.6,105.8,8,108.3,107.5,43,39,11,+6000,746,"NBA 2017 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Houston Rockets
- "
 ORL,2017,29,53,13,Frank Vogel ,101.1,107.6,8,103.7,110.5,24,58,29,+22500,727,Not in playoffs
-PHI,2017,28,54,14,Brett Brown ,102.4,108.1,5,103.2,108.9,26,56,27,+50000,710,Not in playoffs
-PHO,2017,24,58,15,Earl Watson ,107.7,113.3,3,106.6,112.2,27,55,26,+85000,708,Not in playoffs
+NYK,2017,31,51,12,Jeff Hornacek ,104.3,108.0,0,107.7,111.5,31,51,24,+7500,810,Not in playoffs
 POR,2017,41,41,8,Terry Stotts ,107.9,108.5,7,110.3,110.8,40,42,18,+13000,792,"NBA 2017 Playoffs:
 Lost NBA Western Conference First Round (0-4) versus Golden State Warriors
  "
-SAC,2017,32,50,12,Dave Joerger ,102.8,106.7,9,107.3,111.3,31,51,25,+50000,1,Not in playoffs
-SAS,2017,61,21,2,Gregg Popovich ,105.3,98.1,2,111.1,103.5,60,22,2,+925,755,"Lost NBA Western Conference Finals (0-4) versus Golden State Warriors
+MEM,2017,43,39,7,David Fizdale ,100.5,100.0,3,107.7,107.1,42,40,12,+8800,677,"NBA 2017 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus San Antonio Spurs
+ "
+DEN,2017,40,42,9,Michael Malone ,111.7,111.2,3,113.2,112.7,42,40,13,+50000,605,Not in playoffs
+WAS,2017,49,33,4,Scott Brooks ,109.2,107.4,4,111.2,109.3,46,36,9,+16000,697,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
+ "
+DET,2017,37,45,10,Stan Van Gundy ,101.3,102.5,0,106.0,107.1,38,44,21,+14000,655,Not in playoffs
+LAL,2017,26,56,14,Luke Walton ,104.6,111.5,5,106.0,113.0,24,58,30,+39000,776,Not in playoffs
+BRK,2017,20,62,15,Kenny Atkinson ,105.8,112.5,3,104.1,110.7,24,58,28,+135000,632,Not in playoffs
+IND,2017,42,40,7,Nate McMillan ,105.1,105.3,9,108.6,108.8,40,42,17,+8000,684,"NBA 2017 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Cleveland Cavaliers
+ "
+ATL,2017,43,39,5,Mike Budenholzer ,103.2,104.0,4,104.9,105.7,39,43,19,+10000,654,"NBA 2017 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Washington Wizards
+ "
+MIN,2017,31,51,13,Tom Thibodeau ,105.6,106.7,6,110.8,112.0,38,44,20,+10000,607,Not in playoffs
+CLE,2017,51,31,2,Tyronn Lue ,110.3,107.2,2,113.6,110.3,49,33,7,+385,843,"Lost NBA Finals (1-4) versus Golden State Warriors
  "
 TOR,2017,51,31,3,Dwane Casey ,106.9,102.6,7,112.3,107.8,52,30,5,+5500,813,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
  "
-UTA,2017,51,31,5,Quin Snyder ,100.7,96.8,6,109.6,105.3,52,30,6,+10000,806,"Lost NBA Western Conference Semifinals (0-4) versus Golden State Warriors
+CHI,2017,41,41,8,Fred Hoiberg ,102.9,102.4,3,107.4,107.0,42,40,14,+9000,888,"NBA 2017 Playoffs:
+Lost NBA Eastern Conference First Round (2-4) versus Boston Celtics
  "
-WAS,2017,49,33,4,Scott Brooks ,109.2,107.4,4,111.2,109.3,46,36,9,+16000,697,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
+NOP,2017,34,48,10,Alvin Gentry ,104.3,106.4,0,105.2,107.4,35,47,22,+14500,663,Not in playoffs
+MIA,2017,41,41,9,Erik Spoelstra ,103.2,102.1,2,107.8,106.7,44,38,10,+17500,805,Not in playoffs
+OKC,2017,47,35,6,Billy Donovan ,106.6,105.8,8,108.3,107.5,43,39,11,+6000,746,"NBA 2017 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Houston Rockets
  "
-ATL,2018,24,58,15,Mike Budenholzer ,103.4,108.8,3,105.0,110.6,27,55,26,+200000,590,Not in playoffs
-BOS,2018,55,27,2,Brad Stevens ,104.0,100.4,0,107.6,103.9,51,31,6,+1200,763,"Lost NBA Eastern Conference Finals (3-4) versus Cleveland Cavaliers
+GSW,2017,67,15,1,Steve Kerr ,115.9,104.3,8,115.6,104.0,67,15,1,-128,803,"Won NBA Finals (4-1) versus Cleveland Cavaliers
  "
-BRK,2018,28,54,12,Kenny Atkinson ,106.6,110.3,9,106.9,110.6,31,51,24,+250000,640,Not in playoffs
-CHO,2018,36,46,10,Steve Clifford ,108.2,108.0,4,109.4,109.1,42,40,17,+50000,671,Not in playoffs
-CHI,2018,27,55,13,Fred Hoiberg ,102.9,110.0,3,103.8,110.9,23,59,28,+250000,851,Not in playoffs
-CLE,2018,50,32,4,Tyronn Lue ,110.9,109.9,0,112.9,111.9,43,39,14,+515,843,"Lost NBA Finals (0-4) versus Golden State Warriors
- "
+CHO,2017,36,46,11,Steve Clifford ,104.9,104.7,7,108.8,108.6,42,40,15,+55000,710,Not in playoffs
+SAC,2018,27,55,12,Dave Joerger ,98.8,105.8,9,103.7,111.1,23,59,29,+125000,1,Not in playoffs
 DAL,2018,24,58,13,Rick Carlisle ,102.3,105.4,6,106.3,109.5,33,49,22,+50000,811,Not in playoffs
-DEN,2018,46,36,9,Michael Malone ,110.0,108.5,8,112.5,111.0,45,37,11,+20000,702,Not in playoffs
-DET,2018,39,43,9,Stan Van Gundy ,103.8,103.9,2,107.2,107.3,41,41,19,+63000,713,Not in playoffs
-GSW,2018,58,24,2,Steve Kerr ,113.5,107.5,6,113.6,107.6,56,26,3,-187,803,"Won NBA Finals (4-0) versus Cleveland Cavaliers
- "
 HOU,2018,65,17,1,Mike D'Antoni ,112.4,103.9,6,114.7,106.1,61,21,1,+2150,732,"Lost NBA Western Conference Finals (3-4) versus Golden State Warriors
  "
-IND,2018,48,34,5,Nate McMillan ,105.6,104.2,0,109.5,108.1,45,37,12,+125000,658,"NBA 2018 Playoffs:
-Lost NBA Eastern Conference First Round (3-4) versus Cleveland Cavaliers
+PHO,2018,21,61,15,Earl Watson ,103.9,113.3,3,103.5,112.8,19,63,30,+125000,690,Not in playoffs
+PHI,2018,52,30,3,Brett Brown ,109.8,105.3,8,109.5,105.0,53,29,5,+19000,833,"Lost NBA Eastern Conference Semifinals (1-4) versus Boston Celtics
  "
-LAC,2018,42,40,10,Doc Rivers ,109.0,109.0,7,110.3,110.2,41,41,18,+19000,697,Not in playoffs
-LAL,2018,35,47,11,Luke Walton ,108.1,109.6,3,106.5,108.0,37,45,21,+30000,776,Not in playoffs
-MEM,2018,22,60,14,David Fizdale ,99.3,105.5,9,104.5,111.0,25,57,27,+37000,653,Not in playoffs
-MIA,2018,44,38,6,Erik Spoelstra ,103.4,102.9,6,106.8,106.3,42,40,16,+24000,804,"NBA 2018 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Philadelphia 76ers
+BOS,2018,55,27,2,Brad Stevens ,104.0,100.4,0,107.6,103.9,51,31,6,+1200,763,"Lost NBA Eastern Conference Finals (3-4) versus Cleveland Cavaliers
  "
 MIL,2018,44,38,7,Jason Kidd ,106.5,106.8,2,109.8,110.1,40,42,20,+8000,685,"NBA 2018 Playoffs:
 Lost NBA Eastern Conference First Round (3-4) versus Boston Celtics
  "
-MIN,2018,47,35,8,Tom Thibodeau ,109.5,107.3,0,113.4,111.1,47,35,10,+5000,699,"NBA 2018 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Houston Rockets
+UTA,2018,48,34,5,Quin Snyder ,104.1,99.8,7,108.4,103.9,53,29,4,+25000,734,"Lost NBA Western Conference Semifinals (1-4) versus Houston Rockets
  "
-NOP,2018,48,34,6,Alvin Gentry ,111.7,110.4,5,109.6,108.3,44,38,13,+22000,673,"Lost NBA Western Conference Semifinals (1-4) versus Golden State Warriors
- "
-NYK,2018,29,53,11,Jeff Hornacek ,104.5,108.0,8,107.1,110.7,32,50,23,+100000,792,Not in playoffs
-OKC,2018,48,34,4,Billy Donovan ,107.9,104.4,7,110.7,107.2,50,32,7,+2150,746,"NBA 2018 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Utah Jazz
- "
-ORL,2018,25,57,14,Frank Vogel ,103.4,108.2,1,105.2,110.1,28,54,25,+250000,734,Not in playoffs
-PHI,2018,52,30,3,Brett Brown ,109.8,105.3,8,109.5,105.0,53,29,5,+19000,833,"Lost NBA Eastern Conference Semifinals (1-4) versus Boston Celtics
- "
-PHO,2018,21,61,15,Earl Watson ,103.9,113.3,3,103.5,112.8,19,63,30,+125000,690,Not in playoffs
-POR,2018,49,33,3,Terry Stotts ,105.6,103.0,5,109.1,106.4,48,34,9,+31500,795,"NBA 2018 Playoffs:
-Lost NBA Western Conference First Round (0-4) versus New Orleans Pelicans
- "
-SAC,2018,27,55,12,Dave Joerger ,98.8,105.8,9,103.7,111.1,23,59,29,+125000,1,Not in playoffs
 SAS,2018,47,35,7,Gregg Popovich ,102.7,99.8,0,107.9,104.8,49,33,8,+1800,754,"NBA 2018 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Golden State Warriors
  "
-TOR,2018,59,23,1,Dwane Casey ,111.7,103.9,4,113.8,105.9,60,22,2,+15000,813,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
+LAC,2018,42,40,10,Doc Rivers ,109.0,109.0,7,110.3,110.2,41,41,18,+19000,697,Not in playoffs
+ORL,2018,25,57,14,Frank Vogel ,103.4,108.2,1,105.2,110.1,28,54,25,+250000,734,Not in playoffs
+NYK,2018,29,53,11,Jeff Hornacek ,104.5,108.0,8,107.1,110.7,32,50,23,+100000,792,Not in playoffs
+POR,2018,49,33,3,Terry Stotts ,105.6,103.0,5,109.1,106.4,48,34,9,+31500,795,"NBA 2018 Playoffs:
+Lost NBA Western Conference First Round (0-4) versus New Orleans Pelicans
  "
-UTA,2018,48,34,5,Quin Snyder ,104.1,99.8,7,108.4,103.9,53,29,4,+25000,734,"Lost NBA Western Conference Semifinals (1-4) versus Houston Rockets
- "
+MEM,2018,22,60,14,David Fizdale ,99.3,105.5,9,104.5,111.0,25,57,27,+37000,653,Not in playoffs
+DEN,2018,46,36,9,Michael Malone ,110.0,108.5,8,112.5,111.0,45,37,11,+20000,702,Not in playoffs
 WAS,2018,43,39,8,Scott Brooks ,106.6,106.0,6,109.3,108.7,43,39,15,+9000,739,"NBA 2018 Playoffs:
 Lost NBA Eastern Conference First Round (2-4) versus Toronto Raptors
  "
-ATL,2019,29,53,12,Lloyd Pierce ,113.3,119.4,9,108.1,113.9,27,55,26,+150000,628,Not in playoffs
-BOS,2019,49,33,4,Brad Stevens ,112.4,108.0,6,112.2,107.8,52,30,6,+620,763,"Lost NBA Eastern Conference Semifinals (1-4) versus Milwaukee Bucks
+DET,2018,39,43,9,Stan Van Gundy ,103.8,103.9,2,107.2,107.3,41,41,19,+63000,713,Not in playoffs
+LAL,2018,35,47,11,Luke Walton ,108.1,109.6,3,106.5,108.0,37,45,21,+30000,776,Not in playoffs
+BRK,2018,28,54,12,Kenny Atkinson ,106.6,110.3,9,106.9,110.6,31,51,24,+250000,640,Not in playoffs
+IND,2018,48,34,5,Nate McMillan ,105.6,104.2,0,109.5,108.1,45,37,12,+125000,658,"NBA 2018 Playoffs:
+Lost NBA Eastern Conference First Round (3-4) versus Cleveland Cavaliers
  "
-BRK,2019,42,40,6,Kenny Atkinson ,112.2,112.3,8,109.6,109.7,41,41,15,+125000,612,"NBA 2019 Playoffs:
+ATL,2018,24,58,15,Mike Budenholzer ,103.4,108.8,3,105.0,110.6,27,55,26,+200000,590,Not in playoffs
+MIN,2018,47,35,8,Tom Thibodeau ,109.5,107.3,0,113.4,111.1,47,35,10,+5000,699,"NBA 2018 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Houston Rockets
+ "
+CLE,2018,50,32,4,Tyronn Lue ,110.9,109.9,0,112.9,111.9,43,39,14,+515,843,"Lost NBA Finals (0-4) versus Golden State Warriors
+ "
+TOR,2018,59,23,1,Dwane Casey ,111.7,103.9,4,113.8,105.9,60,22,2,+15000,813,"Lost NBA Eastern Conference Semifinals (0-4) versus Cleveland Cavaliers
+ "
+CHI,2018,27,55,13,Fred Hoiberg ,102.9,110.0,3,103.8,110.9,23,59,28,+250000,851,Not in playoffs
+NOP,2018,48,34,6,Alvin Gentry ,111.7,110.4,5,109.6,108.3,44,38,13,+22000,673,"Lost NBA Western Conference Semifinals (1-4) versus Golden State Warriors
+ "
+MIA,2018,44,38,6,Erik Spoelstra ,103.4,102.9,6,106.8,106.3,42,40,16,+24000,804,"NBA 2018 Playoffs:
 Lost NBA Eastern Conference First Round (1-4) versus Philadelphia 76ers
  "
-CHO,2019,39,43,9,James Borrego ,110.7,111.8,7,111.4,112.5,38,44,19,+50000,676,Not in playoffs
-CHI,2019,22,60,13,Fred Hoiberg ,104.9,113.4,0,104.8,113.2,21,61,27,+50000,823,Not in playoffs
-CLE,2019,19,63,14,Tyronn Lue ,104.5,114.1,6,107.7,117.6,19,63,30,+50000,793,Not in playoffs
+OKC,2018,48,34,4,Billy Donovan ,107.9,104.4,7,110.7,107.2,50,32,7,+2150,746,"NBA 2018 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Utah Jazz
+ "
+GSW,2018,58,24,2,Steve Kerr ,113.5,107.5,6,113.6,107.6,56,26,3,-187,803,"Won NBA Finals (4-0) versus Cleveland Cavaliers
+ "
+CHO,2018,36,46,10,Steve Clifford ,108.2,108.0,4,109.4,109.1,42,40,17,+50000,671,Not in playoffs
+SAC,2019,39,43,9,Dave Joerger ,114.2,115.3,1,110.4,111.5,38,44,18,+200000,1,Not in playoffs
 DAL,2019,33,49,14,Rick Carlisle ,108.9,110.1,0,109.4,110.7,38,44,21,+35000,820,Not in playoffs
-DEN,2019,54,28,2,Michael Malone ,110.7,106.7,7,113.0,108.9,51,31,8,+20000,756,"Lost NBA Western Conference Semifinals (3-4) versus Portland Trail Blazers
- "
-DET,2019,41,41,8,Dwane Casey ,107.0,107.3,4,109.0,109.2,40,42,17,+35000,675,"NBA 2019 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Milwaukee Bucks
- "
-GSW,2019,57,25,1,Steve Kerr ,117.7,111.2,9,115.9,109.5,56,26,2,-168,803,"Lost NBA Finals (2-4) versus Toronto Raptors
- "
 HOU,2019,53,29,4,Mike D'Antoni ,113.9,109.1,9,115.5,110.7,53,29,5,+1000,740,"Lost NBA Western Conference Semifinals (2-4) versus Golden State Warriors
  "
-IND,2019,48,34,5,Nate McMillan ,108.0,104.7,1,109.9,106.5,50,32,9,+12500,689,"NBA 2019 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Boston Celtics
- "
-LAC,2019,48,34,8,Doc Rivers ,115.1,114.3,7,112.4,111.5,43,39,13,+40000,710,"NBA 2019 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Golden State Warriors
- "
-LAL,2019,37,45,10,Luke Walton ,111.8,113.5,2,107.8,109.5,37,45,23,+1800,778,Not in playoffs
-MEM,2019,33,49,12,J.B. Bickerstaff ,103.5,106.1,6,106.1,108.8,34,48,24,+65000,638,Not in playoffs
-MIA,2019,39,43,10,Erik Spoelstra ,105.7,105.9,2,107.3,107.6,40,42,16,+35000,805,Not in playoffs
-MIL,2019,60,22,1,Mike Budenholzer ,118.1,109.3,3,113.8,105.2,61,21,1,+10000,721,"Lost NBA Eastern Conference Finals (2-4) versus Toronto Raptors
- "
-MIN,2019,36,46,11,Tom Thibodeau ,112.5,114.0,2,111.4,112.9,37,45,22,+25000,627,Not in playoffs
-NOP,2019,33,49,13,Alvin Gentry ,115.4,116.8,3,111.4,112.6,38,44,20,+10000,656,Not in playoffs
-NYK,2019,17,65,15,David Fizdale ,104.6,113.8,6,104.5,113.7,19,63,29,+35000,779,Not in playoffs
-OKC,2019,49,33,6,Billy Donovan ,114.5,111.1,8,110.3,107.0,50,32,10,+3800,746,"NBA 2019 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Portland Trail Blazers
- "
-ORL,2019,42,40,7,Steve Clifford ,107.3,106.6,1,108.9,108.1,43,39,14,+75000,720,"NBA 2019 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Toronto Raptors
- "
+PHO,2019,19,63,15,Igor Kokoskov ,107.5,116.8,5,105.9,115.1,19,63,28,+75000,627,Not in playoffs
 PHI,2019,51,31,3,Brett Brown ,115.2,112.5,6,112.6,110.0,48,34,11,+2000,838,"Lost NBA Eastern Conference Semifinals (3-4) versus Toronto Raptors
  "
-PHO,2019,19,63,15,Igor Kokoskov ,107.5,116.8,5,105.9,115.1,19,63,28,+75000,627,Not in playoffs
-POR,2019,53,29,3,Terry Stotts ,114.7,110.5,1,114.7,110.5,51,31,7,+30000,799,"Lost NBA Western Conference Finals (0-4) versus Golden State Warriors
+BOS,2019,49,33,4,Brad Stevens ,112.4,108.0,6,112.2,107.8,52,30,6,+620,763,"Lost NBA Eastern Conference Semifinals (1-4) versus Milwaukee Bucks
  "
-SAC,2019,39,43,9,Dave Joerger ,114.2,115.3,1,110.4,111.5,38,44,18,+200000,1,Not in playoffs
-SAS,2019,48,34,7,Gregg Popovich ,111.7,110.0,3,112.9,111.2,45,37,12,+10000,750,"NBA 2019 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Denver Nuggets
- "
-TOR,2019,58,24,2,Nick Nurse ,114.4,108.4,2,113.1,107.1,56,26,3,+1850,812,"Won NBA Finals (4-2) versus Golden State Warriors
+MIL,2019,60,22,1,Mike Budenholzer ,118.1,109.3,3,113.8,105.2,61,21,1,+10000,721,"Lost NBA Eastern Conference Finals (2-4) versus Toronto Raptors
  "
 UTA,2019,50,32,5,Quin Snyder ,111.7,106.5,3,110.9,105.7,54,28,4,+10000,750,"NBA 2019 Playoffs:
 Lost NBA Western Conference First Round (1-4) versus Houston Rockets
  "
+SAS,2019,48,34,7,Gregg Popovich ,111.7,110.0,3,112.9,111.2,45,37,12,+10000,750,"NBA 2019 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Denver Nuggets
+ "
+LAC,2019,48,34,8,Doc Rivers ,115.1,114.3,7,112.4,111.5,43,39,13,+40000,710,"NBA 2019 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Golden State Warriors
+ "
+ORL,2019,42,40,7,Steve Clifford ,107.3,106.6,1,108.9,108.1,43,39,14,+75000,720,"NBA 2019 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Toronto Raptors
+ "
+NYK,2019,17,65,15,David Fizdale ,104.6,113.8,6,104.5,113.7,19,63,29,+35000,779,Not in playoffs
+POR,2019,53,29,3,Terry Stotts ,114.7,110.5,1,114.7,110.5,51,31,7,+30000,799,"Lost NBA Western Conference Finals (0-4) versus Golden State Warriors
+ "
+MEM,2019,33,49,12,J.B. Bickerstaff ,103.5,106.1,6,106.1,108.8,34,48,24,+65000,638,Not in playoffs
+DEN,2019,54,28,2,Michael Malone ,110.7,106.7,7,113.0,108.9,51,31,8,+20000,756,"Lost NBA Western Conference Semifinals (3-4) versus Portland Trail Blazers
+ "
 WAS,2019,32,50,11,Scott Brooks ,114.0,116.9,4,111.1,113.9,34,48,25,+11000,716,Not in playoffs
-ATL,2020,20,47,14,Lloyd Pierce ,111.8,119.7,0,107.2,114.8,18,49,28,+25000,545,Not in playoffs
-BOS,2020,48,24,3,Brad Stevens ,113.7,107.3,5,113.3,107.0,50,22,2,+2900,610,"Lost NBA Eastern Conference Finals (2-4) versus Miami Heat
+DET,2019,41,41,8,Dwane Casey ,107.0,107.3,4,109.0,109.2,40,42,17,+35000,675,"NBA 2019 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Milwaukee Bucks
  "
-BRK,2020,35,37,7,Kenny Atkinson ,111.8,112.3,4,108.9,109.5,35,37,15,+5500,524,"NBA 2020 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Toronto Raptors
+LAL,2019,37,45,10,Luke Walton ,111.8,113.5,2,107.8,109.5,37,45,23,+1800,778,Not in playoffs
+BRK,2019,42,40,6,Kenny Atkinson ,112.2,112.3,8,109.6,109.7,41,41,15,+125000,612,"NBA 2019 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Philadelphia 76ers
  "
-CHO,2020,23,42,9,James Borrego ,102.9,109.6,8,106.3,113.3,19,46,27,+200000,478,Not in playoffs
-CHI,2020,22,43,11,Jim Boylen ,106.8,109.9,7,106.7,109.8,26,39,22,+42500,639,Not in playoffs
-CLE,2020,19,46,15,John Beilein ,106.9,114.8,7,107.5,115.4,18,47,29,+150000,643,Not in playoffs
+IND,2019,48,34,5,Nate McMillan ,108.0,104.7,1,109.9,106.5,50,32,9,+12500,689,"NBA 2019 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Boston Celtics
+ "
+ATL,2019,29,53,12,Lloyd Pierce ,113.3,119.4,9,108.1,113.9,27,55,26,+150000,628,Not in playoffs
+MIN,2019,36,46,11,Tom Thibodeau ,112.5,114.0,2,111.4,112.9,37,45,22,+25000,627,Not in playoffs
+CLE,2019,19,63,14,Tyronn Lue ,104.5,114.1,6,107.7,117.6,19,63,30,+50000,793,Not in playoffs
+TOR,2019,58,24,2,Nick Nurse ,114.4,108.4,2,113.1,107.1,56,26,3,+1850,812,"Won NBA Finals (4-2) versus Golden State Warriors
+ "
+CHI,2019,22,60,13,Fred Hoiberg ,104.9,113.4,0,104.8,113.2,21,61,27,+50000,823,Not in playoffs
+NOP,2019,33,49,13,Alvin Gentry ,115.4,116.8,3,111.4,112.6,38,44,20,+10000,656,Not in playoffs
+MIA,2019,39,43,10,Erik Spoelstra ,105.7,105.9,2,107.3,107.6,40,42,16,+35000,805,Not in playoffs
+OKC,2019,49,33,6,Billy Donovan ,114.5,111.1,8,110.3,107.0,50,32,10,+3800,746,"NBA 2019 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Portland Trail Blazers
+ "
+GSW,2019,57,25,1,Steve Kerr ,117.7,111.2,9,115.9,109.5,56,26,2,-168,803,"Lost NBA Finals (2-4) versus Toronto Raptors
+ "
+CHO,2019,39,43,9,James Borrego ,110.7,111.8,7,111.4,112.5,38,44,19,+50000,676,Not in playoffs
+SAC,2020,31,41,12,Luke Walton ,110.1,112.1,9,110.2,112.2,31,41,21,+15000,1,Not in playoffs
 DAL,2020,43,32,7,Rick Carlisle ,117.0,112.1,3,116.7,111.7,49,26,6,+10500,682,"NBA 2020 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Los Angeles Clippers
  "
-DEN,2020,46,27,3,Michael Malone ,111.3,109.2,1,113.1,111.0,41,32,11,+2000,633,"Lost NBA Western Conference Finals (1-4) versus Los Angeles Lakers
- "
-DET,2020,20,46,13,Dwane Casey ,107.2,110.8,6,109.0,112.7,26,40,23,+25000,509,Not in playoffs
-GSW,2020,15,50,15,Steve Kerr ,106.3,115.0,3,105.2,113.8,16,49,30,+950,614,Not in playoffs
 HOU,2020,44,28,4,Mike D'Antoni ,117.8,114.8,7,112.9,110.1,42,30,8,+700,578,"Lost NBA Western Conference Semifinals (1-4) versus Los Angeles Lakers
  "
-IND,2020,45,28,4,Nate McMillan ,109.4,107.5,9,110.0,108.0,41,32,13,+5000,529,"NBA 2020 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Miami Heat
- "
-LAC,2020,49,23,2,Doc Rivers ,116.3,109.9,5,113.9,107.6,50,22,3,+425,610,"Lost NBA Western Conference Semifinals (3-4) versus Denver Nuggets
- "
-LAL,2020,52,19,1,Frank Vogel ,113.4,107.6,9,112.0,106.3,48,23,5,+450,588,"Won NBA Finals (4-2) versus Miami Heat
- "
-MEM,2020,34,39,9,Taylor Jenkins ,112.6,113.7,8,109.2,110.3,34,39,17,+100000,523,Not in playoffs
-MIA,2020,44,29,5,Erik Spoelstra ,112.0,109.1,3,112.5,109.5,43,30,7,+6000,629,"Lost NBA Finals (2-4) versus Los Angeles Lakers
- "
-MIL,2020,56,17,1,Mike Budenholzer ,118.7,108.6,1,112.4,102.9,57,16,1,+550,549,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
- "
-MIN,2020,19,45,14,Ryan Saunders ,113.2,117.5,4,108.1,112.2,24,40,24,+50000,482,Not in playoffs
-NOP,2020,30,42,13,Alvin Gentry ,115.8,117.1,7,110.7,111.9,33,39,20,+12500,528,Not in playoffs
-NYK,2020,21,45,12,David Fizdale ,105.8,112.3,6,106.5,113.0,20,46,26,+100000,620,Not in playoffs
-OKC,2020,44,28,5,Billy Donovan ,110.4,108.4,8,110.8,108.8,41,31,12,+25000,600,"NBA 2020 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Houston Rockets
- "
-ORL,2020,33,40,8,Steve Clifford ,107.3,108.3,6,108.5,109.5,34,39,16,+20000,529,"NBA 2020 Playoffs:
-Lost NBA Eastern Conference First Round (1-4) versus Milwaukee Bucks
- "
+PHO,2020,34,39,10,Monty Williams ,113.6,113.4,3,111.7,111.4,37,36,14,+50000,550,Not in playoffs
 PHI,2020,43,30,6,Brett Brown ,110.7,108.4,0,111.3,109.0,42,31,10,+775,639,"NBA 2020 Playoffs:
 Lost NBA Eastern Conference First Round (0-4) versus Boston Celtics
  "
-PHO,2020,34,39,10,Monty Williams ,113.6,113.4,3,111.7,111.4,37,36,14,+50000,550,Not in playoffs
-POR,2020,35,39,8,Terry Stotts ,115.0,116.1,7,113.7,114.8,34,40,19,+3500,628,"NBA 2020 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Los Angeles Lakers
+BOS,2020,48,24,3,Brad Stevens ,113.7,107.3,5,113.3,107.0,50,22,2,+2900,610,"Lost NBA Eastern Conference Finals (2-4) versus Miami Heat
  "
-SAC,2020,31,41,12,Luke Walton ,110.1,112.1,9,110.2,112.2,31,41,21,+15000,1,Not in playoffs
-SAS,2020,32,39,11,Gregg Popovich ,114.1,115.2,5,112.4,113.5,33,38,18,+6000,550,Not in playoffs
-TOR,2020,53,19,2,Nick Nurse ,112.8,106.5,9,111.1,105.0,50,22,4,+5500,633,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
+MIL,2020,56,17,1,Mike Budenholzer ,118.7,108.6,1,112.4,102.9,57,16,1,+550,549,"Lost NBA Eastern Conference Semifinals (1-4) versus Miami Heat
  "
 UTA,2020,44,28,6,Quin Snyder ,111.3,108.8,6,112.3,109.9,42,30,9,+1300,567,"NBA 2020 Playoffs:
 Lost NBA Western Conference First Round (3-4) versus Denver Nuggets
  "
+SAS,2020,32,39,11,Gregg Popovich ,114.1,115.2,5,112.4,113.5,33,38,18,+6000,550,Not in playoffs
+LAC,2020,49,23,2,Doc Rivers ,116.3,109.9,5,113.9,107.6,50,22,3,+425,610,"Lost NBA Western Conference Semifinals (3-4) versus Denver Nuggets
+ "
+ORL,2020,33,40,8,Steve Clifford ,107.3,108.3,6,108.5,109.5,34,39,16,+20000,529,"NBA 2020 Playoffs:
+Lost NBA Eastern Conference First Round (1-4) versus Milwaukee Bucks
+ "
+NYK,2020,21,45,12,David Fizdale ,105.8,112.3,6,106.5,113.0,20,46,26,+100000,620,Not in playoffs
+POR,2020,35,39,8,Terry Stotts ,115.0,116.1,7,113.7,114.8,34,40,19,+3500,628,"NBA 2020 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Los Angeles Lakers
+ "
+MEM,2020,34,39,9,Taylor Jenkins ,112.6,113.7,8,109.2,110.3,34,39,17,+100000,523,Not in playoffs
+DEN,2020,46,27,3,Michael Malone ,111.3,109.2,1,113.1,111.0,41,32,11,+2000,633,"Lost NBA Western Conference Finals (1-4) versus Los Angeles Lakers
+ "
 WAS,2020,25,47,10,Scott Brooks ,114.4,119.1,7,110.9,115.5,26,46,25,+125000,532,Not in playoffs
-ATL,2021,41,31,5,Lloyd Pierce ,113.7,111.4,6,115.7,113.3,41,31,10,+10000,59,"Lost NBA Eastern Conference Finals (2-4) versus Milwaukee Bucks
+DET,2020,20,46,13,Dwane Casey ,107.2,110.8,6,109.0,112.7,26,40,23,+25000,509,Not in playoffs
+LAL,2020,52,19,1,Frank Vogel ,113.4,107.6,9,112.0,106.3,48,23,5,+450,588,"Won NBA Finals (4-2) versus Miami Heat
+ "
+BRK,2020,35,37,7,Kenny Atkinson ,111.8,112.3,4,108.9,109.5,35,37,15,+5500,524,"NBA 2020 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Toronto Raptors
+ "
+IND,2020,45,28,4,Nate McMillan ,109.4,107.5,9,110.0,108.0,41,32,13,+5000,529,"NBA 2020 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Miami Heat
+ "
+ATL,2020,20,47,14,Lloyd Pierce ,111.8,119.7,0,107.2,114.8,18,49,28,+25000,545,Not in playoffs
+MIN,2020,19,45,14,Ryan Saunders ,113.2,117.5,4,108.1,112.2,24,40,24,+50000,482,Not in playoffs
+CLE,2020,19,46,15,John Beilein ,106.9,114.8,7,107.5,115.4,18,47,29,+150000,643,Not in playoffs
+TOR,2020,53,19,2,Nick Nurse ,112.8,106.5,9,111.1,105.0,50,22,4,+5500,633,"Lost NBA Eastern Conference Semifinals (3-4) versus Boston Celtics
+ "
+CHI,2020,22,43,11,Jim Boylen ,106.8,109.9,7,106.7,109.8,26,39,22,+42500,639,Not in playoffs
+NOP,2020,30,42,13,Alvin Gentry ,115.8,117.1,7,110.7,111.9,33,39,20,+12500,528,Not in playoffs
+MIA,2020,44,29,5,Erik Spoelstra ,112.0,109.1,3,112.5,109.5,43,30,7,+6000,629,"Lost NBA Finals (2-4) versus Los Angeles Lakers
+ "
+OKC,2020,44,28,5,Billy Donovan ,110.4,108.4,8,110.8,108.8,41,31,12,+25000,600,"NBA 2020 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Houston Rockets
+ "
+GSW,2020,15,50,15,Steve Kerr ,106.3,115.0,3,105.2,113.8,16,49,30,+950,614,Not in playoffs
+CHO,2020,23,42,9,James Borrego ,102.9,109.6,8,106.3,113.3,19,46,27,+200000,478,Not in playoffs
+SAC,2021,31,41,12,Luke Walton ,113.7,117.4,0,113.6,117.2,28,44,24,+25000,1,Not in playoffs
+DAL,2021,42,30,5,Rick Carlisle ,112.4,110.2,3,115.4,113.0,41,31,11,+2500,94,"NBA 2021 Playoffs:
+Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
+ "
+HOU,2021,17,55,15,Stephen Silas ,108.8,116.7,4,107.1,114.9,20,52,27,+5000,117,Not in playoffs
+PHO,2021,51,21,2,Monty Williams ,115.3,109.5,2,117.2,111.3,49,23,3,+4000,104,"Lost NBA Finals (2-4) versus Milwaukee Bucks
+ "
+PHI,2021,49,23,1,Doc Rivers ,113.6,108.1,5,113.2,107.6,48,24,4,+2500,68,"Lost NBA Eastern Conference Semifinals (3-4) versus Atlanta Hawks
  "
 BOS,2021,36,36,7,Brad Stevens ,112.6,111.2,3,114.0,112.5,39,33,13,+1400,30,"NBA 2021 Playoffs:
 Lost NBA Eastern Conference First Round (1-4) versus Brooklyn Nets
  "
-BRK,2021,48,24,2,Steve Nash ,118.6,114.1,5,118.3,113.8,46,26,7,+600,30,"Lost NBA Eastern Conference Semifinals (3-4) versus Milwaukee Bucks
- "
-CHO,2021,33,39,10,James Borrego ,109.5,111.4,3,110.9,112.8,32,40,23,+25000,68,Not in playoffs
-CHI,2021,31,41,11,Billy Donovan ,110.7,111.6,0,111.1,112.0,34,38,20,+25000,13,Not in playoffs
-CLE,2021,22,50,13,J.B. Bickerstaff ,103.8,112.3,3,105.8,114.4,18,54,28,+50000,91,Not in playoffs
-DAL,2021,42,30,5,Rick Carlisle ,112.4,110.2,3,115.4,113.0,41,31,11,+2500,94,"NBA 2021 Playoffs:
-Lost NBA Western Conference First Round (3-4) versus Los Angeles Clippers
- "
-DEN,2021,47,25,3,Michael Malone ,115.1,110.1,1,117.1,112.1,47,25,6,+1800,54,"Lost NBA Western Conference Semifinals (0-4) versus Phoenix Suns
- "
-DET,2021,20,52,15,Dwane Casey ,106.6,111.1,9,108.0,112.5,26,46,25,+50000,14,Not in playoffs
-GSW,2021,39,33,8,Steve Kerr ,113.7,112.7,2,111.1,110.1,38,34,14,+2500,33,Not in playoffs
-HOU,2021,17,55,15,Stephen Silas ,108.8,116.7,4,107.1,114.9,20,52,27,+5000,117,Not in playoffs
-IND,2021,34,38,9,Nate Bjorkgren ,115.3,115.3,6,112.4,112.4,36,36,17,+10000,0,Not in playoffs
-LAC,2021,47,25,4,Tyronn Lue ,114.0,107.8,9,117.6,111.2,49,23,2,+650,13,"Lost NBA Western Conference Finals (2-4) versus Phoenix Suns
- "
-LAL,2021,42,30,7,Frank Vogel ,109.5,106.8,7,109.9,107.1,42,30,8,+275,23,"NBA 2021 Playoffs:
-Lost NBA Western Conference First Round (2-4) versus Phoenix Suns
- "
-MEM,2021,38,34,9,Taylor Jenkins ,113.3,112.3,4,112.0,111.0,38,34,15,+15000,61,"NBA 2021 Playoffs:
-Lost NBA Western Conference First Round (1-4) versus Utah Jazz
- "
-MIA,2021,40,32,6,Erik Spoelstra ,108.1,108.0,6,111.2,111.2,36,36,16,+1600,0,"NBA 2021 Playoffs:
-Lost NBA Eastern Conference First Round (0-4) versus Milwaukee Bucks
- "
 MIL,2021,46,26,3,Mike Budenholzer ,120.1,114.2,2,117.2,111.4,48,24,5,+550,64,"Won NBA Finals (4-2) versus Phoenix Suns
  "
-MIN,2021,23,49,13,Ryan Saunders ,112.1,117.7,6,109.5,115.0,24,48,26,+20000,15,Not in playoffs
-NOP,2021,31,41,11,Stan Van Gundy ,114.6,114.9,1,113.5,113.8,35,37,18,+6500,93,Not in playoffs
+UTA,2021,52,20,1,Quin Snyder ,116.4,107.2,5,117.6,108.3,55,17,1,+4000,151,"Lost NBA Western Conference Semifinals (2-4) versus Los Angeles Clippers
+ "
+SAS,2021,33,39,10,Gregg Popovich ,111.1,112.8,9,111.0,112.8,32,40,21,+25000,61,Not in playoffs
+LAC,2021,47,25,4,Tyronn Lue ,114.0,107.8,9,117.6,111.2,49,23,2,+650,13,"Lost NBA Western Conference Finals (2-4) versus Phoenix Suns
+ "
+ORL,2021,21,51,14,Steve Clifford ,104.0,113.3,7,105.1,114.5,17,55,29,+20000,126,Not in playoffs
 NYK,2021,41,31,4,Tom Thibodeau ,107.0,104.7,9,110.6,108.2,41,31,9,+50000,42,"NBA 2021 Playoffs:
 Lost NBA Eastern Conference First Round (1-4) versus Atlanta Hawks
- "
-OKC,2021,22,50,14,Mark Daigneault ,105.0,115.6,0,103.5,114.0,15,57,30,+20000,0,Not in playoffs
-ORL,2021,21,51,14,Steve Clifford ,104.0,113.3,7,105.1,114.5,17,55,29,+20000,126,Not in playoffs
-PHI,2021,49,23,1,Doc Rivers ,113.6,108.1,5,113.2,107.6,48,24,4,+2500,68,"Lost NBA Eastern Conference Semifinals (3-4) versus Atlanta Hawks
- "
-PHO,2021,51,21,2,Monty Williams ,115.3,109.5,2,117.2,111.3,49,23,3,+4000,104,"Lost NBA Finals (2-4) versus Milwaukee Bucks
  "
 POR,2021,42,30,6,Terry Stotts ,116.1,114.3,4,117.8,116.0,40,32,12,+4000,5,"NBA 2021 Playoffs:
 Lost NBA Western Conference First Round (2-4) versus Denver Nuggets
  "
-SAC,2021,31,41,12,Luke Walton ,113.7,117.4,0,113.6,117.2,28,44,24,+25000,1,Not in playoffs
-SAS,2021,33,39,10,Gregg Popovich ,111.1,112.8,9,111.0,112.8,32,40,21,+25000,61,Not in playoffs
-TOR,2021,27,45,12,Nick Nurse ,111.3,111.7,2,112.0,112.5,35,37,19,+2500,26,Not in playoffs
-UTA,2021,52,20,1,Quin Snyder ,116.4,107.2,5,117.6,108.3,55,17,1,+4000,151,"Lost NBA Western Conference Semifinals (2-4) versus Los Angeles Clippers
+MEM,2021,38,34,9,Taylor Jenkins ,113.3,112.3,4,112.0,111.0,38,34,15,+15000,61,"NBA 2021 Playoffs:
+Lost NBA Western Conference First Round (1-4) versus Utah Jazz
+ "
+DEN,2021,47,25,3,Michael Malone ,115.1,110.1,1,117.1,112.1,47,25,6,+1800,54,"Lost NBA Western Conference Semifinals (0-4) versus Phoenix Suns
  "
 WAS,2021,34,38,8,Scott Brooks ,116.6,118.5,1,111.2,113.0,32,40,22,+10000,19,"NBA 2021 Playoffs:
 Lost NBA Eastern Conference First Round (1-4) versus Philadelphia 76ers
  "
+DET,2021,20,52,15,Dwane Casey ,106.6,111.1,9,108.0,112.5,26,46,25,+50000,14,Not in playoffs
+LAL,2021,42,30,7,Frank Vogel ,109.5,106.8,7,109.9,107.1,42,30,8,+275,23,"NBA 2021 Playoffs:
+Lost NBA Western Conference First Round (2-4) versus Phoenix Suns
+ "
+BRK,2021,48,24,2,Steve Nash ,118.6,114.1,5,118.3,113.8,46,26,7,+600,30,"Lost NBA Eastern Conference Semifinals (3-4) versus Milwaukee Bucks
+ "
+IND,2021,34,38,9,Nate Bjorkgren ,115.3,115.3,6,112.4,112.4,36,36,17,+10000,0,Not in playoffs
+ATL,2021,41,31,5,Lloyd Pierce ,113.7,111.4,6,115.7,113.3,41,31,10,+10000,59,"Lost NBA Eastern Conference Finals (2-4) versus Milwaukee Bucks
+ "
+MIN,2021,23,49,13,Ryan Saunders ,112.1,117.7,6,109.5,115.0,24,48,26,+20000,15,Not in playoffs
+CLE,2021,22,50,13,J.B. Bickerstaff ,103.8,112.3,3,105.8,114.4,18,54,28,+50000,91,Not in playoffs
+TOR,2021,27,45,12,Nick Nurse ,111.3,111.7,2,112.0,112.5,35,37,19,+2500,26,Not in playoffs
+CHI,2021,31,41,11,Billy Donovan ,110.7,111.6,0,111.1,112.0,34,38,20,+25000,13,Not in playoffs
+NOP,2021,31,41,11,Stan Van Gundy ,114.6,114.9,1,113.5,113.8,35,37,18,+6500,93,Not in playoffs
+MIA,2021,40,32,6,Erik Spoelstra ,108.1,108.0,6,111.2,111.2,36,36,16,+1600,0,"NBA 2021 Playoffs:
+Lost NBA Eastern Conference First Round (0-4) versus Milwaukee Bucks
+ "
+OKC,2021,22,50,14,Mark Daigneault ,105.0,115.6,0,103.5,114.0,15,57,30,+20000,0,Not in playoffs
+GSW,2021,39,33,8,Steve Kerr ,113.7,112.7,2,111.1,110.1,38,34,14,+2500,33,Not in playoffs
+CHO,2021,33,39,10,James Borrego ,109.5,111.4,3,110.9,112.8,32,40,23,+25000,68,Not in playoffs
