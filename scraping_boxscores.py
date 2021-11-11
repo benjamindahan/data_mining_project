@@ -14,34 +14,34 @@ MONTHS_2020 = ["october", "november", "december", "january", "february", "march"
 MONTHS_2021 = ["december", "january", "february", "march", "april", "may", "june", "july"]
 
 
-def url_creation(seasons):
+def url_creation(y):
     """
     This functions creates all the URLs that will be scraped. In each of them the year and month change.
     :param seasons: a list with all the seasons that will be scraped
     :return: the list of urls
     """
     list_of_urls_scores = []
-    for y in seasons:
-        # Exceptions due to COVID
-        if y == "2021":
-            for m in MONTHS_2021:
+
+    # Exceptions due to COVID
+    if y == "2021":
+        for m in MONTHS_2021:
+            url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
+            list_of_urls_scores.append(url)
+    # More exceptions due to COVID
+    elif y == "2020":
+        for m in MONTHS_2020:
+            if m == "october":
+                url_2019 = c.URL_1_SCORE + y + c.URL_2_SCORE + m + "-2019" + c.URL_3_SCORE
+                list_of_urls_scores.append(url_2019)
+                url_2020 = c.URL_1_SCORE + y + c.URL_2_SCORE + m + "-2020" + c.URL_3_SCORE
+                list_of_urls_scores.append(url_2020)
+            else:
                 url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
                 list_of_urls_scores.append(url)
-        # More exceptions due to COVID
-        if y == "2020":
-            for m in MONTHS_2020:
-                if m == "october":
-                    url_2019 = c.URL_1_SCORE + y + c.URL_2_SCORE + m + "-2019" + c.URL_3_SCORE
-                    list_of_urls_scores.append(url_2019)
-                    url_2020 = c.URL_1_SCORE + y + c.URL_2_SCORE + m + "-2020" + c.URL_3_SCORE
-                    list_of_urls_scores.append(url_2020)
-                else:
-                    url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
-                    list_of_urls_scores.append(url)
-        else:
-            for m in MONTHS:
-                url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
-                list_of_urls_scores.append(url)
+    else:
+        for m in MONTHS:
+            url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
+            list_of_urls_scores.append(url)
     return list_of_urls_scores
 
 
@@ -328,10 +328,10 @@ def main():
     visitor_team = []
     home_team = []
 
-    seasons = [str(year) for year in range(2015, 2022)]
+    #seasons = [str(year) for year in range(2016, 2017)]
 
     # Creating the list of urls
-    list_of_urls_scores = url_creation(seasons)
+    list_of_urls_scores = url_creation(str(c.season))
 
     # Making the requests with GRequests
     responses = get_request(list_of_urls_scores)
@@ -403,7 +403,7 @@ def main():
                          "team": home_team_doubles, "opponent": visitor_team_doubles, "url": box_score_doubles}
 
     # Saving data into a csv file
-    pd.DataFrame(dictionary_scores).to_csv("games.csv")
+    pd.DataFrame(dictionary_scores).to_csv("games_" + str(c.season) + ".csv")
 
     final_ids = dictionary_scores["id"]
     final_urls = dictionary_scores["url"]
@@ -447,10 +447,10 @@ def main():
 
         except:
             file_path = 'stdout_issue.log'
-            sys.stdout = open(file_path, "w")
+            sys.stdout = open(file_path, "a")
             print({'url': response, 'team': team, 'id': id})
 
-    with open('boxscores.json', 'w', encoding='utf8') as boxscore_file:
+    with open('boxscores_' + str(c.season) + '.json', 'w', encoding='utf8') as boxscore_file:
         json.dump(final_boxscores, boxscore_file, ensure_ascii=False)
 
 

@@ -12,6 +12,7 @@ URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220T
 BATCHES = 20
 BATCHES_SCORES = 1500
 
+season = 2017
 
 
 regex_numbers = r"(\d+)"
@@ -30,3 +31,4 @@ regex_team_rank = """mp_per_g\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg
 regex_opponent_rank = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3\" >(\d+)[\D]+fg3a\" >(\d+)[\D]+fg3_pct\" >(\d+)[\D]+fg2\" >(\d+)[\D]+fg2a\" >(\d+)[\D]+fg2_pct\" >(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)"""
 
 regex_date = r'(month=)(\d+)(&)(day=)(\d+)(&)(year=)(\d+)'
+
