@@ -17,14 +17,15 @@ In this project, for each one of the 30 teams and for each season between (2008-
 5. The `team and opponent statistics` that compares the statistics of each with all the competence.
 6. The `team and opponent rank` that is analogue to nr 5 but with the rank.
 
-Then, for each game played between 2008-2021, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game.
-First we created a table with all the games played throughout those years (teams involved, date, link to the boxscore) and then we created a json file with the boxscores related to each game. Those two outputs have a common `id` key.
+Then for a selected year (that can be changed in the conf file), for each game played, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game. 
+First we created a table with all the games played throughout that year (teams involved, date, link to the boxscore) and then we created a json file with the boxscores related to each game. Those two outputs have a common `id` key.
 
 ### Contents of the repository
+- `conf.py` with the configuration constants
 - `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
 - `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
-- `rosters.csv` , `salaries.json`, `statistics.json`, `summary.csv`, `team_opponent_rank.csv`, `team_opponent_stats.csv` with all the data collected from the web scraping
-- `games.csv` and `boxscore.json` 
+- `rosters.csv` , `salaries.json`, `statistics.json`, `summary.csv`, `team_opponent_rank.csv`, `team_opponent_stats.csv` with all the data collected from the team/season web scraping
+- `games.csv` and `boxscore.json` with a year identifier, where all the data collected from the boxscore scraping.
 - `stdout_issue.log` with information about the box score pages that were not scraped
 
 ### Tools
@@ -36,5 +37,8 @@ First we created a table with all the games played throughout those years (teams
 - [pandas](https://pandas.pydata.org/docs/)
 - [sys](https://docs.python.org/3/library/sys.html)
 - [time](https://docs.python.org/3/library/time.html)
+
+### TODO
+- Upgrade the scraping boxscore so that it can do all years at once. 
 
 > Authors: Benjamin Dahan and Julieta Staryfurman 
