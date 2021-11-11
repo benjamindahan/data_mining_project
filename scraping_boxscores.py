@@ -5,6 +5,8 @@ import re
 import conf as c
 import json
 import pandas as pd
+import sys
+import time
 
 # Due to COVID, the last two seasons have been different
 MONTHS = ["october", "november", "december", "january", "february", "march", "may", "june"]
@@ -131,6 +133,7 @@ def change_length_home(box_score_aux, home):
     """
     This function corrects the length of  home
     :param home: the list to correct
+    :param box_score_aux: list with the correct length
     :return: the corrected list
     """
     return home[0:len(box_score_aux)]
@@ -140,6 +143,7 @@ def change_length_visitor(box_score_aux, visitor):
     """
     This function corrects the length of visitor
     :param visitor: the list to correct
+    :param box_score_aux: list with the correct length
     :return: the corrected list
     """
     return visitor[0:len(box_score_aux)]
@@ -324,7 +328,7 @@ def main():
     visitor_team = []
     home_team = []
 
-    seasons = [str(year) for year in range(2008, 2022)]
+    seasons = [str(year) for year in range(2015, 2022)]
 
     # Creating the list of urls
     list_of_urls_scores = url_creation(seasons)
@@ -416,27 +420,35 @@ def main():
     final_boxscores = dict()
 
     for response, team, id in responses_teams_ids:
-        print(team)
-        basic_table = get_table_basic_boxscore(response, team)
-        advanced_table = get_table_advanced_boxscore(response, team)
+        try:
+            print(team)
+            basic_table = get_table_basic_boxscore(response, team)
+            advanced_table = get_table_advanced_boxscore(response, team)
 
-        players = get_players(basic_table)
+            players = get_players(basic_table)
 
-        basic_boxscore = get_boxscore(basic_table, basic_fields, players)
-        basic_boxscore = fill_dnp(basic_boxscore)
+            basic_boxscore = get_boxscore(basic_table, basic_fields, players)
+            basic_boxscore = fill_dnp(basic_boxscore)
 
-        basic_boxscore['game_team_id'] = [id for i in range(len(players))]
+            basic_boxscore['game_team_id'] = [id for i in range(len(players))]
 
-        advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
-        advanced_boxscore = fill_dnp(advanced_boxscore)
+            advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
+            advanced_boxscore = fill_dnp(advanced_boxscore)
 
-        basic_boxscore.update(advanced_boxscore)
+            basic_boxscore.update(advanced_boxscore)
 
-        for key, value in basic_boxscore.items():
-            if key not in final_boxscores:
-                final_boxscores[key] = value
-            else:
-                final_boxscores[key] += value
+            for key, value in basic_boxscore.items():
+                if key not in final_boxscores:
+                    final_boxscores[key] = value
+                else:
+                    final_boxscores[key] += value
+
+            time.sleep(0.01)
+
+        except:
+            file_path = 'stdout_issue.log'
+            sys.stdout = open(file_path, "w")
+            print({'url': response, 'team': team, 'id': id})
 
     with open('boxscores.json', 'w', encoding='utf8') as boxscore_file:
         json.dump(final_boxscores, boxscore_file, ensure_ascii=False)
