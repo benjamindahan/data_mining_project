@@ -33,5 +33,7 @@ First we created a table with all the games played throughout those years (teams
 - [json](https://docs.python.org/3/library/json.html)
 - [csv](https://docs.python.org/3/library/csv.html)
 - [pandas](https://pandas.pydata.org/docs/)
+- [sys](https://docs.python.org/3/library/sys.html)
+- [time](https://docs.python.org/3/library/time.html)
 
 > Authors: Benjamin Dahan and Julieta Staryfurman 
