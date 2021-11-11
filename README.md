@@ -25,6 +25,7 @@ First we created a table with all the games played throughout those years (teams
 - `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
 - `rosters.csv` , `salaries.json`, `statistics.json`, `summary.csv`, `team_opponent_rank.csv`, `team_opponent_stats.csv` with all the data collected from the web scraping
 - `games.csv` and `boxscore.json` 
+- `stdout_issue.log` with information about the box score pages that were not scraped
 
 ### Tools
 - [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
