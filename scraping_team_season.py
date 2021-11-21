@@ -5,6 +5,9 @@ import re
 import json
 import csv
 import conf as c
+import argparse
+import os
+
 
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
              'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
@@ -270,6 +273,28 @@ def main():
     # We get all the seasons from 2008 to 2021
     seasons = [str(year) for year in range(2008, 2022)]
 
+    parser = argparse.ArgumentParser(description='Get data about NBA teams/seasons')
+    parser.add_argument('data_type', nargs=1, choices=['summary', 'roster', 'players_stats', 'team_stats',
+                                                       'team_ranks', 'salaries', 'all'],
+                        help='The type of data you want to scrape')
+    parser.add_argument('-t', nargs='*', default='all',
+                        help=f"""The teams you want to get data from. Choose between these teams: 
+                            {teams}. By default, all the teams are used.
+                            Example: -t MIA LAL""")
+    parser.add_argument('-s', nargs='*', default='all',
+                        help='The seasons you want to get data from. Choose seasons between 2008 and 2021.'
+                             'By default, all the seasons are used.'
+                             'Example: -s 2010 2015')
+
+    args = parser.parse_args()
+
+    # We get the team names that were requested by the user
+    if args.t != 'all':
+        teams = args.t
+
+    # We get all the seasons requested by the user
+    if args.s != 'all':
+        seasons = args.s
     # First we define all the lists that will be updated with the different functions
 
     # For the get_team_summary function
@@ -364,32 +389,43 @@ def main():
             soup = BeautifulSoup(response.text, "html.parser")
 
             # Calling all the functions
-            summary_year_team.append(get_team_summary(soup, team, season))
+            if args.data_type[0] in ['summary', 'all']:
+                summary_year_team.append(get_team_summary(soup, team, season))
 
-            # Checking that everything works as expected
-            assert len(summary_year_team[-1]) == len(summary_year_team[0])
-            roster = get_roster(soup, team, season)
-            rosters += roster
+                # Checking that everything works as expected
+                assert len(summary_year_team[-1]) == len(summary_year_team[0])
 
-            get_player_stats(soup, team, season, roster, team_st, season_st, name, age, g, gs, mp_per_g, fg_per_g,
+            if args.data_type[0] in ['roster', 'all']:
+                roster = get_roster(soup, team, season)
+                rosters += roster
+
+            if args.data_type[0] in ['players_stats', 'all']:
+                roster = get_roster(soup, team, season)
+                get_player_stats(soup, team, season, roster, team_st, season_st, name, age, g, gs, mp_per_g, fg_per_g,
                              fga_per_g, fg_pct, fg3_per_g, fg3a_per_g, fg3_pct, fg2_per_g, fg2a_per_g, fg2_pct,
                              ft_per_g, fta_per_g, ft_pct, orb_per_g, drb_per_g, trb_per_g, ast_per_g, stl_per_g,
                              blk_per_g,
                              tov_per_g, pf_per_g, pts_per_g)
 
-            page_html = str(soup.find())
-            get_salaries(page_html, team, season, team_salary, season_salary, salaries, players)
+            if args.data_type[0] in ['salaries', 'team_stats', 'team_ranks', 'all']:
+                page_html = str(soup.find())
 
-            team_opponent_stats += get_team_opponent_stats(page_html, team, season)
+                if args.data_type[0] in ['salaries', 'all']:
+                    get_salaries(page_html, team, season, team_salary, season_salary, salaries, players)
 
-            team_opponent_rank += get_team_opponent_rank(page_html, team, season)
+                if args.data_type[0] in ['team_stats', 'all']:
+                    team_opponent_stats += get_team_opponent_stats(page_html, team, season)
+                    # Checking that everything works as expected
+                    assert all([len(element) == len(team_opponent_stats[0]) for element in team_opponent_stats])
 
-    # Checking that everything works as expected
-    assert all([len(element) == len(team_opponent_stats[0]) for element in team_opponent_stats])
-    assert all([len(element) == len(team_opponent_rank[0]) for element in team_opponent_rank])
+                if args.data_type[0] in ['team_ranks', 'all']:
+                    team_opponent_rank += get_team_opponent_rank(page_html, team, season)
+                    # Checking that everything works as expected
+                    assert all([len(element) == len(team_opponent_rank[0]) for element in team_opponent_rank])
 
-    # Creating a dictionary with all the lists updating as result of calling the function get_statistics
-    statistics = {'team': team_st, 'season': season_st, 'player': name, 'age': age, 'games': g,
+    if args.data_type[0] in ['players_stats', 'all']:
+        # Creating a dictionary with all the lists updating as result of calling the function get_statistics
+        statistics = {'team': team_st, 'season': season_st, 'player': name, 'age': age, 'games': g,
                   'games_started': gs, 'mp_per_g': mp_per_g, 'fg_per_g': fg_per_g, 'fga_per_g': fga_per_g,
                   'fg_pct': fg_pct, 'fg3_per_g': fg3_per_g, 'fg3a_per_g': fg3a_per_g, 'fg3_pct': fg3_pct,
                   'fg2_per_g': fg2_per_g, 'fg2a_per_g': fg2a_per_g, 'fg2_pct': fg2_pct, 'ft_per_g': ft_per_g,
@@ -397,40 +433,47 @@ def main():
                   'trb_per_g': trb_per_g, 'ast_per_g': ast_per_g, 'stl_per_g': stl_per_g, 'blk_per_g': blk_per_g,
                   'tov_per_g': tov_per_g, 'pf_per_g': pf_per_g, 'pts_per_g': pts_per_g}
 
-    # Checking that everything works as expected
-    assert all([len(value) == len(statistics['team']) for key, value in statistics.items()])
+        # Checking that everything works as expected
+        assert all([len(value) == len(statistics['team']) for key, value in statistics.items()])
 
-    # Creating a dictionary with all the lists updating as result of calling the function get_salaries
-    salaries_dict = {'season': season_salary, 'team': team_salary, 'player': players, 'salary': salaries}
+        filename = 'team_season/statistics.json'
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open('team_season/statistics.json', 'w', encoding='utf8') as statistics_file:
+            json.dump(statistics, statistics_file, ensure_ascii=False)
 
-    # Checking that everything works as expected
-    for key, value in salaries_dict.items():
-        print(key, len(value))
+    if args.data_type[0] in ['salaries', 'all']:
+        # Creating a dictionary with all the lists updating as result of calling the function get_salaries
+        salaries_dict = {'season': season_salary, 'team': team_salary, 'player': players, 'salary': salaries}
 
-    assert all([len(value) == len(salaries_dict['team']) for key, value in salaries_dict.items()])
+        # Checking that everything works as expected
+        for key, value in salaries_dict.items():
+            print(key, len(value))
 
-    # Saving the scraped information in json files or csv files as convenient. 
-    with open('salaries.json', 'w', encoding='utf8') as salaries_file:
-        json.dump(salaries_dict, salaries_file, ensure_ascii=False)
+        assert all([len(value) == len(salaries_dict['team']) for key, value in salaries_dict.items()])
 
-    with open('statistics.json', 'w', encoding='utf8') as statistics_file:
-        json.dump(statistics, statistics_file, ensure_ascii=False)
+        # Saving the scraped information in json files or csv files as convenient.
+        with open('team_season/salaries.json', 'w', encoding='utf8') as salaries_file:
+            json.dump(salaries_dict, salaries_file, ensure_ascii=False)
 
-    with open("rosters.csv", "w", newline="") as rosters_file:
-        writer = csv.writer(rosters_file)
-        writer.writerows(rosters)
+    if args.data_type[0] in ['roster', 'all']:
+        with open("team_season/rosters.csv", "w", newline="") as rosters_file:
+            writer = csv.writer(rosters_file)
+            writer.writerows(rosters)
 
-    with open("summary.csv", "w", newline="") as summary_file:
-        writer = csv.writer(summary_file)
-        writer.writerows(summary_year_team)
+    if args.data_type[0] in ['summary', 'all']:
+        with open("team_season/summary.csv", "w", newline="") as summary_file:
+            writer = csv.writer(summary_file)
+            writer.writerows(summary_year_team)
 
-    with open("team_opponent_stats.csv", "w", newline="") as team_opponent_stats_file:
-        writer = csv.writer(team_opponent_stats_file)
-        writer.writerows(team_opponent_stats)
+    if args.data_type[0] in ['team_stats', 'all']:
+        with open("team_season/team_opponent_stats.csv", "w", newline="") as team_opponent_stats_file:
+            writer = csv.writer(team_opponent_stats_file)
+            writer.writerows(team_opponent_stats)
 
-    with open("team_opponent_rank.csv", "w", newline="") as team_opponent_rank_file:
-        writer = csv.writer(team_opponent_rank_file)
-        writer.writerows(team_opponent_rank)
+    if args.data_type[0] in ['team_ranks', 'all']:
+        with open("team_season/team_opponent_rank.csv", "w", newline="") as team_opponent_rank_file:
+            writer = csv.writer(team_opponent_rank_file)
+            writer.writerows(team_opponent_rank)
 
 
 if __name__ == '__main__':
