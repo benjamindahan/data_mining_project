@@ -5,31 +5,27 @@ import re
 import conf as c
 import json
 import pandas as pd
-import sys
 import time
 
-# Due to COVID, the last two seasons have been different
-MONTHS = ["october", "november", "december", "january", "february", "march", "may", "june"]
-MONTHS_2020 = ["october", "november", "december", "january", "february", "march", "july", "august", "september"]
-MONTHS_2021 = ["december", "january", "february", "march", "april", "may", "june", "july"]
 
 
 def url_creation(y):
     """
     This functions creates all the URLs that will be scraped. In each of them the year and month change.
-    :param seasons: a list with all the seasons that will be scraped
+    :param y: a list with all the seasons that will be scraped
     :return: the list of urls
     """
     list_of_urls_scores = []
 
     # Exceptions due to COVID
     if y == "2021":
-        for m in MONTHS_2021:
+        for m in c.MONTHS_2021:
             url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
             list_of_urls_scores.append(url)
+
     # More exceptions due to COVID
     elif y == "2020":
-        for m in MONTHS_2020:
+        for m in c.MONTHS_2020:
             if m == "october":
                 url_2019 = c.URL_1_SCORE + y + c.URL_2_SCORE + m + "-2019" + c.URL_3_SCORE
                 list_of_urls_scores.append(url_2019)
@@ -39,7 +35,7 @@ def url_creation(y):
                 url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
                 list_of_urls_scores.append(url)
     else:
-        for m in MONTHS:
+        for m in c.MONTHS:
             url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
             list_of_urls_scores.append(url)
     return list_of_urls_scores
@@ -158,13 +154,13 @@ def clean_home_visitor(home, visitor, home_team, visitor_team):
     :param visitor_team: the list to update
     """
     for h, v in zip(home, visitor):
-        if len(h) > 17:
-            h = h[7:-10]
-            if len(h) == 3:
+        if len(h) > c.MAX_LENGTH:
+            h = h[c.BEGINNING:c.END]
+            if len(h) == c.CORRECT_LENGTH:
                 visitor_team.append(h)
-        if len(v) > 17:
-            v = v[7:-10]
-            if len(v) == 3:
+        if len(v) > c.MAX_LENGTH:
+            v = v[c.BEGINNING:c.END]
+            if len(v) == c.CORRECT_LENGTH:
                 home_team.append(v)
 
 
@@ -177,24 +173,24 @@ def create_day_month_year(date, day, month, year):
     :param year: the resulting list to update
     """
     for url in date:
-        try:
+        if url != "/boxscores/":
             matches = re.findall(c.regex_date, url)[0]
-            if len(matches) == 8:
+            if len(matches) == c.CORRECT_LENGTH_MATCHES:
                 month.append(matches[1])
                 day.append(matches[4])
                 year.append(matches[-1])
-        except:
-            pass
 
 
 def get_data_grequest(urls, teams, ids):
     """
     This function takes a list of urls and returns a list of all the request responses
     :param urls: a list of urls
+    :param teams: the team that played
+    :param ids: the id of the team
     :return: a list of all the url request responses
     """
-    requests = (grequests.get(u) for u in urls)
-    responses = grequests.map(requests, size=c.BATCHES_SCORES)
+    requests_ = (grequests.get(u) for u in urls)
+    responses = grequests.map(requests_, size=c.BATCHES_SCORES)
 
     # It is necessary to get a list of tuples with the url, the corresponding team and the joining id
     # because following functions will need these 3 informations
@@ -328,8 +324,6 @@ def main():
     visitor_team = []
     home_team = []
 
-    #seasons = [str(year) for year in range(2016, 2017)]
-
     # Creating the list of urls
     list_of_urls_scores = url_creation(str(c.season))
 
@@ -395,10 +389,10 @@ def main():
     home_team_boolean = [1, 0] * len(day)
 
     # We create an ID that helps us join all the data
-    id = [i for i in range(len(box_score_doubles))]
+    id_ = [i for i in range(len(box_score_doubles))]
 
     # We store the data extracted in a dictionary
-    dictionary_scores = {"id": id, "day": day_doubles, "month": month_doubles, "year": year_doubles,
+    dictionary_scores = {"id": id_, "day": day_doubles, "month": month_doubles, "year": year_doubles,
                          "home_team": home_team_boolean,
                          "team": home_team_doubles, "opponent": visitor_team_doubles, "url": box_score_doubles}
 
@@ -419,36 +413,29 @@ def main():
 
     final_boxscores = dict()
 
-    for response, team, id in responses_teams_ids:
-        try:
-            print(team)
-            basic_table = get_table_basic_boxscore(response, team)
-            advanced_table = get_table_advanced_boxscore(response, team)
+    for response, team, id_ in responses_teams_ids:
+        print(team)
+        basic_table = get_table_basic_boxscore(response, team)
+        advanced_table = get_table_advanced_boxscore(response, team)
 
-            players = get_players(basic_table)
+        players = get_players(basic_table)
 
-            basic_boxscore = get_boxscore(basic_table, basic_fields, players)
-            basic_boxscore = fill_dnp(basic_boxscore)
+        basic_boxscore = get_boxscore(basic_table, basic_fields, players)
+        basic_boxscore = fill_dnp(basic_boxscore)
 
-            basic_boxscore['game_team_id'] = [id for i in range(len(players))]
+        basic_boxscore['game_team_id'] = [id_ for _ in range(len(players))]
 
-            advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
-            advanced_boxscore = fill_dnp(advanced_boxscore)
+        advanced_boxscore = get_boxscore(advanced_table, advanced_fields, players)
+        advanced_boxscore = fill_dnp(advanced_boxscore)
 
-            basic_boxscore.update(advanced_boxscore)
+        basic_boxscore.update(advanced_boxscore)
 
-            for key, value in basic_boxscore.items():
-                if key not in final_boxscores:
-                    final_boxscores[key] = value
-                else:
-                    final_boxscores[key] += value
-
-            time.sleep(0.01)
-
-        except:
-            file_path = 'stdout_issue.log'
-            sys.stdout = open(file_path, "a")
-            print({'url': response, 'team': team, 'id': id})
+        for key, value in basic_boxscore.items():
+            if key not in final_boxscores:
+                final_boxscores[key] = value
+            else:
+                final_boxscores[key] += value
+        time.sleep(0.01)
 
     with open('boxscores_' + str(c.season) + '.json', 'w', encoding='utf8') as boxscore_file:
         json.dump(final_boxscores, boxscore_file, ensure_ascii=False)
