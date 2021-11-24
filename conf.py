@@ -12,8 +12,12 @@ URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220T
 BATCHES = 20
 BATCHES_SCORES = 1500
 
-season = 2017
+season = 2020
 
+# Due to COVID, the last two seasons have been different
+MONTHS = ["october", "november", "december", "january", "february", "march", "may", "june"]
+MONTHS_2020 = ["october", "november", "december", "january", "february", "march", "july", "august", "september"]
+MONTHS_2021 = ["december", "january", "february", "march", "april", "may", "june", "july"]
 
 regex_numbers = r"(\d+)"
 regex_coach = r"([A-Za-zÀ-ȕ'\s\.]+)"
@@ -32,3 +36,8 @@ regex_opponent_rank = """mp\" >(\d+)<\/td[\D]+(\d+)[\D]+(\d+)[\D]+(\d+)[\D]+fg3\
 
 regex_date = r'(month=)(\d+)(&)(day=)(\d+)(&)(year=)(\d+)'
 
+MAX_LENGTH = 17
+BEGINNING = 7
+END = -10
+CORRECT_LENGTH = 3
+CORRECT_LENGTH_MATCHES = 8
