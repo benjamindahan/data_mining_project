@@ -9,9 +9,6 @@ import argparse
 import os
 
 
-OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
-             'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
-
 
 def get_teams():
     """
@@ -108,6 +105,9 @@ def get_roster(soup, team, season):
         player.pop(3)
         player.insert(0, season)
         player.insert(0, team)
+        print(player)
+        if player[9] == 'R':
+            player[9] = 0
         roster.append(player)
 
     # Checking that all works as expected
@@ -341,8 +341,8 @@ def main():
     list_of_urls = []
     for season in seasons:
         for team in teams:
-            if team in OLD_TEAMS and int(season) <= int(OLD_TEAMS[team]['until_season']):
-                team = OLD_TEAMS[team]['old_name']
+            if team in c.OLD_TEAMS and int(season) <= int(c.OLD_TEAMS[team]['until_season']):
+                team = c.OLD_TEAMS[team]['old_name']
             list_of_urls.append(c.URL_1 + team + c.URL_2 + season + c.URL_3)
 
     # Making the requests with GRequests

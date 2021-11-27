@@ -12,6 +12,9 @@ URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220T
 BATCHES = 20
 BATCHES_SCORES = 1500
 
+FIRST_SEASON = 2008
+LAST_SEASON = 2022
+
 season = 2020
 
 # Due to COVID, the last two seasons have been different
@@ -41,3 +44,11 @@ BEGINNING = 7
 END = -10
 CORRECT_LENGTH = 3
 CORRECT_LENGTH_MATCHES = 8
+
+OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
+             'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
+
+OLD_TEAMS_LABELS = ['NJN', 'CHA', 'SEA', 'NOH']
+
+INDEXES_PLAYERS = [3, 5, 6, 7, 8, 10, 11]
+INDEXES_ROSTERS = [1, 2, 4, 9]
