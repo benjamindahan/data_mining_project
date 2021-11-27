@@ -7,6 +7,7 @@ URL_1_SCORE = "https://www.basketball-reference.com/leagues/NBA_"
 URL_2_SCORE = "_games-"
 URL_3_SCORE = ".html"
 
+URL_FIELDS_PLAYER_STATS = 'https://www.basketball-reference.com/teams/LAC/2010.html'
 URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
 
 BATCHES = 20
@@ -50,5 +51,7 @@ OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_na
 
 OLD_TEAMS_LABELS = ['NJN', 'CHA', 'SEA', 'NOH']
 
-INDEXES_PLAYERS = [3, 5, 6, 7, 8, 10, 11]
-INDEXES_ROSTERS = [1, 2, 4, 9]
+INDEXES_PLAYERS = [2, 4, 5, 6, 7, 9, 10]
+INDEXES_ROSTERS = [0, 1, 3, 8]
+
+PLAYERS_NAMES = ["D.J. Mbenga", "Xavier Tillman Sr."]

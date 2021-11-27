@@ -411,7 +411,7 @@ CREATE TABLE IF NOT EXISTS basketball_reference.boxscores (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 """
-cursor.execute(query)
+#cursor.execute(query)
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.players_rosters (
   player_id INT NOT NULL,
@@ -430,7 +430,7 @@ CREATE TABLE IF NOT EXISTS basketball_reference.players_rosters (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
-cursor.execute(query)
+#cursor.execute(query)
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.players_boxscores (
   player_id INT NOT NULL,
@@ -449,4 +449,4 @@ CREATE TABLE IF NOT EXISTS basketball_reference.players_boxscores (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
-cursor.execute(query)
+#cursor.execute(query)

@@ -32,7 +32,7 @@ def get_teams():
     return list(set(teams))
 
 
-def get_team_summary(soup, team, season):
+def get_team_summary(soup):
     """
     This function scrapes from the basketball reference page a summary of a team for a specific season (year),
     including main KPIs and results.
@@ -77,11 +77,11 @@ def get_team_summary(soup, team, season):
         playoffs = "Not in playoffs"
 
     # Returning a list with all the attributes
-    return [team, season, n_win, n_loss, conf_ranking, coach, ppg, opponent_ppg, pace, off_rtg, def_rtg, expected_win,
+    return [n_win, n_loss, conf_ranking, coach, ppg, opponent_ppg, pace, off_rtg, def_rtg, expected_win,
             expected_loss, expected_overall_ranking, preseason_odds, attendance, playoffs]
 
 
-def get_roster(soup, team, season):
+def get_roster(soup, season):
     """
     This function scrapes from the basketball reference page the roster of a team for a specific season (year)
     :param soup: the beautiful soup object
@@ -104,10 +104,9 @@ def get_roster(soup, team, season):
         player.append(player[3][-3:])
         player.pop(3)
         player.insert(0, season)
-        player.insert(0, team)
         print(player)
-        if player[9] == 'R':
-            player[9] = 0
+        if player[8] == 'R':
+            player[8] = 0
         roster.append(player)
 
     # Checking that all works as expected
@@ -133,7 +132,8 @@ def get_player_stats_fields(url):
 
     return fields
 
-def get_player_stats(soup, team, season, roster, team_st, season_st, fields, *args):
+
+def get_player_stats(soup, nr_of_players, fields):
     """
     This function scrapes from the basketball reference page the players stats for a specific team on a specific season
     :param soup: the beautiful soup object
@@ -145,15 +145,19 @@ def get_player_stats(soup, team, season, roster, team_st, season_st, fields, *ar
     """
 
     # In order to get the information from the statistics we scrape attribute by attribute
-    nr_of_players = len(roster)
-    team_st += [team for i in range(nr_of_players)]
-    season_st += [season for i in range(nr_of_players)]
+    #nr_of_players = len(roster)
+    #team_st += [team for i in range(nr_of_players)]
+    #season_st += [season for i in range(nr_of_players)]
+    #for field, arg in zip(fields, args):
+    players_stats = []
+    for field in fields:
+        players_stats.append([element.get_text() for element in soup.find_all("td", {"data-stat": field})][:nr_of_players])
+    return zip(*players_stats)
 
-    for field, arg in zip(fields, args):
-        arg += [element.get_text() for element in soup.find_all("td", {"data-stat": field})][:nr_of_players]
 
 
-def get_salaries(page_html, team, season, team_salary, season_salary, salaries, players):
+
+def get_salaries(page_html):
     """
     This function scrapes from the basketball reference page the salaries for a team on a specific season
     :param page_html: the html of the page (in string)
@@ -168,28 +172,14 @@ def get_salaries(page_html, team, season, team_salary, season_salary, salaries, 
     salaries_table = re.findall(c.regex_salaries_table, page_html)[0]
 
     # From the html text we look for the players' names
-    players_aux = re.findall(c.regex_players_salaries, salaries_table)
+    players_name = re.findall(c.regex_players_salaries, salaries_table)
 
     # Now we are looking for the respective salaries
-    salaries_aux = re.findall(c.regex_salary_salaries, salaries_table)
+    salaries = re.findall(c.regex_salary_salaries, salaries_table)
 
-    # Corrections for some specific cases in which there is no salary information
-    diff_players_salaries = len(players_aux) - len(salaries_aux)
-    if diff_players_salaries > 0:
-        salaries_aux += [None] * diff_players_salaries
-    else:
-        players_aux += [None] * diff_players_salaries
+    salaries = [int(salary[1:].replace(",", "")) for salary in salaries]
 
-    # Updating the lists of salaries and players
-    players += players_aux
-    salaries += salaries_aux
-
-    # Checking that we have the salary of every player
-    assert len(players_aux) == len(salaries_aux)
-
-    # Adding season and teams
-    team_salary += [team for i in range(len(players_aux))]
-    season_salary += [season for i in range(len(players_aux))]
+    return zip(players_name, salaries)
 
 
 def get_team_opponent_stats(page_html, team, season):

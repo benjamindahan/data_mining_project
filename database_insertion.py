@@ -36,3 +36,21 @@ def create_insert_query(table_name, cols):
     query = f"""INSERT INTO {table_name} {str(cols).replace("'", "").replace('[', '(').replace(']', ')')} 
                 VALUES ({('%s, '*len(cols))[:-2]});"""
     return query
+
+def update_players_cut(players):
+    query = f"""UPDATE players 
+    SET birth_month = '{players[4]}',
+    birth_day = {players[5]},
+    birth_year = {players[6]},
+    country = '{players[7]}',
+    height = '{players[9]}',
+    weight = '{players[10]}'
+    WHERE player_name = '{players[2]}';
+    """
+    return query
+
+def get_nr_players(cursor, team_id, season):
+    query = f"SELECT COUNT(*) AS count FROM rosters WHERE season = {season} AND team_id = {team_id};"
+    cursor.execute(query)
+    return cursor.fetchone()['count']
+
