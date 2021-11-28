@@ -17,7 +17,7 @@ def url_creation(y):
     """
     list_of_urls_scores = []
 
-    # Exceptions due to COVID
+# Exceptions due to COVID
     if y == "2021":
         for m in c.MONTHS_2021:
             url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
@@ -179,6 +179,56 @@ def create_day_month_year(date, day, month, year):
                 month.append(matches[1])
                 day.append(matches[4])
                 year.append(matches[-1])
+
+
+def scraping_urls(soup, box_score):
+    # We extract all the data we need from basketball reference
+    url_complete = extract_urls(soup)
+
+    # We clean the data that we scraped
+    # Variable definition
+    url_boxscore = []
+    date = []
+    box_score_aux = []
+    home = []
+    visitor = []
+    teams = []
+
+    # We separate in different lists to clean it: one with dates and the url
+    # and the other one with all the teams
+    separate_lists(url_complete, url_boxscore, teams)
+
+    # We separate the teams in different list: visitor or home.
+    separate_teams(teams, home, visitor)
+
+    # We separate the list in different list: date or url.
+    separate_date_url(url_boxscore, date, box_score_aux)
+
+    # Updating the resulting list box_score
+    box_score += box_score_aux[:-1]
+
+    return [box_score_aux, home, visitor, date]
+
+
+def cleaning_urls(box_score_aux, home, visitor, date, home_team, visitor_team, day, month, year):
+    # We clean all the list while we update them
+    box_score_aux = change_length_box_score(box_score_aux)
+    home = change_length_home(box_score_aux, home)
+    visitor = change_length_visitor(box_score_aux, visitor)
+    clean_home_visitor(home, visitor, home_team, visitor_team)
+    create_day_month_year(date, day, month, year)
+
+
+def doubling_lists(day, month, year, home_team, visitor_team, box_score):
+    day_doubles = double_list(day, day)
+    month_doubles = double_list(month, month)
+    year_doubles = double_list(year, year)
+    home_team_doubles = double_list(home_team, visitor_team)
+    visitor_team_doubles = double_list(visitor_team, home_team)
+    box_score_doubles = double_list(box_score, box_score)
+    home_team_boolean = [1, 0] * len(day)
+    return [day_doubles, month_doubles, year_doubles, home_team_doubles, visitor_team_doubles, home_team_boolean,
+            box_score_doubles]
 
 
 def get_data_grequest(urls, teams, ids):

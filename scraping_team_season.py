@@ -104,7 +104,6 @@ def get_roster(soup, season):
         player.append(player[3][-3:])
         player.pop(3)
         player.insert(0, season)
-        print(player)
         if player[8] == 'R':
             player[8] = 0
         roster.append(player)
@@ -113,6 +112,14 @@ def get_roster(soup, season):
     assert all([len(player) == len(roster[0]) for player in roster])
 
     return roster
+
+
+def strip_players_suffixes(player_name):
+    for suffix in c.WEIRD_PLAYER_SUFFIXES:
+        if player_name.endswith(suffix):
+            player_name = player_name.strip(suffix)
+    return player_name
+
 
 def get_player_stats_fields(url):
     """
@@ -133,7 +140,7 @@ def get_player_stats_fields(url):
     return fields
 
 
-def get_player_stats(soup, nr_of_players, fields):
+def get_player_stats(soup, fields):
     """
     This function scrapes from the basketball reference page the players stats for a specific team on a specific season
     :param soup: the beautiful soup object
@@ -149,9 +156,11 @@ def get_player_stats(soup, nr_of_players, fields):
     #team_st += [team for i in range(nr_of_players)]
     #season_st += [season for i in range(nr_of_players)]
     #for field, arg in zip(fields, args):
+    field = 'player'
+    table = soup.find_all('table', id='per_game')[0]
     players_stats = []
     for field in fields:
-        players_stats.append([element.get_text() for element in soup.find_all("td", {"data-stat": field})][:nr_of_players])
+        players_stats.append([element.get_text() for element in table.find_all("td", {"data-stat": field})])
     return zip(*players_stats)
 
 
@@ -182,7 +191,7 @@ def get_salaries(page_html):
     return zip(players_name, salaries)
 
 
-def get_team_opponent_stats(page_html, team, season):
+def get_team_opponent_stats(page_html):
     """
     This function scrapes from the basketball reference page the team and opponents statistics for a team
     on a specific season
@@ -197,16 +206,17 @@ def get_team_opponent_stats(page_html, team, season):
     team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
 
     # From the html text we look for the statistics needed
-    team_stats = [team] + [season] + list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[0])
-    opponent_stats = list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[1])
+    team_stats = list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[0])
+    # Slicing opponents_stats to not take min_played, already have it in teams_stats
+    opponent_stats = list(re.findall(c.regex_team_opponent_stats, team_opponent_table)[1])[1:]
 
     # Checking that everything works as expected
-    assert len(team_stats) - 2 == len(opponent_stats)
+    assert len(team_stats) == len(opponent_stats) + 1
 
     return [team_stats + opponent_stats]
 
 
-def get_team_opponent_rank(page_html, team, season):
+def get_team_opponent_ranks(page_html):
     """
     This function scrapes from the basketball reference page the team and opponents ranks for a team
     on a specific season
@@ -221,11 +231,11 @@ def get_team_opponent_rank(page_html, team, season):
     team_opponent_table = re.findall(c.regex_team_opponent, page_html)[0]
 
     # From the html text we look for the statistics needed
-    team_rank = [team] + [season] + list(re.findall(c.regex_team_rank, team_opponent_table)[0])
-    opponent_rank = list(re.findall(c.regex_opponent_rank, team_opponent_table)[0])
+    team_rank = list(re.findall(c.regex_team_rank, team_opponent_table)[0])
+    opponent_rank = list(re.findall(c.regex_opponent_rank, team_opponent_table)[0])[1:]
 
     # Checking that everything works as expected
-    assert len(team_rank) - 2 == len(opponent_rank)
+    assert len(team_rank) == len(opponent_rank) + 1
 
     return [team_rank + opponent_rank]
 
