@@ -189,44 +189,94 @@ cols_boxscores = db.get_table_columns_label(cursor, 'boxscores')
 """
 ----------------------------------------------GAMES------------------------------------------
 """
-query = db.create_insert_query('games', cols_games)
+#
+#
+# query = db.create_insert_query('games', cols_games)
 for season in seasons:
-    # We define all the lists that will be updated with the different functions
-    month = []
-    day = []
-    year = []
-    box_score = []
-    visitor_team = []
-    home_team = []
+#     # We define all the lists that will be updated with the different functions
+#     month = []
+#     day = []
+#     year = []
+#     box_score = []
+#     visitor_team = []
+#     home_team = []
+#
+#     # Creating the list of urls
+#     list_of_urls_scores = bs.url_creation(season)
+#     # Making the requests with GRequests
+#     responses = bs.get_request(list_of_urls_scores)
+#
+#     for url, response in zip(list_of_urls_scores, responses):
+#         print(url)
+#         if response is not None:
+#             # Creating the soup object
+#             soup = BeautifulSoup(response.text, "html.parser")
+#
+#             # Scraping all the data that will be stored as URLS
+#             box_score_aux, home, visitor, date = bs.scraping_urls(soup, box_score)
+#
+#             # Cleaning the URLS
+#             bs.cleaning_urls(box_score_aux, home, visitor, date, home_team, visitor_team, day, month, year)
+#             data_for_query = bs.doubling_lists(day, month, year, home_team, visitor_team, box_score)
+#             teams_ids = [db.get_id('team', cursor, team) for team in data_for_query[3]]
+#             visitors_ids = [db.get_id('team', cursor, visitor) for visitor in data_for_query[4]]
+#
+#             del data_for_query[3:5]
+#             data_for_query += [teams_ids, visitors_ids]
+#
+#     for values in zip(*data_for_query):
+#         print(values)
+#         cursor.execute(query, values)
+#         connection.commit()
 
-    # Creating the list of urls
-    list_of_urls_scores = bs.url_creation(season)
+    """
+    ----------------------------------------------BOXSCORES------------------------------------------
+    """
+    games_ids = []
+    games_urls = []
+    games_teams = []
 
-    # Making the requests with GRequests
-    responses = bs.get_request(list_of_urls_scores)
+    query = db.get_boxscore_query(season)
+    cursor.execute(query)
+    all = [(db["game_id"],db["url"],db["team_id"]) for db in cursor.fetchall()]
+    query = db.create_insert_query('boxscores', cols_boxscores)
+    for row in all:
+        games_ids.append(row[0])
+        games_urls.append(row[1])
+        games_teams.append(row[2])
 
-    for url, response in zip(list_of_urls_scores, responses):
-        print(url)
-        if response is not None:
-            # Creating the soup object
-            soup = BeautifulSoup(response.text, "html.parser")
+    print('initialize')
+    responses_teams_ids = bs.get_data_grequest(games_urls, games_teams, games_ids)
+    print('finish grequest')
 
-            # Scraping all the data that will be stored as URLS
-            box_score_aux, home, visitor, date = bs.scraping_urls(soup, box_score)
+    basic_fields = bs.get_basic_fields(c.URL_FIELDS_BOXSCORE)
+    advanced_fields = bs.get_advanced_fields(c.URL_FIELDS_BOXSCORE)
 
-            # Cleaning the URLS
-            bs.cleaning_urls(box_score_aux, home, visitor, date, home_team, visitor_team, day, month, year)
+    for response, team_id, game_id in responses_teams_ids:
+        team = db.get_team_from_id(cursor, team_id)
+        print(team)
+        basic_table = bs.get_table_basic_boxscore(response, team)
+        advanced_table = bs.get_table_advanced_boxscore(response, team)
 
-            data_for_query = bs.doubling_lists(day, month, year, home_team, visitor_team, box_score)
+        players = bs.get_players(basic_table)
+        players_id = [db.get_id('player', cursor, player) for player in players]
 
-            teams_ids = [db.get_id('team', cursor, team) for team in data_for_query[3]]
-            visitors_ids = [db.get_id('team', cursor, visitor) for visitor in data_for_query[4]]
+        basic_boxscore = bs.get_boxscore(basic_table, basic_fields,players_id)
+        basic_boxscore = bs.fill_dnp(basic_boxscore)
 
-            del data_for_query[3:5]
-            data_for_query += [teams_ids, visitors_ids]
+        advanced_boxscore = bs.get_boxscore(advanced_table, advanced_fields, players_id)
+        advanced_boxscore = bs.fill_dnp(advanced_boxscore)
 
-            for values in zip(*data_for_query):
-                print(values)
-                cursor.execute(query, values)
-                connection.commit()
+        basic_boxscore.pop(-1)
+        advanced_boxscore.pop(0)
+        game_id = [game_id for _ in range(len(players_id))]
 
+        boxscore = basic_boxscore + advanced_boxscore + [game_id]
+        print(boxscore)
+
+        for values in zip(*boxscore):
+            values = [None if value == "" else value for value in values]
+            print(values)
+            print(query)
+            cursor.execute(query, values)
+            connection.commit()

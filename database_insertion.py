@@ -1,5 +1,5 @@
 import pymysql
-
+import conf as c
 
 
 
@@ -49,8 +49,25 @@ def update_players_cut(players):
     """
     return query
 
+
 def get_nr_players(cursor, team_id, season):
     query = f"SELECT COUNT(*) AS count FROM rosters WHERE season = {season} AND team_id = {team_id};"
     cursor.execute(query)
     return cursor.fetchone()['count']
 
+
+def get_team_from_id(cursor,team_id):
+    query = f'SELECT team_name FROM teams WHERE team_id={team_id}'
+    cursor.execute(query)
+    return cursor.fetchone()['team_name']
+
+
+def get_boxscore_query(season):
+    season = int(season)
+    last_month = c.LAST_SEASON_MONTH
+    if season == 2020:
+        last_month = c.LAST_SEASON_MONTH_2020
+    query = f"""SELECT * FROM games
+        WHERE (year = {season} AND month >= {c.FIRST_SEASON_MONTH})
+        OR (year = {season+1} AND month <= {last_month});"""
+    return query

@@ -265,7 +265,7 @@ def get_basic_fields(url):
 
     table = soup.find_all('table', id=team_id_basic)[0]  # The soup object of the basic boxscore table
 
-    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:23]]
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[3:23]]
     # Not all the fields are relevant, hence the slicing
 
     return fields
@@ -288,7 +288,7 @@ def get_advanced_fields(url):
 
     table = soup.find_all('table', id=team_id_advanced)[0]  # The soup object of the advanced boxscore table
 
-    fields = [th.attrs['data-stat'] for th in table.find_all("th")[2:19]]
+    fields = [th.attrs['data-stat'] for th in table.find_all("th")[3:19]]
     # Not all the fields are relevant, hence the slicing
 
     return fields
@@ -340,12 +340,12 @@ def get_boxscore(table, fields, players):
     :param players: A list of the players listed in the boxscore
     :return: A dict representing a boxscore for a specific game, for a specific team
     """
-    boxscore = dict()
+    boxscore = []
 
     for field in fields:
-        boxscore[field] = [value.get_text() for value in table.find_all("td", attrs={"data-stat": field})[:-1]]
+        boxscore.append([value.get_text() for value in table.find_all("td", attrs={"data-stat": field})[:-1]])
 
-    boxscore['player'] = players
+    boxscore.append(players)
 
     return boxscore
 
@@ -357,11 +357,10 @@ def fill_dnp(boxscore):
     :param boxscore: A dict representing a boxscore for a specific game, for a specific team
     :return: The same dict with players who did not play (dnp) having the string '0' for each field
     """
-    num_players = len(boxscore['player'])
-    num_dnp_players = num_players - len(boxscore['mp'])
-    for key in boxscore:
-        if key != 'player':
-            boxscore[key] += ['0'] * num_dnp_players
+    num_players = len(boxscore[-1])
+    num_dnp_players = num_players - len(boxscore[0])
+    for i in range(len(boxscore) - 1):
+        boxscore[i] += [None] * num_dnp_players
     return boxscore
 
 

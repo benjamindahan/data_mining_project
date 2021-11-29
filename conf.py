@@ -66,3 +66,8 @@ PLAYERS_NAMES_DOUBLED = {'Mbenga': 'Didier Ilunga-Mbenga',
                          'Didi Louzada': 'Marcos Louzada Silva'}
 
 WEIRD_PLAYER_SUFFIXES = [' Jr.', ' Sr.', ' III', ' II']
+
+FIRST_SEASON_MONTH = 10
+LAST_SEASON_MONTH = 7
+
+LAST_SEASON_MONTH_2020 = 10
