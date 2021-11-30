@@ -182,11 +182,13 @@ for url, response in zip(list_of_urls, responses):
             for player, salary in ts.get_salaries(page_html):
                 player = ts.strip_players_suffixes(player)
                 player = ts.get_real_name(player)
-                # Sometimes a player appears in salaries but not in the rosters, we fix this
+                # Sometimes a player appears in salaries but not in the rosters, we fix this by focusing on players_cut
                 try:
                     player_id = db.get_id('player', cursor, player)
                 except TypeError:
-                    # explain
+                    # Some players are cut by their team (team A) and hired by another team (team B)
+                    # That means that the player still appears in team A salaries but not in the roster
+                    # For these reasons, we need to deal with the players_cut list
                     players_cut.append(player)
                     query_player = db.create_insert_query('players', ['player_name'])
                     values_player = [player]
@@ -305,6 +307,10 @@ if args.boxscores:
         cursor.execute(query_urls)
         games_args = [(db["game_id"], db["url"], db["team_id"]) for db in cursor.fetchall()]
         query_boxscores = db.create_insert_query('boxscores', cols_boxscores)
+
+        # games_ids is a list with all the games ids from the season in the loop
+        # games_urls is a list with all the games urls from the season in the loop
+        # games_teams is a list with all the teams related to the games
         for row in games_args:
             games_ids.append(row[0])
             games_urls.append(row[1])
@@ -314,32 +320,53 @@ if args.boxscores:
         responses_teams_ids = bs.get_data_grequest(games_urls, games_teams, games_ids)
         print('finish grequest')
 
+        # We get the fields (columns names) from basic boxscores (assists, rebounds, points...)
         basic_fields = bs.get_basic_fields(c.URL_FIELDS_BOXSCORE)
+        # We get the fields (columns names) from advanced boxscores
         advanced_fields = bs.get_advanced_fields(c.URL_FIELDS_BOXSCORE)
 
         for response, team_id, game_id in responses_teams_ids:
+            # we get the team name based on the team id
             team = db.get_team_from_id(cursor, team_id)
             print(team)
+            # we get the basic boxscore table
             basic_table = bs.get_table_basic_boxscore(response, team)
+            # we get the advanced boxscore table
             advanced_table = bs.get_table_advanced_boxscore(response, team)
 
+            # we get the names of the players linked to these stats
             players = bs.get_players(basic_table)
+            # we clean their names
             players = [ts.get_real_name(ts.strip_players_suffixes(player)) for player in players]
+            # we get the id related to this name
             players_id = [db.get_id('player', cursor, player) for player in players]
 
+            # we get, column by column, the data from each field in basic boxscore
+            # we link these data to the players ids
             basic_boxscore = bs.get_boxscore(basic_table, basic_fields, players_id)
+            # we replace the 'dnp' (did not play) by None to get Null values in the sql table
             basic_boxscore = bs.fill_dnp(basic_boxscore)
 
+            # we get, column by column, the data from each field in advanced boxscore
+            # we link these data to the players ids
             advanced_boxscore = bs.get_boxscore(advanced_table, advanced_fields, players_id)
+            # we replace the 'dnp' (did not play) by None to get Null values in the sql table
             advanced_boxscore = bs.fill_dnp(advanced_boxscore)
 
+            # we pop last element of basic_boxscore (player name) because it appears in advanced_boxscore as well
             basic_boxscore.pop(-1)
+            # we pop first element of advanced_boxscore (minutes) because it appears in basic_boxscore as well
             advanced_boxscore.pop(0)
+            # we add create game_id, a list with same length than players_id (hence basic or advanced boxscore)
+            # each element of this list is the same value, game_id, foreign key for table games
             game_id = [game_id for _ in range(len(players_id))]
 
+            # boxscore is the final boxscore, with the basic fields, advanced fields and game_id
             boxscore = basic_boxscore + advanced_boxscore + [game_id]
 
+            # finally, we zip boxscore to get its data row by row instead of column by column
             for values in zip(*boxscore):
+                # we insert each row in the boxscore sql table
                 values = [None if value == "" else value for value in values]
                 cursor.execute(query_boxscores, values)
                 connection.commit()
