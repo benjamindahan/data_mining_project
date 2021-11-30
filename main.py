@@ -1,5 +1,4 @@
 import sys
-
 import pymysql
 import grequests
 import src.conf as c
@@ -12,13 +11,13 @@ from dotenv import load_dotenv
 import os
 import argparse
 
-
 assert load_dotenv() is True
 pswd = os.getenv("password")
 
 """
 ----------------------------------------------INITIAL VARIABLES----------------------------------------------
 """
+# Getting all the seasons and teams
 seasons = [str(year) for year in range(c.FIRST_SEASON, c.LAST_SEASON)]
 teams = ts.get_teams()
 # Some players get cut by their team: they have a salary but they are not in the team roster
@@ -28,6 +27,7 @@ fields_players_stats = ts.get_player_stats_fields(c.URL_FIELDS_PLAYER_STATS)
 """
 ---------------------------------------------COMMAND LINE ARGUMENTS---------------------------------------------
 """
+# Creating the command line arguments
 parser = argparse.ArgumentParser(description='Get data about NBA teams/seasons')
 parser.add_argument('data_type', nargs=1, choices=['summaries', 'rosters', 'players_stats', 'teams_stats',
                                                    'teams_ranks', 'salaries', 'all'],
@@ -69,11 +69,10 @@ if args.s != 'all':
     finally:
         seasons = args.s
 
-
 """
 ----------------------------------------------CONNECTION/CURSOR----------------------------------------------
 """
-
+# We create the connection with SQL and the cursor.
 try:
     connection, cursor = db.create_sql_connection(pswd)
     query = 'USE basketball_reference;'
@@ -85,7 +84,7 @@ except pymysql.err.OperationalError:
 """
 ----------------------------------------------TEAMS----------------------------------------------
 """
-
+# We scrape and create the team tables of SQL
 query = "INSERT IGNORE INTO teams (team_name) VALUES (%s);"
 
 for team in teams + c.OLD_TEAMS_LABELS:
@@ -95,6 +94,7 @@ for team in teams + c.OLD_TEAMS_LABELS:
 """
 ----------------------------------------------SQL TABLES' COLUMNS----------------------------------------------
 """
+# We get all the columns of all the tables in SQL that will be used later
 cols_players = db.get_table_columns_label(cursor, 'players')
 cols_rosters = db.get_table_columns_label(cursor, 'rosters')
 cols_salaries = db.get_table_columns_label(cursor, 'salaries')
@@ -141,9 +141,11 @@ for url, response in zip(list_of_urls, responses):
         """
         ----------------------------------------------PLAYERS----------------------------------------------
         """
+        # We create the table players where all the player information is stored
         cols_players = db.get_table_columns_label(cursor, 'players')
         cols_rosters = db.get_table_columns_label(cursor, 'rosters')
 
+        # We make sure all the players have the accurate name
         for player in ts.get_roster(soup, season):
             player[2] = ts.strip_players_suffixes(player[2])
             player[2] = ts.get_real_name(player[2])
@@ -163,20 +165,24 @@ for url, response in zip(list_of_urls, responses):
             """
             ----------------------------------------------ROSTERS----------------------------------------------
             """
+            # We scrape and create the rosters table
             if args.data_type[0] in ['rosters', 'all']:
                 player_id = db.get_id('player', cursor, player[2])
                 query = db.create_insert_query('rosters', cols_rosters)
-                values = [data for index, data in enumerate(player) if index in c.INDEXES_ROSTERS] + [player_id] + [team_id]
+                values = [data for index, data in enumerate(player) if index in c.INDEXES_ROSTERS] + [player_id] + [
+                    team_id]
                 cursor.execute(query, values)
                 connection.commit()
 
         """
         ----------------------------------------------SALARIES----------------------------------------------
         """
+        # We scrape and create the salaries table
         if args.data_type[0] in ['salaries', 'all']:
             for player, salary in ts.get_salaries(page_html):
                 player = ts.strip_players_suffixes(player)
                 player = ts.get_real_name(player)
+                # Sometimes a player appears in salaries but not in the rosters, we fix this
                 try:
                     player_id = db.get_id('player', cursor, player)
                 except TypeError:
@@ -195,6 +201,7 @@ for url, response in zip(list_of_urls, responses):
         """
         ----------------------------------------------TEAM SUMMARY----------------------------------------------
         """
+        # We scrape and create the team summary table
         if args.data_type[0] in ['summaries', 'all']:
             query = db.create_insert_query('teams_summaries', cols_teams_summaries)
             values = [season] + ts.get_team_summary(soup) + [team_id]
@@ -204,6 +211,7 @@ for url, response in zip(list_of_urls, responses):
         """
         ----------------------------------------------PLAYER STATS----------------------------------------------
         """
+        # We scrape and create the players stats
         if args.data_type[0] in ['players_stats', 'all']:
             query = db.create_insert_query('players_stats', cols_players_stats)
             for player in ts.get_player_stats(soup, fields_players_stats):
@@ -219,10 +227,10 @@ for url, response in zip(list_of_urls, responses):
                 cursor.execute(query, values)
                 connection.commit()
 
-
         """
         ----------------------------------------------TEAMS STATS----------------------------------------------
         """
+        # We scrape and create the teams stats
         if args.data_type[0] in ['teams_stats', 'all']:
             query = db.create_insert_query('teams_stats', cols_teams_stats)
             for team_stats in ts.get_team_opponent_stats(page_html):
@@ -233,6 +241,7 @@ for url, response in zip(list_of_urls, responses):
         """
         ----------------------------------------------TEAMS RANKS----------------------------------------------
         """
+        # We scrape and create the teams ranks
         if args.data_type[0] in ['teams_ranks', 'all']:
             query = db.create_insert_query('teams_ranks', cols_teams_ranks)
             for team_ranks in ts.get_team_opponent_ranks(page_html):
@@ -243,23 +252,24 @@ for url, response in zip(list_of_urls, responses):
 """
 ----------------------------------------------GAMES------------------------------------------
 """
+# We scrape and create the games table
 if args.boxscores:
     query_games = db.create_insert_query('games', cols_games)
     for season in seasons:
-        # We define all the lists that will be updated with the different functions
+        # We define all the lists that will be updated
         month = []
         day = []
         year = []
         box_score = []
         visitor_team = []
         home_team = []
+        data_for_query = []
 
         # Creating the list of urls
         list_of_urls_scores = bs.url_creation(season)
+
         # Making the requests with GRequests
         responses = bs.get_request(list_of_urls_scores)
-
-        data_for_query = []
 
         for url, response in zip(list_of_urls_scores, responses):
             if response is not None:
@@ -285,6 +295,8 @@ if args.boxscores:
         """
         ----------------------------------------------BOXSCORES------------------------------------------
         """
+        # We scrape and create the boxscores table
+        # We define all the lists that will be updated
         games_ids = []
         games_urls = []
         games_teams = []

@@ -5,7 +5,6 @@ import re
 import src.conf as c
 
 
-
 def url_creation(y):
     """
     This functions creates all the URLs that will be scraped. In each of them the year and month change.
@@ -14,7 +13,7 @@ def url_creation(y):
     """
     list_of_urls_scores = []
 
-# Exceptions due to COVID
+    # Exceptions due to COVID
     if y == "2021":
         for m in c.MONTHS_2021:
             url = c.URL_1_SCORE + y + c.URL_2_SCORE + m + c.URL_3_SCORE
@@ -179,10 +178,15 @@ def create_day_month_year(date, day, month, year):
 
 
 def scraping_urls(soup, box_score):
+    """
+    This functions scrapes and cleans all the fields requiered for the games table
+    :param soup: the beautiful soup object
+    :param box_score: the list that has all the information needed for the games tables
+    :return: a list of lists with the data needed for the columns of the table
+    """
     # We extract all the data we need from basketball reference
     url_complete = extract_urls(soup)
 
-    # We clean the data that we scraped
     # Variable definition
     url_boxscore = []
     date = []
@@ -208,6 +212,18 @@ def scraping_urls(soup, box_score):
 
 
 def cleaning_urls(box_score_aux, home, visitor, date, home_team, visitor_team, day, month, year):
+    """
+    This functions cleans all the list (that will be the columns of the table games)
+    :param box_score_aux: a list with the data regarding the urls of boxscore
+    :param home: a list with the information of the home teams
+    :param visitor: a list with the information of the vistor teams
+    :param date:  a list with the information of the dates of the matches
+    :param home_team: final version of home team - cleaned
+    :param visitor_team: final version of visitor team - cleaned
+    :param day: final version of dates - only the day
+    :param month: final version of dates - only the month
+    :param year: final version of dates - only the year
+    """
     # We clean all the list while we update them
     box_score_aux = change_length_box_score(box_score_aux)
     home = change_length_home(box_score_aux, home)
@@ -217,6 +233,17 @@ def cleaning_urls(box_score_aux, home, visitor, date, home_team, visitor_team, d
 
 
 def doubling_lists(day, month, year, home_team, visitor_team, box_score):
+    """
+    This function doubles the values in all the final lists so that there's one row for the home team (with home_team =
+    1) and another one for the visitor team (with home_team = 0)
+    :param day: the list with the days of the matches
+    :param month: the list with the months of the matches
+    :param year: the list with the years of the matches
+    :param home_team: the list with the home teams
+    :param visitor_team: the list with the visitor teams
+    :param box_score:  the list with the boxscore url
+    :return: all the lists that are the columns of the table games
+    """
     day_doubles = double_list(day, day)
     month_doubles = double_list(month, month)
     year_doubles = double_list(year, year)
@@ -359,5 +386,3 @@ def fill_dnp(boxscore):
     for i in range(len(boxscore) - 1):
         boxscore[i] += [None] * num_dnp_players
     return boxscore
-
-
