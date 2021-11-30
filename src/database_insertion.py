@@ -128,4 +128,3 @@ def get_boxscore_query(season):
         WHERE (year = {season-1} AND month >= {c.FIRST_SEASON_MONTH})
         OR (year = {season} AND month <= {last_month});"""
     return query
-
