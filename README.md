@@ -24,14 +24,17 @@ First we created a table with all the games played throughout that year (teams i
 - `main.py` with the main program
 - `requirements.txt` with the libraries needed
 - `database folder` with the files related to the database creation:
+
        · `database_creation.py`: script of creation of the SQL database
        · `database_design.mwb`: EER diagram of the SQL database
        · `Database_design.png`: screenshot of the EER diagram of the SQL database
 - `src folder` with all the functions needed for the main:
+
        · `conf.py` with the configuration constants
        · `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
        · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
        · `databse_insertion.py`  where all the inserion to the database takes place.
+
 ⚠️ In the `.gitignore` there is a `.env` file with the password of your MySQL that will allow you to work with SQL.
 The file should look like this:
 > password = your_password
@@ -59,7 +62,7 @@ Arguments:
 1. **Mandatory** `data_type` the table from team_season you want to scrape, the options are:
 `['summaries', 'rosters', 'players_stats', 'teams_stats','teams_ranks', 'salaries', 'all']`
 2. **Optional** `-boxscores` to scrape boxscores 
-3. *Optional* `-t` the teams that you want to scrape, by default it's `all teams`
+3. **Optional** `-t` the teams that you want to scrape, by default it's `all teams`
 It has to be a team in the following list: 
 `['UTA', 'IND', 'DET', 'DEN', 'LAL', 'GSW', 'BRK', 'PHI', 'MIL', 'CHI', 'WAS', 'SAS', 'MIA', 'OKC', 'DAL', 'CHO', 'SAC', 'NYK', 'POR', 'MIN', 'TOR', 'LAC', 'ORL', 'BOS', 'MEM', 'NOP', 'PHO', 'HOU', 'ATL', 'CLE']`
 5. **Optional** `-s` the seasons that you want to scrape, by default it's `all years`. 
