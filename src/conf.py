@@ -54,8 +54,6 @@ OLD_TEAMS_LABELS = ['NJN', 'CHA', 'SEA', 'NOH']
 INDEXES_PLAYERS = [2, 4, 5, 6, 7, 9, 10]
 INDEXES_ROSTERS = [0, 1, 3, 8]
 
-PLAYERS_NAMES = ['D.J. Mbenga', 'Gigi Datome', 'Vítor Luiz Faverani', 'Wendell Carte', 'aren Jackson', 'Mo Bamba', 'Didi Louzada']
-
 WEIRD_PLAYER_SUFFIXES = [' Jr.', ' Sr.', ' III', ' II']
 
 FIRST_SEASON_MONTH = 10
