@@ -125,6 +125,7 @@ def get_boxscore_query(season):
     if season == 2020:
         last_month = c.LAST_SEASON_MONTH_2020
     query = f"""SELECT * FROM games
-        WHERE (year = {season} AND month >= {c.FIRST_SEASON_MONTH})
-        OR (year = {season + 1} AND month <= {last_month});"""
+        WHERE (year = {season-1} AND month >= {c.FIRST_SEASON_MONTH})
+        OR (year = {season} AND month <= {last_month});"""
     return query
+

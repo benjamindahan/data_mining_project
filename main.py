@@ -1,5 +1,6 @@
 import sys
 
+import pymysql
 import grequests
 import src.conf as c
 import src.scraping_team_season as ts
@@ -44,6 +45,7 @@ parser.add_argument('-s', nargs='*', default='all',
 
 args = parser.parse_args()
 
+print("Let's create the best basketball database ever! 🏀⛹🏾⛹🏽‍")
 
 # We get the team names that were requested by the user
 if args.t != 'all':
@@ -72,9 +74,13 @@ if args.s != 'all':
 ----------------------------------------------CONNECTION/CURSOR----------------------------------------------
 """
 
-connection, cursor = db.create_sql_connection(pswd)
-query = 'USE basketball_reference;'
-cursor.execute(query)
+try:
+    connection, cursor = db.create_sql_connection(pswd)
+    query = 'USE basketball_reference;'
+    cursor.execute(query)
+except pymysql.err.OperationalError:
+    print("☠️ You haven't created the basketball_reference database! Shame on you! 🏀")
+    sys.exit()
 
 """
 ----------------------------------------------TEAMS----------------------------------------------
@@ -204,16 +210,15 @@ for url, response in zip(list_of_urls, responses):
                 player = list(player)
                 player[0] = ts.strip_players_suffixes(player[0])
                 player[0] = ts.get_real_name(player[0])
-                player = tuple(player)
-                try:
-                    if player[0] not in c.PLAYERS_NAMES:
-                        player_id = db.get_id('player', cursor, player[0])
-                        values = [season] + list(player[1:]) + [player_id] + [team_id]
-                        values = [None if value == "" else value for value in values]
-                        cursor.execute(query, values)
-                        connection.commit()
-                except TypeError:
-                    c.PLAYERS_NAMES.append(player[0])
+
+                player_id = db.get_id('player', cursor, player[0])
+
+                values = [season] + player[1:] + [player_id] + [team_id]
+
+                values = [None if value == "" else value for value in values]
+                cursor.execute(query, values)
+                connection.commit()
+
 
         """
         ----------------------------------------------TEAMS STATS----------------------------------------------
@@ -257,7 +262,6 @@ if args.boxscores:
         data_for_query = []
 
         for url, response in zip(list_of_urls_scores, responses):
-            print(url)
             if response is not None:
                 # Creating the soup object
                 soup = BeautifulSoup(response.text, "html.parser")
@@ -275,9 +279,9 @@ if args.boxscores:
                 data_for_query += [teams_ids, visitors_ids]
 
         for values in zip(*data_for_query):
-            print(values)
             cursor.execute(query_games, values)
             connection.commit()
+
         """
         ----------------------------------------------BOXSCORES------------------------------------------
         """
@@ -297,7 +301,6 @@ if args.boxscores:
         print('initialize')
         responses_teams_ids = bs.get_data_grequest(games_urls, games_teams, games_ids)
         print('finish grequest')
-        print(games_urls)
 
         basic_fields = bs.get_basic_fields(c.URL_FIELDS_BOXSCORE)
         advanced_fields = bs.get_advanced_fields(c.URL_FIELDS_BOXSCORE)
