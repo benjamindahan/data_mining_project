@@ -17,16 +17,27 @@ In this project, for each one of the 30 teams and for each season between (2008-
 5. The `team and opponent statistics` that compares the statistics of each with all the competence.
 6. The `team and opponent rank` that is analogue to nr 5 but with the rank.
 
-Then for a selected year (that can be changed in the conf file), for each game played, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game. 
-First we created a table with all the games played throughout that year (teams involved, date, link to the boxscore) and then we created a json file with the boxscores related to each game. Those two outputs have a common `id` key.
+Then for a selected year (that can be choosed from the Command Line), for each game played, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game. 
+First we created a table with all the games played throughout that year (teams involved, date, link to the boxscore) and then we created another table with the boxscores related to each game. Those two outputs have a common `id` key.
 
 ### Contents of the repository
-- `conf.py` with the configuration constants
-- `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
-- `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
-- `rosters.csv` , `salaries.json`, `statistics.json`, `summary.csv`, `team_opponent_rank.csv`, `team_opponent_stats.csv` with all the data collected from the team/season web scraping
-- `games.csv` and `boxscore.json` with a year identifier, where all the data collected from the boxscore scraping.
-- `stdout_issue.log` with information about the box score pages that were not scraped
+- `main.py` with the main program
+- `requirements.txt` with the libraries needed
+- `database folder` with the files related to the database creation:
+
+       · `database_creation.py`: script of creation of the SQL database
+       · `database_design.mwb`: EER diagram of the SQL database
+       · `Database_design.png`: screenshot of the EER diagram of the SQL database
+- `src folder` with all the functions needed for the main:
+
+       · `conf.py` with the configuration constants
+       · `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
+       · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
+       · `databse_insertion.py`  where all the inserion to the database takes place.
+
+⚠️ In the `.gitignore` there is a `.env` file with the password of your MySQL that will allow you to work with SQL.
+The file should look like this:
+> password = your_password
 
 ### Tools
 - [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
@@ -37,8 +48,27 @@ First we created a table with all the games played throughout that year (teams i
 - [pandas](https://pandas.pydata.org/docs/)
 - [sys](https://docs.python.org/3/library/sys.html)
 - [time](https://docs.python.org/3/library/time.html)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [os](https://docs.python.org/3/library/os.html)
+- [argparse](https://docs.python.org/3/library/argparse.html)
+- [pymysql](https://pymysql.readthedocs.io/en/latest/)
 
-### TODO
-- Upgrade the scraping boxscore so that it can do all years at once. 
+### SQL DATABASE
+
+![SQL_DB](database/Database_design.png)
+
+### COMMAND LINE ARGUMENTS
+Arguments: 
+1. **Mandatory** `data_type` the table from team_season you want to scrape, the options are:
+`['summaries', 'rosters', 'players_stats', 'teams_stats','teams_ranks', 'salaries', 'all']`
+2. **Optional** `-boxscores` to scrape boxscores 
+3. **Optional** `-t` the teams that you want to scrape, by default it's `all teams`
+It has to be a team in the following list: 
+`['UTA', 'IND', 'DET', 'DEN', 'LAL', 'GSW', 'BRK', 'PHI', 'MIL', 'CHI', 'WAS', 'SAS', 'MIA', 'OKC', 'DAL', 'CHO', 'SAC', 'NYK', 'POR', 'MIN', 'TOR', 'LAC', 'ORL', 'BOS', 'MEM', 'NOP', 'PHO', 'HOU', 'ATL', 'CLE']`
+5. **Optional** `-s` the seasons that you want to scrape, by default it's `all years`. 
+It has to be a year or several years from 2008 and 2021.
+
+
+
 
 > Authors: Benjamin Dahan and Julieta Staryfurman 
