@@ -3,9 +3,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import src.conf as c
-import json
-import pandas as pd
-import time
 
 
 

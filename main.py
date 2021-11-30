@@ -254,6 +254,8 @@ if args.boxscores:
         # Making the requests with GRequests
         responses = bs.get_request(list_of_urls_scores)
 
+        data_for_query = []
+
         for url, response in zip(list_of_urls_scores, responses):
             print(url)
             if response is not None:

@@ -56,15 +56,6 @@ INDEXES_ROSTERS = [0, 1, 3, 8]
 
 PLAYERS_NAMES = ['D.J. Mbenga', 'Gigi Datome', 'Vítor Luiz Faverani', 'Wendell Carte', 'aren Jackson', 'Mo Bamba', 'Didi Louzada']
 
-PLAYERS_NAMES_DOUBLED = {'Mbenga': 'Didier Ilunga-Mbenga',
-                         'D.J. Mbenga': 'Didier Ilunga-Mbenga',
-                         'Gigi Datome': 'Luigi Datome',
-                         'Vítor Luiz Faverani': 'Vítor Faverani',
-                         'Wendell Carte': 'Wendell Carter',
-                         'aren Jackson': 'Jaren Jackson',
-                         'Mo Bamba': 'Mohamed Bamba',
-                         'Didi Louzada': 'Marcos Louzada Silva'}
-
 WEIRD_PLAYER_SUFFIXES = [' Jr.', ' Sr.', ' III', ' II']
 
 FIRST_SEASON_MONTH = 10
@@ -78,6 +69,7 @@ PLAYERS_NAMES_DOUBLED = {'D.J. Mbenga': 'Didier Ilunga-Mbenga',
                          'Mo Bamba': 'Mohamed Bamba',
                          'Didi Louzada': 'Marcos Louzada Silva',
                          'Nene': 'Nenê Hilário',
+                         'Nenê': 'Nenê Hilário',
                          'Jose Barea': 'J.J. Barea',
                          'Louis Amundson': 'Lou Amundson',
                          'Louis Williams': 'Lou Williams',
