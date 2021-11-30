@@ -4,6 +4,7 @@
 
 ### macOS ###
 # General
+.idea
 .env
 .DS_Store
 .AppleDouble
