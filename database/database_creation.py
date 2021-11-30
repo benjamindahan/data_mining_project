@@ -1,13 +1,22 @@
 import pymysql
 from dotenv import load_dotenv
 import os
-assert load_dotenv() == True
-pswd = os.getenv("password")
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password=pswd,
-                             cursorclass=pymysql.cursors.DictCursor)
-cursor = connection.cursor()
+import sys
+
+assert load_dotenv() is True
+
+try:
+    pswd = os.getenv("password")
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password=pswd,
+                                 cursorclass=pymysql.cursors.DictCursor)
+    cursor = connection.cursor()
+except pymysql.err.OperationalError:
+    print("☠️ You need to have a .env file with passworrd = your_password!! ")
+    sys.exit()
+
+# CREATING DATABASE
 query = """
 CREATE DATABASE IF NOT EXISTS basketball_reference DEFAULT CHARACTER SET utf8;"""
 cursor.execute(query)
@@ -28,6 +37,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.players(
   CONSTRAINT Index_2 UNIQUE (player_id, player_name, birth_month, birth_day, birth_year, country, height))
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE TEAMS
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.teams(
   team_id INT NOT NULL AUTO_INCREMENT,
@@ -60,6 +71,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.rosters (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE SALARIES
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.salaries (
   salary_id INT NOT NULL AUTO_INCREMENT,
@@ -83,6 +96,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.salaries (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE PLAYERS STATS
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.players_stats (
   players_stats_id INT NOT NULL AUTO_INCREMENT,
@@ -131,6 +146,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.players_stats (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE TEAMS SUMMARIES
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.teams_summaries (
   summary_id INT NOT NULL AUTO_INCREMENT,
@@ -161,6 +178,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.teams_summaries (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE TEAMS STATS
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.teams_stats (
   teams_stats_id INT NOT NULL AUTO_INCREMENT,
@@ -219,6 +238,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.teams_stats (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE TEAMS RANKS
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.teams_ranks (
   teams_ranks_id INT NOT NULL AUTO_INCREMENT,
@@ -277,6 +298,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.teams_ranks (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE GAMES
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.games (
   game_id INT NOT NULL AUTO_INCREMENT,
@@ -303,6 +326,8 @@ CREATE TABLE IF NOT EXISTS basketball_reference.games (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE BOXSCORES
 query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.boxscores (
   boxscore_id INT NOT NULL AUTO_INCREMENT,
