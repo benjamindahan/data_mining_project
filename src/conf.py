@@ -8,7 +8,7 @@ URL_2_SCORE = "_games-"
 URL_3_SCORE = ".html"
 URL_FIELDS_PLAYER_STATS = 'https://www.basketball-reference.com/teams/LAC/2010.html'
 URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
-
+URL_API_TEAMS = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
 
 # BATCHES
 BATCHES = 20
@@ -55,14 +55,13 @@ CORRECT_LENGTH = 3
 CORRECT_LENGTH_MATCHES = 8
 INDEXES_PLAYERS = [2, 4, 5, 6, 7, 9, 10]
 INDEXES_ROSTERS = [0, 1, 3, 8]
-
+INDEXES_NO_API = [3,]
 
 # FIXING TEAMS
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
              'NOP': {'old_name': 'NOH', 'until_season': '2013'}, 'OKC': {'old_name': 'SEA', 'until_season': '2008'}}
 
 OLD_TEAMS_LABELS = ['NJN', 'CHA', 'SEA', 'NOH']
-
 
 # FIXING PLAYERS
 WEIRD_PLAYER_SUFFIXES = [' Jr.', ' Sr.', ' III', ' II']

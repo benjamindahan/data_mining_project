@@ -43,6 +43,11 @@ query = """
 CREATE TABLE IF NOT EXISTS basketball_reference.teams(
   team_id INT NOT NULL AUTO_INCREMENT,
   team_name VARCHAR(3) NULL UNIQUE,
+  city VARCHAR(30) NULL,
+  full_name VARCHAR(30) NULL,
+  conference_name VARCHAR(30) NULL,
+  division_name VARCHAR(30) NULL,
+  team_id_api INT NULL,
   PRIMARY KEY (team_id))
 ENGINE = InnoDB;"""
 cursor.execute(query)

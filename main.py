@@ -5,6 +5,7 @@ import src.conf as c
 import src.scraping_team_season as ts
 import src.scraping_boxscores as bs
 import src.database_insertion as db
+import src.api as api
 import re
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -84,19 +85,10 @@ def main():
         sys.exit()
 
     """
-    ----------------------------------------------TEAMS----------------------------------------------
-    """
-    # We scrape and create the team tables of SQL
-    query = "INSERT IGNORE INTO teams (team_name) VALUES (%s);"
-
-    for team in teams + c.OLD_TEAMS_LABELS:
-        cursor.execute(query, team)
-        connection.commit()
-
-    """
     ----------------------------------------------SQL TABLES' COLUMNS----------------------------------------------
     """
     # We get all the columns of all the tables in SQL that will be used later
+    cols_teams = db.get_table_columns_label(cursor, 'teams')
     cols_players = db.get_table_columns_label(cursor, 'players')
     cols_rosters = db.get_table_columns_label(cursor, 'rosters')
     cols_salaries = db.get_table_columns_label(cursor, 'salaries')
@@ -106,6 +98,21 @@ def main():
     cols_players_stats = db.get_table_columns_label(cursor, 'players_stats')
     cols_games = db.get_table_columns_label(cursor, 'games')
     cols_boxscores = db.get_table_columns_label(cursor, 'boxscores')
+
+    """
+    ----------------------------------------------TEAMS----------------------------------------------
+    """
+    # We scrape and create the team tables of SQL
+    all_values = api.get_teams_values(teams)
+    for values in all_values:
+        query = db.create_insert_query('teams', cols_teams)
+        cursor.execute(query, values)
+        connection.commit()
+
+    query = "INSERT IGNORE INTO teams (team_name) VALUES (%s);"
+    for team in c.OLD_TEAMS_LABELS:
+        cursor.execute(query, team)
+        connection.commit()
 
     """
     ----------------------------------------------URLS/REQUESTS FOR TEAMS/SEASONS--------------------------------------
