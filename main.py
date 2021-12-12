@@ -6,6 +6,7 @@ import src.scraping_team_season as ts
 import src.scraping_boxscores as bs
 import src.database_insertion as db
 import src.api as api
+import database.database_creation as dbc
 import re
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -75,14 +76,11 @@ def main():
     """
     ----------------------------------------------CONNECTION/CURSOR----------------------------------------------
     """
-    # We create the connection with SQL and the cursor.
-    try:
-        connection, cursor = db.create_sql_connection(pswd)
-        query = 'USE basketball_reference;'
-        cursor.execute(query)
-    except pymysql.err.OperationalError:
-        print("☠️ You haven't created the basketball_reference database! Shame on you! 🏀")
-        sys.exit()
+    # We create the database and prepare it for using it.
+    dbc.creation_script()
+    connection, cursor = db.create_sql_connection(pswd)
+    query = 'USE basketball_reference;'
+    cursor.execute(query)
 
     """
     ----------------------------------------------SQL TABLES' COLUMNS----------------------------------------------
