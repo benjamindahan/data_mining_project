@@ -9,6 +9,7 @@ URL_3_SCORE = ".html"
 URL_FIELDS_PLAYER_STATS = 'https://www.basketball-reference.com/teams/LAC/2010.html'
 URL_FIELDS_BOXSCORE = 'https://www.basketball-reference.com/boxscores/201910220TOR.html'
 URL_API_TEAMS = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
+URL_API_STANDINGS = "https://api-nba-v1.p.rapidapi.com/standings/standard/"
 
 # BATCHES
 BATCHES = 20

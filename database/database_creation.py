@@ -389,3 +389,30 @@ CREATE TABLE IF NOT EXISTS basketball_reference.boxscores (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;"""
 cursor.execute(query)
+
+# CREATING TABLE STANDINGS
+query = """
+CREATE TABLE IF NOT EXISTS basketball_reference.standings (
+  standings_id INT NOT NULL AUTO_INCREMENT,
+  team_id INT NOT NULL,
+  wins INT NOT NULL,
+  loss INT NOT NULL,
+  season INT NOT NULL,
+  conference VARCHAR(20) NULL,
+  conference_rank INT NULL,
+  conference_wins INT NULL,
+  conference_loss INT NULL,
+  division VARCHAR(30) NULL,
+  division_rank INT NULL,
+  division_wins INT NULL,
+  division_loss INT NULL,
+  PRIMARY KEY (standings_id),
+  CONSTRAINT Index_2 UNIQUE (season,  team_id),
+  INDEX fk_standings_teams1_idx (team_id ASC) VISIBLE,
+  CONSTRAINT fk_standings_teams1
+    FOREIGN KEY (team_id)
+    REFERENCES basketball_reference.teams (team_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;"""
+cursor.execute(query)

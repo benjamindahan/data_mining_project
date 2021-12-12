@@ -17,8 +17,11 @@ In this project, for each one of the 30 teams and for each season between (2008-
 5. The `team and opponent statistics` that compares the statistics of each with all the competence.
 6. The `team and opponent rank` that is analogue to nr 5 but with the rank.
 
-Then for a selected year (that can be choosed from the Command Line), for each game played, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game. 
+Then for a selected year (that can be chosen from the Command Line), for each game played, we scraped the `basic` and `advanced` `boxscores` of both teams involved in the game. 
 First we created a table with all the games played throughout that year (teams involved, date, link to the boxscore) and then we created another table with the boxscores related to each game. Those two outputs have a common `id` key.
+
+Then, we used an `API` to get more information about the `teams` and the `standings` of the last 3 years.
+Here you can find the documentation of the API [API](https://rapidapi.com/api-sports/api/api-nba/)
 
 ### Contents of the repository
 - `main.py` with the main program
@@ -34,10 +37,17 @@ First we created a table with all the games played throughout that year (teams i
        · `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
        · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
        · `databse_insertion.py`  where all the inserion to the database takes place.
+       · `api.py`  where all the api requests takes place.
 
 ⚠️ In the `.gitignore` there is a `.env` file with the password of your MySQL that will allow you to work with SQL.
+You can also find there the host and keys tokens of the API.
 The file should look like this:
 > password = your_password
+> 
+> host = host_token
+> 
+>key = key_token
+
 
 ### Tools
 - [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
@@ -60,7 +70,7 @@ The file should look like this:
 ### COMMAND LINE ARGUMENTS
 Arguments: 
 1. **Mandatory** `data_type` the table from team_season you want to scrape, the options are:
-`['summaries', 'rosters', 'players_stats', 'teams_stats','teams_ranks', 'salaries', 'all']`
+`['summaries', 'rosters', 'players_stats', 'teams_stats','teams_ranks', 'salaries','standings', 'all']`
 2. **Optional** `-boxscores` to scrape boxscores 
 3. **Optional** `-t` the teams that you want to scrape, by default it's `all teams`
 It has to be a team in the following list: 

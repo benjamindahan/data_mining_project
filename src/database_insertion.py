@@ -128,3 +128,17 @@ def get_boxscore_query(season):
         WHERE (year = {season-1} AND month >= {c.FIRST_SEASON_MONTH})
         OR (year = {season} AND month <= {last_month});"""
     return query
+
+
+def get_teams_dictionary(cursor):
+    """
+    This function creates a dictionary with the ids of the database and the ids of the API.
+    :param cursor: the SQL cursor
+    :return: the dictionary
+    """
+    cursor.execute("SELECT team_id, team_id_api FROM teams;")
+    team_ids = [db["team_id"] for db in cursor.fetchall()]
+    cursor.execute("SELECT team_id, team_id_api FROM teams;")
+    team_ids_api = [db["team_id_api"] for db in cursor.fetchall()]
+    dictionary_team_ids = dict(zip(team_ids_api,team_ids))
+    return dictionary_team_ids

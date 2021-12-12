@@ -33,7 +33,7 @@ def main():
     # Creating the command line arguments
     parser = argparse.ArgumentParser(description='Get data about NBA teams/seasons')
     parser.add_argument('data_type', nargs=1, choices=['summaries', 'rosters', 'players_stats', 'teams_stats',
-                                                       'teams_ranks', 'salaries', 'all'],
+                                                       'teams_ranks', 'salaries', 'standings', 'all'],
                         help='The type of data you want to scrape')
     parser.add_argument('-boxscores', action='store_true',
                         help='Choose to scrape boxscores. ⚠️ Be careful! It takes a long time')
@@ -89,6 +89,7 @@ def main():
     """
     # We get all the columns of all the tables in SQL that will be used later
     cols_teams = db.get_table_columns_label(cursor, 'teams')
+    cols_standings = db.get_table_columns_label(cursor, 'standings')
     cols_players = db.get_table_columns_label(cursor, 'players')
     cols_rosters = db.get_table_columns_label(cursor, 'rosters')
     cols_salaries = db.get_table_columns_label(cursor, 'salaries')
@@ -113,6 +114,17 @@ def main():
     for team in c.OLD_TEAMS_LABELS:
         cursor.execute(query, team)
         connection.commit()
+
+    """
+    --------------------------------------------------STANDINGS--------------------------------------------------------
+    """
+    if args.data_type[0] in ['standings', 'all']:
+        teams_dictionaries = db.get_teams_dictionary(cursor)
+        all_standing_values = api.get_standings(teams_dictionaries)
+        for values in all_standing_values:
+            query = db.create_insert_query('standings', cols_standings)
+            cursor.execute(query, values)
+            connection.commit()
 
     """
     ----------------------------------------------URLS/REQUESTS FOR TEAMS/SEASONS--------------------------------------
