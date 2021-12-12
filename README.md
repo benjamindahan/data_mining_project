@@ -38,6 +38,7 @@ Here you can find the documentation of the API [API](https://rapidapi.com/api-sp
        · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
        · `databse_insertion.py`  where all the inserion to the database takes place.
        · `api.py`  where all the api requests takes place.
+- `nba.log` with all the logging of the project
 
 ⚠️ In the `.gitignore` there is a `.env` file with the password of your MySQL that will allow you to work with SQL.
 You can also find there the host and keys tokens of the API.
@@ -62,6 +63,7 @@ The file should look like this:
 - [os](https://docs.python.org/3/library/os.html)
 - [argparse](https://docs.python.org/3/library/argparse.html)
 - [pymysql](https://pymysql.readthedocs.io/en/latest/)
+- [logging](https://docs.python.org/3/library/logging.html)
 
 ### SQL DATABASE
 

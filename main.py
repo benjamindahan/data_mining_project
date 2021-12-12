@@ -12,9 +12,14 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
 import argparse
+import logging
 
 assert load_dotenv() is True
 pswd = os.getenv("password")
+
+logging.basicConfig(filename='nba.log',
+                    format='%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s',
+                    level=logging.INFO)
 
 
 def main():
@@ -49,15 +54,18 @@ def main():
 
     args = parser.parse_args()
 
+    logging.info("✅Starting the program!!")
     print("Let's create the best basketball database ever! 🏀⛹🏾⛹🏽‍")
 
     # We get the team names that were requested by the user
     if args.t != 'all':
         try:
             assert set(args.t).issubset(teams)
+            logging.info("✅Correct values for the teams")
         except AssertionError:
             print("Oops!  That was not a valid team. Try again...")
             print(f"Here are the possible values: {teams}")
+            logging.critical("❌Introduced team not valid")
             sys.exit()
         finally:
             teams = args.t
@@ -66,9 +74,11 @@ def main():
     if args.s != 'all':
         try:
             assert set(args.s).issubset(seasons)
+            logging.info("✅Correct values for the seasons")
         except AssertionError:
             print("Oops!  That was not a valid season. Try again...")
             print(f"Here are the possible values: {seasons}")
+            logging.critical("❌Introduced season not valid")
             sys.exit()
         finally:
             seasons = args.s
@@ -76,9 +86,11 @@ def main():
     """
     ----------------------------------------------CONNECTION/CURSOR----------------------------------------------
     """
-    # We create the database and prepare it for using it.
+    # We create the database and prepare it for using it
     dbc.creation_script()
+    logging.info("✅Database created!!")
     connection, cursor = db.create_sql_connection(pswd)
+    logging.info("✅Connection created!!")
     query = 'USE basketball_reference;'
     cursor.execute(query)
 
@@ -112,6 +124,7 @@ def main():
     for team in c.OLD_TEAMS_LABELS:
         cursor.execute(query, team)
         connection.commit()
+    logging.info("✅Table teams completed!!")
 
     """
     --------------------------------------------------STANDINGS--------------------------------------------------------
@@ -123,6 +136,7 @@ def main():
             query = db.create_insert_query('standings', cols_standings)
             cursor.execute(query, values)
             connection.commit()
+        logging.info("✅Table standings completed!!")
 
     """
     ----------------------------------------------URLS/REQUESTS FOR TEAMS/SEASONS--------------------------------------
@@ -150,6 +164,8 @@ def main():
             season = re.findall(f"{pattern_for_season}(.*){c.URL_3}", url)[0]
 
             # Prints that help us debug
+            logging.info(f"✅Scraping Team: {team}")
+            logging.info(f"✅Scraping Season: {season}")
             print("TEAM: ", team)
             print("SEASON: ", season)
 
@@ -189,6 +205,7 @@ def main():
                         team_id]
                     cursor.execute(query, values)
                     connection.commit()
+            logging.info("✅Tables rosters and players completed!!")
 
             """
             ----------------------------------------------SALARIES----------------------------------------------
@@ -203,6 +220,7 @@ def main():
                     try:
                         player_id = db.get_id('player', cursor, player)
                     except TypeError:
+                        logging.error(f"❌This player ({player}) was cut by their team and hired by another one !!")
                         # Some players are cut by their team (team A) and hired by another team (team B)
                         # That means that the player still appears in team A salaries but not in the roster
                         # For these reasons, we need to deal with the players_cut list
@@ -216,6 +234,7 @@ def main():
                     values = [season, salary, player_id, team_id]
                     cursor.execute(query, values)
                     connection.commit()
+            logging.info("✅Table salaries completed!!")
 
             """
             ----------------------------------------------TEAM SUMMARY----------------------------------------------
@@ -226,6 +245,7 @@ def main():
                 values = [season] + ts.get_team_summary(soup) + [team_id]
                 cursor.execute(query, values)
                 connection.commit()
+            logging.info("✅Table team summaries completed!!")
 
             """
             ----------------------------------------------PLAYER STATS----------------------------------------------
@@ -245,6 +265,7 @@ def main():
                     values = [None if value == "" else value for value in values]
                     cursor.execute(query, values)
                     connection.commit()
+            logging.info("✅Table player statistics completed!!")
 
             """
             ----------------------------------------------TEAMS STATS----------------------------------------------
@@ -256,6 +277,7 @@ def main():
                     values = [season] + team_stats + [team_id]
                     cursor.execute(query, values)
                     connection.commit()
+            logging.info("✅Table teams statistics completed!!")
 
             """
             ----------------------------------------------TEAMS RANKS----------------------------------------------
@@ -267,6 +289,7 @@ def main():
                     values = [season] + team_ranks + [team_id]
                     cursor.execute(query, values)
                     connection.commit()
+            logging.info("✅Table teams ranks completed!!")
 
     """
     ----------------------------------------------GAMES------------------------------------------
@@ -311,6 +334,8 @@ def main():
                 cursor.execute(query_games, values)
                 connection.commit()
 
+            logging.info(f"✅Table games completed for year {season}!!")
+
             """
             ----------------------------------------------BOXSCORES------------------------------------------
             """
@@ -322,7 +347,7 @@ def main():
 
             query_urls = db.get_boxscore_query(season)
             cursor.execute(query_urls)
-            games_args = [(db["game_id"], db["url"], db["team_id"]) for db in cursor.fetchall()]
+            games_args = [(db_["game_id"], db_["url"], db_["team_id"]) for db_ in cursor.fetchall()]
             query_boxscores = db.create_insert_query('boxscores', cols_boxscores)
 
             # games_ids is a list with all the games ids from the season in the loop
@@ -334,8 +359,10 @@ def main():
                 games_teams.append(row[2])
 
             print('initialize')
+            logging.info(f"✅Initializing Grequests for season: {season}!!")
             responses_teams_ids = bs.get_data_grequest(games_urls, games_teams, games_ids)
             print('finish grequest')
+            logging.info(f"✅Finishing Grequests for season: {season}!!")
 
             # We get the fields (columns names) from basic boxscores (assists, rebounds, points...)
             basic_fields = bs.get_basic_fields(c.URL_FIELDS_BOXSCORE)
@@ -346,6 +373,7 @@ def main():
                 # we get the team name based on the team id
                 team = db.get_team_from_id(cursor, team_id)
                 print(team)
+                logging.info(f"✅Creating boxscore of team: {team}!!")
                 # we get the basic boxscore table
                 basic_table = bs.get_table_basic_boxscore(response, team)
                 # we get the advanced boxscore table
@@ -361,6 +389,8 @@ def main():
                     try:
                         players_id.append(db.get_id('player', cursor, player))
                     except TypeError:
+                        logging.error(f"""❌This player ({player}) does not appear in the roster or the salaries 
+                        of the team {team} for season {season}""")
                         print(f"""{player} does not appear in the roster or the salaries 
                         of the team {team} for season {season}""")
 
@@ -393,7 +423,9 @@ def main():
                     values = [None if value == "" else value for value in values]
                     cursor.execute(query_boxscores, values)
                     connection.commit()
-
+            logging.info(f"✅Table boxscores completed for season {season}!!")
+        logging.info(f"✅Tables boxscores and games completed!!")
+    logging.info("🚀 PROGRAM FINISHED!!")
 
 if __name__ == '__main__':
     main()
