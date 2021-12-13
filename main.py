@@ -41,7 +41,6 @@ def main():
     # We create the database and prepare it for using it
     connection, cursor = mf.create_and_use_database(pswd)
 
-
     """
     ----------------------------------------------TEAMS----------------------------------------------
     """
@@ -122,7 +121,8 @@ def main():
 
             for response, team_id, game_id in responses_teams_ids:
                 basic_boxscore, advanced_boxscore, players_id = mf.scrape_boxscores(cursor, response, team_id,
-                                                                                    basic_fields, advanced_fields)
+                                                                                    basic_fields, advanced_fields,
+                                                                                    season)
 
                 mf.insert_boxscores(connection, cursor, basic_boxscore, advanced_boxscore, players_id, game_id,
                                     query_boxscores)
@@ -130,6 +130,7 @@ def main():
             logging.info(f"✅Table boxscores completed for season {season}!!")
         logging.info(f"✅Tables boxscores and games completed!!")
     logging.info("🚀 PROGRAM FINISHED!!")
+
 
 if __name__ == '__main__':
     main()

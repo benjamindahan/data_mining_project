@@ -8,7 +8,6 @@ import src.api as api
 import database.database_creation as dbc
 import re
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
 import argparse
 import logging
 
@@ -304,7 +303,7 @@ def scrape_insert_players_stats(connection, cursor, args, season, team_id, soup)
     :param args: the parsed args from the command line
     :param season: the year of the nba season
     :param team_id: the id of the team
-    :param_soup: the soup object of the scrapped page
+    :param soup: the soup object of the scrapped page
     """
     # We scrape and create the players stats
     if args.data_type[0] in ['players_stats', 'all']:
@@ -450,7 +449,7 @@ def prepare_boxscores_scraping(cursor, season):
     return responses_teams_ids, basic_fields, advanced_fields, query_boxscores
 
 
-def scrape_boxscores(cursor, response, team_id, basic_fields, advanced_fields):
+def scrape_boxscores(cursor, response, team_id, basic_fields, advanced_fields, season):
     """
     Based on the response of a requested game url, this function returns the basic and advanced boxscores
     :param cursor: the sql cursor
@@ -458,6 +457,7 @@ def scrape_boxscores(cursor, response, team_id, basic_fields, advanced_fields):
     :param team_id: the team_id of one of the teams playing
     :param basic_fields: fields (columns names) from basic boxscores
     :param advanced_fields: fields (columns names) from advanced boxscores
+    :param season: the year of the nba season
     :return: basic and advanced boxscores (2 lists of lists) and players_id (players involved in the game)
     """
     # we get the team name based on the team id
