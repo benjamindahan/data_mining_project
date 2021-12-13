@@ -140,5 +140,5 @@ def get_teams_dictionary(cursor):
     team_ids = [db["team_id"] for db in cursor.fetchall()]
     cursor.execute("SELECT team_id, team_id_api FROM teams;")
     team_ids_api = [db["team_id_api"] for db in cursor.fetchall()]
-    dictionary_team_ids = dict(zip(team_ids_api,team_ids))
+    dictionary_team_ids = dict(zip(team_ids_api, team_ids))
     return dictionary_team_ids
