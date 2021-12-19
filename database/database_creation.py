@@ -95,8 +95,6 @@ def create_table_rosters(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (roster_id),
       CONSTRAINT Index_2 UNIQUE (season, player_number, player_position, player_experience, player_id, team_id),
-      INDEX fk_rosters_players1_idx (player_id ASC) VISIBLE,
-      INDEX fk_rosters_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_rosters_players1
         FOREIGN KEY (player_id)
         REFERENCES basketball_reference.players (player_id)
@@ -124,8 +122,6 @@ def create_table_salaries(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (salary_id),
       CONSTRAINT Index_2 UNIQUE (season, salary, player_id, team_id),
-      INDEX fk_salaries_players1_idx (player_id ASC) VISIBLE,
-      INDEX fk_salaries_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_salaries_players1
         FOREIGN KEY (player_id)
         REFERENCES basketball_reference.players (player_id)
@@ -178,8 +174,6 @@ def create_table_player_stats(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (players_stats_id),
       CONSTRAINT Index_2 UNIQUE (season, player_id, team_id),
-      INDEX fk_players_stats_players1_idx (player_id ASC) VISIBLE,
-      INDEX fk_players_stats_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_players_stats_players1
         FOREIGN KEY (player_id)
         REFERENCES basketball_reference.players (player_id)
@@ -220,7 +214,6 @@ def create_table_teams_summaries(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (summary_id),
       CONSTRAINT Index_2 UNIQUE (season, team_id),
-      INDEX fk_teams_summaries_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_teams_summaries_teams1
         FOREIGN KEY (team_id)
         REFERENCES basketball_reference.teams (team_id)
@@ -284,7 +277,6 @@ def create_table_teams_stats(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (teams_stats_id),
       CONSTRAINT Index_2 UNIQUE (season, team_id),
-      INDEX fk_teams_stats_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_teams_stats_teams1
         FOREIGN KEY (team_id)
         REFERENCES basketball_reference.teams (team_id)
@@ -348,7 +340,6 @@ def create_table_teams_ranks(cursor):
       team_id INT NOT NULL,
       PRIMARY KEY (teams_ranks_id),
       CONSTRAINT Index_2 UNIQUE (season,  team_id),
-      INDEX fk_teams_ranks_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_teams_ranks_teams1
         FOREIGN KEY (team_id)
         REFERENCES basketball_reference.teams (team_id)
@@ -374,8 +365,6 @@ def create_table_games(cursor):
       opp_id INT NOT NULL,
       PRIMARY KEY (game_id),
       CONSTRAINT Index_2 UNIQUE (day,month,year,team_id),
-      INDEX fk_games_teams1_idx (team_id ASC) VISIBLE,
-      INDEX fk_games_teams2_idx (opp_id ASC) VISIBLE,
       CONSTRAINT fk_games_teams1
         FOREIGN KEY (team_id)
         REFERENCES basketball_reference.teams (team_id)
@@ -436,8 +425,6 @@ def create_table_boxscores(cursor):
       game_id INT NOT NULL,
       PRIMARY KEY (boxscore_id),
       CONSTRAINT Index_2 UNIQUE (player_id, game_id),
-      INDEX fk_boxscores_games1_idx (game_id ASC) VISIBLE,
-      INDEX fk_boxscores_players1_idx (player_id ASC) VISIBLE,
       CONSTRAINT fk_boxscores_games1
         FOREIGN KEY (game_id)
         REFERENCES basketball_reference.games (game_id)
@@ -473,7 +460,6 @@ def create_table_standings(cursor):
       division_loss INT NULL,
       PRIMARY KEY (standings_id),
       CONSTRAINT Index_2 UNIQUE (season,  team_id),
-      INDEX fk_standings_teams1_idx (team_id ASC) VISIBLE,
       CONSTRAINT fk_standings_teams1
         FOREIGN KEY (team_id)
         REFERENCES basketball_reference.teams (team_id)
