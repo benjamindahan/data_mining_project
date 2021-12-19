@@ -132,7 +132,7 @@ def api_insert_standings(args, connection, cursor):
     :param cursor: the sql cursor
     """
     # We scrape and create the standings table of SQL only if requested by the user in args
-    if args.data_type[0] in ['standings', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['standings', 'all']:
         # We get all the columns of the standings table
         cols_standings = db.get_table_columns_label(cursor, 'standings')
         teams_dictionaries = db.get_teams_dictionary(cursor)
@@ -201,16 +201,16 @@ def scrape_insert_player(connection, cursor, player, players_cut):
     :param player: the scraped player
     :param players_cut: the list of players cut by their team
     """
-    player[2] = ts.strip_players_suffixes(player[2])
-    player[2] = ts.get_real_name(player[2])
+    player[c.NR_PLAYER] = ts.strip_players_suffixes(player[c.NR_PLAYER])
+    player[c.NR_PLAYER] = ts.get_real_name(player[c.NR_PLAYER])
 
-    if player[2] in players_cut:
+    if player[c.NR_PLAYER] in players_cut:
         query = db.update_players_cut(player)
         cursor.execute(query)
         connection.commit()
-        players_cut.remove(player[2])
+        players_cut.remove(player[c.NR_PLAYER])
 
-    elif player[2] not in db.x_fetchall(cursor, "SELECT DISTINCT(player_name) FROM players;"):
+    elif player[c.NR_PLAYER] not in db.x_fetchall(cursor, "SELECT DISTINCT(player_name) FROM players;"):
         cols_players = db.get_table_columns_label(cursor, 'players')
         query = db.create_insert_query('players', cols_players)
         values = [data for index, data in enumerate(player) if index in c.INDEXES_PLAYERS]
@@ -227,7 +227,7 @@ def scrape_insert_roster(connection, cursor, args, player, team_id):
     :param player: the scraped player
     :param team_id: the id of the team
     """
-    if args.data_type[0] in ['rosters', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['rosters', 'all']:
         player_id = db.get_id('player', cursor, player[2])
         cols_rosters = db.get_table_columns_label(cursor, 'rosters')
         query = db.create_insert_query('rosters', cols_rosters)
@@ -249,7 +249,7 @@ def scrape_insert_salaries(connection, cursor, args, players_cut, page_html, sea
     :param team_id: the id of the team
     """
     # We scrape and create the salaries table
-    if args.data_type[0] in ['salaries', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['salaries', 'all']:
         for player, salary in ts.get_salaries(page_html):
             player = ts.strip_players_suffixes(player)
             player = ts.get_real_name(player)
@@ -286,7 +286,7 @@ def scrape_insert_team_summary(connection, cursor, args, soup, season, team_id):
     :param season: the season year
     :param team_id: the id of the team
     """
-    if args.data_type[0] in ['summaries', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['summaries', 'all']:
         cols_teams_summaries = db.get_table_columns_label(cursor, 'teams_summaries')
         query = db.create_insert_query('teams_summaries', cols_teams_summaries)
         values = [season] + ts.get_team_summary(soup) + [team_id]
@@ -306,7 +306,7 @@ def scrape_insert_players_stats(connection, cursor, args, season, team_id, soup)
     :param soup: the soup object of the scrapped page
     """
     # We scrape and create the players stats
-    if args.data_type[0] in ['players_stats', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['players_stats', 'all']:
         cols_players_stats = db.get_table_columns_label(cursor, 'players_stats')
         query = db.create_insert_query('players_stats', cols_players_stats)
         fields_players_stats = ts.get_player_stats_fields(c.URL_FIELDS_PLAYER_STATS)
@@ -336,7 +336,7 @@ def scrape_insert_teams_stats_ranks(connection, cursor, args, season, team_id, p
     :param page_html: the html of the scrapped page
     """
     # We scrape and create the teams stats
-    if args.data_type[0] in ['teams_stats', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['teams_stats', 'all']:
         cols_teams_stats = db.get_table_columns_label(cursor, 'teams_stats')
         query = db.create_insert_query('teams_stats', cols_teams_stats)
         for team_stats in ts.get_team_opponent_stats(page_html):
@@ -346,7 +346,7 @@ def scrape_insert_teams_stats_ranks(connection, cursor, args, season, team_id, p
     logging.info("✅Table teams statistics completed!!")
 
     # We scrape and create the teams ranks
-    if args.data_type[0] in ['teams_ranks', 'all']:
+    if args.data_type[c.NR_ARGUMENT] in ['teams_ranks', 'all']:
         cols_teams_ranks = db.get_table_columns_label(cursor, 'teams_ranks')
         query = db.create_insert_query('teams_ranks', cols_teams_ranks)
         for team_ranks in ts.get_team_opponent_ranks(page_html):

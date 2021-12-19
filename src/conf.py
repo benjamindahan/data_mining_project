@@ -56,7 +56,8 @@ CORRECT_LENGTH = 3
 CORRECT_LENGTH_MATCHES = 8
 INDEXES_PLAYERS = [2, 4, 5, 6, 7, 9, 10]
 INDEXES_ROSTERS = [0, 1, 3, 8]
-INDEXES_NO_API = [3,]
+NR_PLAYER = 2
+NR_ARGUMENT = 0
 
 # FIXING TEAMS
 OLD_TEAMS = {'BRK': {'old_name': 'NJN', 'until_season': '2012'}, 'CHO': {'old_name': 'CHA', 'until_season': '2014'},
