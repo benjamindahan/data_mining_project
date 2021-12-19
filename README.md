@@ -31,14 +31,15 @@ Here you can find the documentation of the API [API](https://rapidapi.com/api-sp
        · `database_creation.py`: script of creation of the SQL database
        · `database_design.mwb`: EER diagram of the SQL database
        · `Database_design.png`: screenshot of the EER diagram of the SQL database
+       · `bbal_reference.sql`: the SQL database
 - `src folder` with all the functions needed for the main:
 
-       · `conf.py` with the configuration constants
-       · `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
-       · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
-       · `databse_insertion.py`  where all the inserion to the database takes place.
-       · `api.py`  where all the api requests takes place.
-       · `main_functions.py`  where all the functions used in main are defined.
+      · `conf.py` with the configuration constants
+      · `scraping_team_season.py` where all the data scraping of the teams and seasons takes place.
+      · `scraping_boxscores.py`  where all the data scraping of the games boxscores takes place.
+      · `databse_insertion.py`  where all the inserion to the database takes place.
+      · `api.py`  where all the api requests takes place.
+      · `main_functions.py`  where all the functions used in main are defined.
 
 - `nba.log` with all the logging of the project
 
