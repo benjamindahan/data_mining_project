@@ -5,8 +5,8 @@ gevent==21.8.0
 greenlet==1.1.2
 grequests==0.6.0
 idna==3.3
-numexpr==2.8.1
 numpy==1.21.4
+numexpr==2.8.1
 packaging==21.3
 pandas==1.3.4
 PyMySQL==1.0.2
