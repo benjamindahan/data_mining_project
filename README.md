@@ -23,6 +23,10 @@ First we created a table with all the games played throughout that year (teams i
 Then, we used an `API` to get more information about the `teams` and the `standings` of the last 3 years.
 Here you can find the documentation of the API [API](https://rapidapi.com/api-sports/api/api-nba/)
 
+Finally, we deployed our project to `AWS` and connected it to `ReDash` to create a `Dashboard`.
+
+Check out [Dashboard!](http://ec2-54-219-2-194.us-west-1.compute.amazonaws.com/public/dashboards/iMhgvgCK9mJYEw2ItvNiBorN5dczS0fXbA5f7ngs?org_slug=default)
+
 ### Contents of the repository
 - `main.py` with the main program
 - `requirements.txt` with the libraries needed
