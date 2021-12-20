@@ -25,7 +25,7 @@ Here you can find the documentation of the API [API](https://rapidapi.com/api-sp
 
 Finally, we deployed our project to `AWS` and connected it to `ReDash` to create a `Dashboard`.
 
-Check out [Dashboard!](http://ec2-54-219-2-194.us-west-1.compute.amazonaws.com/public/dashboards/iMhgvgCK9mJYEw2ItvNiBorN5dczS0fXbA5f7ngs?org_slug=default)
+Check out our [Dashboard!](http://ec2-54-219-2-194.us-west-1.compute.amazonaws.com/public/dashboards/iMhgvgCK9mJYEw2ItvNiBorN5dczS0fXbA5f7ngs?org_slug=default)
 
 ### Contents of the repository
 - `main.py` with the main program
