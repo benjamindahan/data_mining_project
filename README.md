@@ -21,7 +21,7 @@ Then for a selected year (that can be chosen from the Command Line), for each ga
 First we created a table with all the games played throughout that year (teams involved, date, link to the boxscore) and then we created another table with the boxscores related to each game. Those two outputs have a common `id` key.
 
 Then, we used an `API` to get more information about the `teams` and the `standings` of the last 3 years.
-Here you can find the documentation of the API [API](https://rapidapi.com/api-sports/api/api-nba/)
+Here you can find the documentation of the [API](https://rapidapi.com/api-sports/api/api-nba/)
 
 Finally, we deployed our project to `AWS` and connected it to `ReDash` to create a `Dashboard`.
 
