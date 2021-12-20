@@ -1,7 +1,8 @@
 # ITC - Data Mining Project
-## Scraping Basket Ball Reference website
+## Creating a Basketaball database
 ![Image](https://www.basketballnetwork.net/app/uploads/2021/03/Michael-Jordan-The-Last-Shot-min.jpeg)
-In this project we have scraped the NBA [Basketball Reference](https://www.basketball-reference.com/teams/) website.
+In this project we have `scraped` the NBA [Basketball Reference](https://www.basketball-reference.com/teams/) website.
+Then we enrich our data with an `API`. We created a `SQL` database with all that data. Finally, we deploy it to `AWS` and connected it to `ReDash` to create a Dashboard.
 
 ### Introduction
 The NBA (National Basketball Association) is the most popular basketball league in the world. 
@@ -72,11 +73,11 @@ The file should look like this:
 - [pymysql](https://pymysql.readthedocs.io/en/latest/)
 - [logging](https://docs.python.org/3/library/logging.html)
 
-### SQL DATABASE
+### SQL Database
 
 ![SQL_DB](database/Database_design.png)
 
-### COMMAND LINE ARGUMENTS
+### Command Line Arguments
 Arguments: 
 1. **Mandatory** `data_type` the table from team_season you want to scrape, the options are:
 `['summaries', 'rosters', 'players_stats', 'teams_stats','teams_ranks', 'salaries','standings', 'all']`
